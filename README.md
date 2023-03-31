@@ -9,28 +9,34 @@ Migrating from [old guide](OLD_README.md) and more
 - [ ] .gitconfig
 - [ ] curl
 - [ ] docker
-- [ ] xcode CLI tools (darwin only)
-- [ ] brew (darwin only)
-- [ ] brewfile
 - [ ] alacritty
 - [ ] zsh
-- [ ] nushell
 - [x] alias
 - [x] oh-my-zsh
 - [x] oh-my-posh
-- [ ] starship
 - [ ] nerd font
 - [x] neofetch
 - [ ] tmux
-- [ ] zellij
 - [ ] fzf
-- [ ] exa
-- [ ] zoxide
 - [ ] nvim
 - [ ] vscode
 - [ ] gh cli
 - [x] nvm
-- [ ] fnm
 - [ ] go
 - [ ] rust
 - [ ] python
+
+Darwin only 🍏
+
+- [ ] xcode CLI tools
+- [ ] brew
+- [ ] brewfile
+
+Alternative 🦀
+
+- [ ] nushell
+- [ ] starship
+- [ ] zellij
+- [ ] exa
+- [ ] zoxide
+- [ ] fnm
