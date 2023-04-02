@@ -15,7 +15,7 @@ if [[ ! -f "$BIN_PATH" ]] then
 
     fi
 
-    sudo chmod +x $INSTALL_DIR
+    sudo chmod +x $BIN_PATH
 fi
 
 
