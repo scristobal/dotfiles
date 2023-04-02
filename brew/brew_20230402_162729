@@ -1,0 +1,56 @@
+a52dec: Library for decoding ATSC A/52 streams (AKA 'AC-3')
+azure-cli: Microsoft Azure CLI 2.0
+bat: Clone of cat(1) with syntax highlighting and Git integration
+btop: Resource monitor. C++ version and continuation of bashtop and bpytop
+cheat: Create and view interactive cheat sheets for *nix commands
+curl: Get a file from an HTTP, HTTPS or FTP server
+deno: Secure runtime for JavaScript and TypeScript
+exa: Modern replacement for 'ls'
+faad2: ISO AAC audio decoder
+fluid-synth: Real-time software synthesizer based on the SoundFont 2 specs
+flyctl: Command-line tools for fly.io services
+fx: Terminal JSON viewer
+fzf: Command-line fuzzy finder written in Go
+fzy: Fast, simple fuzzy text selector with an advanced scoring algorithm
+gdal: Geospatial Data Abstraction Library
+gh: GitHub command-line tool
+git: Distributed revision control system
+glew: OpenGL Extension Wrangler Library
+glow: Render markdown on the CLI
+glslang: OpenGL and OpenGL ES reference compiler for shading languages
+gtop: System monitoring dashboard for terminal
+gum: Tool for glamorous shell scripts
+helix: Post-modern modal text editor
+imagemagick: Tools and libraries to manipulate images in many formats
+oh-my-posh: Prompt theme engine for any shell
+jq: Lightweight and flexible command-line JSON processor
+jrnl: Command-line note taker
+libmpeg2: Library to decode mpeg-2 and mpeg-1 video streams
+librdkafka: Apache Kafka C/C++ library
+mad: MPEG audio decoder
+meson: Fast and user friendly build system
+midnight-commander: Terminal-based visual file manager
+molten-vk: Implementation of the Vulkan graphics and compute API on top of Metal
+ncdu: NCurses Disk Usage
+ncspot: Cross-platform ncurses Spotify client written in Rust
+neovim: Ambitious Vim-fork focused on extensibility and agility
+nushell: Modern shell for the GitHub era
+opusfile: API for decoding and seeking in .opus files
+pandoc: Swiss-army knife of markup format conversion
+poetry: Python package management tool
+pyenv: Python version management
+curlie: The power of curl, the ease of use of httpie.
+rustup-init: Rust toolchain installer
+sdl2_net: Small sample cross-platform networking library
+sevenzip: 7-Zip is a file archiver with a high compression ratio
+shellcheck: Static analysis and lint tool, for (ba)sh scripts
+spirv-tools: API and commands for processing SPIR-V modules
+spotify-tui: Terminal-based client for Spotify
+starship: Cross-shell prompt for astronauts
+tmux: Terminal multiplexer
+vhs: Your CLI home video recorder
+vulkan-headers: Vulkan Header files and API registry
+wget: Internet file retriever
+zellij: Pluggable terminal workspace, with terminal multiplexer as the base feature
+zlib: General-purpose lossless data-compression library
+zoxide: Shell extension to navigate your filesystem faster
