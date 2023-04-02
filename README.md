@@ -16,6 +16,7 @@ Migrating from [old guide](OLD_README.md) and more
 - [x] oh-my-posh
 - [ ] nerd font
 - [x] neofetch
+- [ ] break-timer
 - [ ] tmux
 - [ ] fzf
 - [ ] nvim
