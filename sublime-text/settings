@@ -2,12 +2,10 @@
 // Sublime text config
 //
 // mac:
-//  install: 'brew install --cask sublime-text'
-//  config_file = '/Users/samu/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings'
+//   '/Users/samu/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings'
 //
 // ubuntu:
-//  install: https://www.sublimetext.com/docs/linux_repositories.html#apt
-//  config_file = '~/.config/sublime-text/Preferences.sublime-settings'
+//   '~/.config/sublime-text/Preferences.sublime-settings'
 //
 // https://www.sublimetext.com/docs/revert.html
 //
