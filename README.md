@@ -40,3 +40,5 @@ Alternative 🦀
 - [ ] exa
 - [ ] zoxide
 - [ ] fnm
+- [ ] lapce
+- [ ] zed
