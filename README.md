@@ -5,36 +5,55 @@ Fantastic .dotfiles and where to find them
 ---
 Migrating from [old guide](OLD_README.md) and more
 
+Terminal 📟
 - [ ] git
-- [ ] .gitconfig
 - [ ] curl
 - [ ] docker
-- [ ] alacritty
 - [ ] zsh
 - [x] alias
 - [x] oh-my-zsh
 - [x] oh-my-posh
 - [ ] nerd font
 - [x] neofetch
-- [ ] break-timer
 - [ ] tmux
 - [ ] fzf
 - [ ] nvim
-- [ ] vscode
 - [ ] gh cli
+- [ ] gpg
 - [x] nvm
 - [ ] go
 - [ ] rust
 - [ ] python
 
+Applications 🖥️
+- [ ] https://github.com/mas-cli/mas
+- [ ] alacritty
+- [ ] vscode
+- [ ] break-timer
+- [ ] chrome
+- [ ] nordpass
+- [ ] nordvpn
+- [ ] sublime
+- [ ] hyper
+- [ ] tabby
+- [ ] iina
+- [ ] spotify
+- [ ] reeder
+- [ ] telegram
+- [ ] whatsapp
+- [ ] discord
+- [ ] slack
+- [ ] clocker
+
 Darwin only 🍏
-
 - [ ] xcode CLI tools
-- [ ] brew
-- [ ] brewfile
+- [x] brew
+- [ ] brew bundle
+- [ ] whalebrew
+- [ ] tgpro
+- [ ] parallels
 
-Alternative 🦀
-
+Rustacean 🦀
 - [ ] nushell
 - [ ] starship
 - [ ] zellij
