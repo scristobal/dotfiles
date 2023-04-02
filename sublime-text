@@ -1,0 +1,28 @@
+////////////////////////////////////////////////////
+// Sublime text config
+//
+// mac:
+//  install: 'brew install --cask sublime-text'
+//  config_file = '/Users/samu/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings'
+//
+// ubuntu:
+//  install: https://www.sublimetext.com/docs/linux_repositories.html#apt
+//  config_file = '~/.config/sublime-text/Preferences.sublime-settings'
+//
+// https://www.sublimetext.com/docs/revert.html
+//
+///////////////////////////////////////////////////
+
+{
+    "color_scheme": "GitHub Dark Legacy.sublime-color-scheme",
+    "ignored_packages": ["Vintage"],
+    "font_face": "MesloLGSDZ Nerd Font Mono",
+    "font_size": 12,
+    "fold_buttons": false,
+    "theme": "GitHub Adaptive.sublime-theme",
+    "line_numbers": false,
+    "gutter": false,
+    "margin": 12,
+    "native_tabs": "disabled",
+    "hardware_acceleration": "opengl"
+}
