@@ -1,64 +1,110 @@
 # Setup a new machine 📔
 
+## Terminal
+
+**Tabby**, most features but slow<https://tabby.sh/>
+**Alacritty**, fast and efficient but basic <https://github.com/alacritty/alacritty#configuration>
+**Hyper**, beautiful but somehow basic <https://hyper.is/>
+
+### Oh my zsh
+
+Install zsh with `sudo apt install zsh` and then oh my zsh, <https://ohmyz.sh/#install>
+
+Configured w/ [dotfiles](https://github.com/scristobal/dotfiles)
+
+Make it default with `chsh -s $(which zsh)` reset and check with `echo $SHELL`
+
+### fzf
+
+Install with `sudo apt install fzf` add to plugins, ie.  `plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf)` load the changes `source .zshrc`
+
+### Oh my posh
+
+Install oh posh, either w/ homebrew or manually https://ohmyposh.dev/docs/installation/linux and add themes (manually only).
+
+~~then install fonts with `oh-my-posh font install`~~ or using `homebrew/cask-fonts`
+
+need to update `alacritty` to use that font:
+
+- create `touch ~/.config/alacritty/alacritty.yml` and copy <https://github.com/alacritty/alacritty/blob/master/alacritty.yml> there, go to fonts uncomment and change regular font, eg.   `family: "MesloLGS Nerd Font Mono"`
+
+
+then add to `.zshrc` the loader `eval "$(oh-my-posh init zsh --config ~/.poshthemes/catppuccin_mocha.omp.json)"` and reload 
+### Exa
+
+`sudo apt install exa` or `brew install exa`
+
+
+adding alias to `.bashrc` or `.zshrc`
+
+```text
+alias ll='exa --long --tree --level=1 --classify'
+alias lt='exa --long --tree --level=2 --classify'
+alias lf='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+```
+
+
 ## Homebrew (macOS)
 
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
  <https://brew.sh>
 
-## Go
-
-Install Go from source <https://go.dev/dl/>,
-
-> **Warning**
-> avoid `gvm` Go versions can be installed using `go install`
-
-## vscode
-
-<https://code.visualstudio.com/> or
-<https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions>
-
-and fonts from gmail drafts and `sudo apt install font-manager`
-
 ## Git
 
 `xcode-select --install`
 
-## Github CLI
+### Github CLI
 
 <https://github.com/cli/cli/blob/trunk/docs/install_linux.md>
 
 ### SSH keys
 
-Preferred with GH CLI `gh auth login`
-
-<https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys>
+Preferred with GH CLI `gh auth login` <https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys>
 
 ### Config
 
 ```bash
 
 git config --global user.name "Samuel Cristobal"
-git config --global user.email "sc@databeacon.aero"
+git config --global user.email "el.tobal@gmail.com"
 git config --global push.default current
 git config --global pull.rebase false
 ```
 
-## Nodejs
+## Languages
+### Nodejs
 
-With NVM, <https://github.com/nodesource/distributions/blob/master/README.md#debinstall> or as a oh-my-zsh plugin `nvm-zsh`
-
-and then install node
+With nvm, install with `brew install nvm`   On linux, use the script  https://github.com/nvm-sh/nvm#install--update-script or (preferably) oh-my-zsh plugin `nvm-zsh`  https://github.com/lukechilds/zsh-nvm and then install node
 
 ```bash
  nvm install node
 ```
 
-## Python
+### Rust 
+
+with rustup `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+### Python
 
 Using [pyenv](https://github.com/pyenv/pyenv-installer) to manage versions, `curl https://pyenv.run | bash`
 
-## Neovim
+### Go
+
+Install Go from source https://go.dev/doc/install 
+
+> **Warning**
+> avoid `gvm` Go versions can be installed using `go install` https://go.dev/doc/manage-install
+
+## Editors
+### Visual Studio Code
+
+<https://code.visualstudio.com/> or
+<https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions>
+
+
+### Neovim
 
 Install with `brew install neovim` and test with `nvim` or `sudo apt install neovim` on Debian/Ubuntu
 
@@ -125,13 +171,7 @@ Alternatively do the other way around, use the whole `init.vim` and then call fi
 
 > <https://medium.com/@yanglyu5201/neovim-setup-for-golang-programming-68ebf59336d9>
 
-## Docker
-
-<https://www.docker.com/products/docker-desktop>
-
-use script in <https://github.com/databeacon/level5-api/blob/main/scripts/setup-docker.sh>
-
-## Sublime
+### Sublime
 
 form terminal
 
@@ -141,71 +181,9 @@ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/
 
 then launch it with `subl` from terminal
 
-## Terminal
+## Docker
 
-### Tabby
-
-<https://tabby.sh/>
-
-### Alacritty
-
-<https://github.com/alacritty/alacritty#configuration>
-
-### Oh my zsh
-
-Install zsh with `sudo apt install zsh` and then oh my zsh, <https://ohmyz.sh/#install>
-
-Configured w/ [dotfiles](https://github.com/scristobal/dotfiles)
-
-Make it default with `chsh -s $(which zsh)` reset and check with `echo $SHELL`
-
-#### fzf
-
-Install with `sudo apt install fzf` add to plugins, ie.  `plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf)` load the changes `source .zshrc`
-
-## Oh my posh
-
-Install oh posh, with homebrew <https://ohmyposh.dev/docs/linux>
-
-Clone repo and add themes,
-
-then install fonts with `oh-my-posh font install`
-
-need to update `alacritty` to use that font:
-
-- create `touch ~/.config/alacritty/alacritty.yml` and copy <https://github.com/alacritty/alacritty/blob/master/alacritty.yml> there, go to fonts uncomment and change regular font, eg.   `family: "MesloLGL Nerd Font"`
-
-reload,whatever
-
-then add to `.zshrc` the loader `eval "$(oh-my-posh init zsh --config ~/.poshthemes/catppuccin_mocha.omp.json)"` and reload `exec zsh`
-
-More on prompt: <https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal>
-
-### Hyper
-
-<https://hyper.is/>
-
-### Exa
-
-`sudo apt install exa` or `brew install exa`
-
-adding alias to `.bashrc` or `.zshrc`
-
-```text
-alias ll='exa --long --tree --level=1 --classify'
-alias lt='exa --long --tree --level=2 --classify'
-alias lf='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-```
-
-## NVIDIA / Vulkan
-
-add support for latest mesa drivers PPA: `sudo add-apt-repository ppa:graphics-drivers/ppa` got it from <https://linuxconfig.org/install-and-test-vulkan-on-linux>
-
-## Spotify
-
-<https://www.spotify.com/us/download/linux/>
+<https://www.docker.com/products/docker-desktop>
 
 ## Break Timer
 
@@ -225,6 +203,10 @@ For Ubuntu <https://polychromatic.app/download/ubuntu/>
 For mac <https://github.com/1kc/razer-macos>
 
 ## Ubuntu only
+
+### Fonts
+
+ `sudo apt install font-manager`
 
 ### Extensions
 
@@ -257,9 +239,17 @@ To install themes, create a `.themes` dir in `$HOME` and copy uncompressed folde
 
 Emoji keyboard for ubuntu <https://snapcraft.io/install/emote/ubuntu>
 
+### Spotify
+
+<https://www.spotify.com/us/download/linux/>
+
 ### kernels
 
 <https://github.com/bkw777/mainline>
+
+### NVIDIA / Vulkan
+
+add support for latest mesa drivers PPA: `sudo add-apt-repository ppa:graphics-drivers/ppa` got it from <https://linuxconfig.org/install-and-test-vulkan-on-linux>
 
 ### Video formats
 

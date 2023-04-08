@@ -1,12 +1,6 @@
 # oh-my-zsh config using antigen
 # aditional options https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template
 
-if [[ ! -f "$HOME/antigen.zsh" ]]
-then
-    echo "antigen not found, installing"
-    curl -L git.io/antigen > "$HOME"/antigen.zsh
-fi
-
 source $HOME/antigen.zsh
 
 antigen use oh-my-zsh
@@ -21,18 +15,17 @@ antigen bundle lukechilds/zsh-nvm
 
 # OS dependant
 case $(uname) in
-  Darwin)
+Darwin)
     # empty
     antigen bundle osx
-  ;;
-  Linux)
+    ;;
+Linux)
     # empty
-  ;;
+    ;;
 esac
 
-# Set the theme
-antigen theme theunraveler
+# Set the theme -> overwritten by oh-my-posh
+# antigen theme robbyrussell
 
 # end of antigen config
 antigen apply
-

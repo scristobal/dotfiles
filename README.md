@@ -3,13 +3,14 @@
 Fantastic .dotfiles and where to find them
 
 ---
-Migrating from [old guide](OLD_README.md) and more
+Migrating from [old guide](OLD_README.md) and more, consider <https://github.com/MikeMcQuaid/strap>
 
 Terminal 📟
+
 - [ ] git
 - [ ] curl
 - [ ] docker
-- [ ] zsh
+- [x] zsh
 - [x] alias
 - [x] oh-my-zsh
 - [x] oh-my-posh
@@ -26,7 +27,7 @@ Terminal 📟
 - [ ] python
 
 Applications 🖥️
-- [ ] https://github.com/mas-cli/mas
+
 - [ ] alacritty
 - [ ] vscode
 - [ ] break-timer
@@ -38,7 +39,7 @@ Applications 🖥️
 - [ ] tabby
 - [ ] iina
 - [ ] spotify
-- [ ] reeder
+- [ ] reeder w/ mas-cli
 - [ ] telegram
 - [ ] whatsapp
 - [ ] discord
@@ -46,14 +47,17 @@ Applications 🖥️
 - [ ] clocker
 
 Darwin only 🍏
+
 - [ ] xcode CLI tools
 - [x] brew
-- [ ] brew bundle
+- [x] brew bundle
+- [ ] sudo-touchid
 - [ ] whalebrew
 - [ ] tgpro
 - [ ] parallels
 
 Rustacean 🦀
+
 - [ ] nushell
 - [ ] starship
 - [ ] zellij

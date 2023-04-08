@@ -4,16 +4,13 @@
 # or
 # https://github.com/ryanoasis/nerd-fonts/blob/master/readme.md#option-3-install-script
 
-
-# add a mac && brew guard here
-
 # on macOS using brew
 # source: https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
 
+# all of them at once
 
 brew tap homebrew/cask-fonts
 brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
-
 
 # or alternative using a list
 
@@ -79,3 +76,7 @@ brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install
 #   brew install --cask "$font"
 # done
 # exit
+
+# or a single font
+
+# brew install --cask  font-meslo-lg-nerd-font
