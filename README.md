@@ -28,7 +28,7 @@ Terminal 📟
 
 Applications 🖥️
 
-- [ ] alacritty
+- [x] alacritty
 - [ ] vscode
 - [ ] break-timer
 - [ ] chrome

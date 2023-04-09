@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # test whether the scripts shoudl run
-if [ "$(uname)" == Darwin ] || [[ -f /etc/debian_version ]]; then
+if [[ ! "$OSTYPE" == "darwin"* ]] && [[ ! "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Platform or OS not supported. Exiting"
     exit 1
 fi
