@@ -41,6 +41,8 @@ alias lt='exa --long --tree --level=2 --git --classify'
 alias clr="tput reset"
 alias cdlr="reset && cd && neofetch"
 
+alias c="code ."
+
 if [[ $(uname) == 'Darwin' ]]; then
     alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
     alias panda="open -a panda"
@@ -89,3 +91,5 @@ eval "$(pyenv init -)"
 
 # include Docker symlinks
 export PATH=$PATH:$HOME/.docker/bin
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
