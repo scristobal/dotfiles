@@ -24,7 +24,7 @@ if [ ! -f "$HOME/.antigen/antigen.zsh" ]; then
     if [[ "$OSTYPE" == "darwin"* ]]; then
         brew install antigen
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        sudo apt-get update && sudo apt install -y zsh-antigen
+        curl -L git.io/antigen >antigen.zsh
     fi
 else
     echo "antigen is installed."
@@ -35,4 +35,4 @@ if [[ ! $($SHELL) == $(which zsh) ]]; then
     chsh -s "$(which zsh)"
 fi
 
-source "configure.sh"
+source "zsh/configure.sh"
