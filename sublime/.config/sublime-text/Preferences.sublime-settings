@@ -2,7 +2,7 @@
 // Sublime text config
 //
 // mac:
-//   '/Users/samu/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings'
+//   '~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings'
 //
 // ubuntu:
 //   '~/.config/sublime-text/Preferences.sublime-settings'
@@ -16,11 +16,21 @@
     "ignored_packages": ["Vintage"],
     "font_face": "MesloLGSDZ Nerd Font Mono",
     "font_size": 12,
+
     "fold_buttons": false,
+    "hardware_acceleration": "opengl",
     "theme": "GitHub Adaptive.sublime-theme",
     "line_numbers": false,
     "gutter": false,
     "margin": 12,
+
     "native_tabs": "disabled",
-    "hardware_acceleration": "opengl"
+    "caret_extra_top": 0,
+    "caret_extra_bottom": 0,
+    "caret_extra_width": 0,
+    "highlight_line": true,
+    "match_brackets": false,
+
+    "draw_indent_guides": false,
+    "index_files": true
 }

@@ -1,12 +1,76 @@
 # Setup a new machine 📔
 
-## Terminal
+Terminal 📟
+
+- [ ] git
+- [ ] curl
+- [ ] docker
+- [x] zsh
+- [x] alias
+- [x] oh-my-zsh
+- [x] oh-my-posh
+- [ ] nerd font
+- [x] neofetch
+- [ ] tmux
+- [ ] fzf
+- [ ] nvim
+- [ ] gh cli
+- [ ] gpg
+- [x] nvm
+- [ ] go
+- [ ] rust
+- [ ] python
+
+Applications 🖥️
+
+- [x] alacritty
+- [ ] vscode
+- [ ] break-timer
+- [ ] chrome
+- [ ] nordpass
+- [ ] nordvpn
+- [ ] sublime
+- [ ] hyper
+- [ ] tabby
+- [ ] iina
+- [ ] spotify
+- [ ] reeder w/ mas-cli
+- [ ] telegram
+- [ ] whatsapp
+- [ ] discord
+- [ ] slack
+- [ ] clocker
+
+Darwin only 🍏
+
+- [ ] xcode CLI tools
+- [x] brew
+- [x] brew bundle
+- [ ] sudo-touchid
+- [ ] whalebrew
+- [ ] tgpro
+- [ ] parallels
+
+Rustacean 🦀
+
+- [ ] nushell
+- [ ] starship
+- [ ] zellij
+- [ ] exa
+- [ ] zoxide
+- [ ] fnm
+- [ ] lapce
+- [ ] zed
+
+## Old step-by-step guide
+
+### Terminal
 
 **Tabby**, most features but slow<https://tabby.sh/>
 **Alacritty**, fast and efficient but basic <https://github.com/alacritty/alacritty#configuration>
 **Hyper**, beautiful but somehow basic <https://hyper.is/>
 
-### Oh my zsh
+#### Oh my zsh
 
 Install zsh with `sudo apt install zsh` and then oh my zsh, <https://ohmyz.sh/#install>
 
@@ -14,26 +78,25 @@ Configured w/ [dotfiles](https://github.com/scristobal/dotfiles)
 
 Make it default with `chsh -s $(which zsh)` reset and check with `echo $SHELL`
 
-### fzf
+#### fzf
 
-Install with `sudo apt install fzf` add to plugins, ie.  `plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf)` load the changes `source .zshrc`
+Install with `sudo apt install fzf` add to plugins, ie. `plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf)` load the changes `source .zshrc`
 
-### Oh my posh
+#### Oh my posh
 
-Install oh posh, either w/ homebrew or manually https://ohmyposh.dev/docs/installation/linux and add themes (manually only).
+Install oh posh, either w/ homebrew or manually <https://ohmyposh.dev/docs/installation/linux> and add themes (manually only).
 
 ~~then install fonts with `oh-my-posh font install`~~ or using `homebrew/cask-fonts`
 
 need to update `alacritty` to use that font:
 
-- create `touch ~/.config/alacritty/alacritty.yml` and copy <https://github.com/alacritty/alacritty/blob/master/alacritty.yml> there, go to fonts uncomment and change regular font, eg.   `family: "MesloLGS Nerd Font Mono"`
+- create `touch ~/.config/alacritty/alacritty.yml` and copy <https://github.com/alacritty/alacritty/blob/master/alacritty.yml> there, go to fonts uncomment and change regular font, eg. `family: "MesloLGS Nerd Font Mono"`
 
+then add to `.zshrc` the loader `eval "$(oh-my-posh init zsh --config ~/.poshthemes/catppuccin_mocha.omp.json)"` and reload
 
-then add to `.zshrc` the loader `eval "$(oh-my-posh init zsh --config ~/.poshthemes/catppuccin_mocha.omp.json)"` and reload 
-### Exa
+#### Exa
 
 `sudo apt install exa` or `brew install exa`
-
 
 adding alias to `.bashrc` or `.zshrc`
 
@@ -45,26 +108,25 @@ alias la='ls -A'
 alias l='ls -CF'
 ```
 
-
-## Homebrew (macOS)
+### Homebrew (macOS)
 
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
- <https://brew.sh>
+<https://brew.sh>
 
-## Git
+### Git
 
 `xcode-select --install`
 
-### Github CLI
+#### Github CLI
 
 <https://github.com/cli/cli/blob/trunk/docs/install_linux.md>
 
-### SSH keys
+#### Git SSH keys
 
 Preferred with GH CLI `gh auth login` <https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys>
 
-### Config
+#### Git Config
 
 ```bash
 
@@ -74,37 +136,39 @@ git config --global push.default current
 git config --global pull.rebase false
 ```
 
-## Languages
-### Nodejs
+### Programing Languages
 
-With nvm, install with `brew install nvm`   On linux, use the script  https://github.com/nvm-sh/nvm#install--update-script or (preferably) oh-my-zsh plugin `nvm-zsh`  https://github.com/lukechilds/zsh-nvm and then install node
+#### Nodejs
+
+With nvm, install with `brew install nvm` On linux, use the script <https://github.com/nvm-sh/nvm#install--update-script> or (preferably) oh-my-zsh plugin `nvm-zsh` <https://github.com/lukechilds/zsh-nvm> and then install node
 
 ```bash
  nvm install node
 ```
 
-### Rust 
+#### Rust
 
 with rustup `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-### Python
+
+#### Python
 
 Using [pyenv](https://github.com/pyenv/pyenv-installer) to manage versions, `curl https://pyenv.run | bash`
 
-### Go
+#### Go
 
-Install Go from source https://go.dev/doc/install 
+Install Go from source <https://go.dev/doc/install>
 
 > **Warning**
-> avoid `gvm` Go versions can be installed using `go install` https://go.dev/doc/manage-install
+> avoid `gvm` Go versions can be installed using `go install` <https://go.dev/doc/manage-install>
 
-## Editors
-### Visual Studio Code
+### Editors
+
+#### Visual Studio Code
 
 <https://code.visualstudio.com/> or
 <https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions>
 
-
-### Neovim
+#### Neovim
 
 Install with `brew install neovim` and test with `nvim` or `sudo apt install neovim` on Debian/Ubuntu
 
@@ -171,7 +235,7 @@ Alternatively do the other way around, use the whole `init.vim` and then call fi
 
 > <https://medium.com/@yanglyu5201/neovim-setup-for-golang-programming-68ebf59336d9>
 
-### Sublime
+#### Sublime
 
 form terminal
 
@@ -181,34 +245,34 @@ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/
 
 then launch it with `subl` from terminal
 
-## Docker
+### Docker
 
 <https://www.docker.com/products/docker-desktop>
 
-## Break Timer
+### Break Timer
 
 <https://github.com/tom-james-watson/breaktimer-app>
 
-## Background
+### Background
 
-www.unsplash.com
+<www.unsplash.com>
 
-## Chrome
+### Chrome
 
 <https://github.com/iamadamdev/bypass-paywalls-chrome>
 
-## Razer
+### Razer
 
 For Ubuntu <https://polychromatic.app/download/ubuntu/>
 For mac <https://github.com/1kc/razer-macos>
 
-## Ubuntu only
+### Ubuntu only
 
-### Fonts
+#### Fonts
 
- `sudo apt install font-manager`
+`sudo apt install font-manager`
 
-### Extensions
+#### Extensions
 
 `sudo apt install chrome-gnome-shell`
 
@@ -226,7 +290,7 @@ List of extensions:
 <https://extensions.gnome.org/extension/906/sound-output-device-chooser/>
 <https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki>
 
-### Theme
+#### Theme
 
 Install <https://extensions.gnome.org/extension/19/user-themes/> and <https://extensions.gnome.org/extension/3019/user-themes-x/>
 
@@ -235,23 +299,23 @@ Sweet-Ambar <https://www.gnome-look.org/p/1253385/>
 
 To install themes, create a `.themes` dir in `$HOME` and copy uncompressed folder. more <https://itsfoss.com/install-switch-themes-gnome-shell>
 
-### Emote
+#### Emote
 
 Emoji keyboard for ubuntu <https://snapcraft.io/install/emote/ubuntu>
 
-### Spotify
+#### Spotify
 
 <https://www.spotify.com/us/download/linux/>
 
-### kernels
+#### kernels
 
 <https://github.com/bkw777/mainline>
 
-### NVIDIA / Vulkan
+#### NVIDIA / Vulkan
 
 add support for latest mesa drivers PPA: `sudo add-apt-repository ppa:graphics-drivers/ppa` got it from <https://linuxconfig.org/install-and-test-vulkan-on-linux>
 
-### Video formats
+#### Video formats
 
 ```bash
 sudo apt-get install ubuntu-restricted-extras
@@ -259,7 +323,7 @@ sudo apt-get install ubuntu-restricted-extras
 sudo apt-get install libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg
 ```
 
-### Razer stuff
+#### Razer stuff
 
 disable secure boot -> bios with `F1` or `DEL`
 

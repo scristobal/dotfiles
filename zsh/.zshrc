@@ -1,10 +1,36 @@
-# zsh config
+# oh-my-zsh config using antigen, if available
+if [[ -f $HOME/antigen.zsh ]]; then
+    source "$HOME"/antigen.zsh
 
-DOTFILES_DIR=$HOME/dotfiles
-SETUP_DIR=$DOTFILES_DIR/zsh
+    # aditional options https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template
+    antigen use oh-my-zsh
 
-# config oh-my-zsh using antigen
-source "$SETUP_DIR/antigen.zsh"
+    # plugins
+    antigen bundle git
+    antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen bundle zsh-users/zsh-history-substring-search
+    antigen bundle zsh-users/zsh-autosuggestions
+    antigen bundle z
+    antigen bundle lukechilds/zsh-nvm
+    antigen bundle fzf
+
+    # OS dependant
+    case $(uname) in
+    Darwin)
+        # empty
+        antigen bundle osx
+        ;;
+    Linux)
+        # empty
+        ;;
+    esac
+
+    # Set the theme
+    # antigen theme robbyrussell <-- overwritten by oh-my-posh
+
+    # end of antigen config
+    antigen apply
+fi
 
 if [[ $(uname) == 'Darwin' ]]; then
     # On ARM macs the default homebrew installation moved
@@ -18,8 +44,8 @@ if [[ $(uname) == 'Darwin' ]]; then
     # export ARCHFLAGS="-arch x86_64"
 fi
 
-# initialize Zoxide
-eval "$(zoxide init zsh)"
+# initialize Zoxide, if available
+command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
 
 # Preferred editor for local and remote sessions
 # use nvim if not ssh otherwise use vim
@@ -31,12 +57,11 @@ else
     export EDITOR='nvim'
 fi
 
-alias lf='\ls -alF' # uses \ls to avoid using ls alias defined below
-alias la='\ls -A'
-alias l='\ls -CF'
-
-alias ls='exa --long --tree --level=1 --git --classify'
-alias lt='exa --long --tree --level=2 --git --classify'
+if command -v exa >/dev/null; then
+    alias ls='exa --long --tree --level=1 --git --classify'
+    alias lt='exa --long --tree --level=2 --git --classify'
+    alias la='ls -la'
+fi
 
 alias clr="tput reset"
 alias cdlr="reset && cd && neofetch"
@@ -45,25 +70,14 @@ alias c="code ."
 
 if [[ $(uname) == 'Darwin' ]]; then
     alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
-    alias panda="open -a panda"
 fi
 
-# handled by nvm-zsh plugin (allows nvm update, but it is not lazy loaded like the custom below)
-# source .nvm_setup.zsh
+{ [ ! -d "$NEOFETCH_DIR" ] || [ -z "$(\ls -A "$NEOFETCH_DIR")" ]; } && neofetch
 
-# Show neofetch for some extra points in style
-source "$SETUP_DIR/neofetch.sh"
-neofetch
+POSH_THEME=amro
+[ -f "$HOME"/.poshthemes/$POSH_THEME.omp.json ] && eval "$(oh-my-posh init zsh --config "$HOME"/.poshthemes/$POSH_THEME.omp.json)"
 
-# oh-my-gosh prompt
-source "$SETUP_DIR/oh-my-posh.zsh"
-
-# ----- unchecked from here ------
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# go version manager -> install officially and use go install go@1.18...
-# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -86,10 +100,11 @@ export PATH="$PYENV_ROOT/shims:$PATH"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# devcontainers CLI
-# export PATH="$HOME/Library/Application Support/Code/User/globalStorage/ms-vscode-remote.remote-containers/cli-bin":${PATH}
+# node version manager, is installed with nvm-zsh
+
+# go version manager -> install officially and use go install go@1.18...
 
 # include Docker symlinks
-export PATH=$PATH:$HOME/.docker/bin
+export PATH=$PATH:$HOME/.adocker/bin
 
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"

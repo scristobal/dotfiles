@@ -29,7 +29,7 @@ fi
 
 echo -e "\e[0;32mScript:\e[0m \e[0;34mClonning\e[0m \e[0;31mNerdFonts\e[0m \e[0;34mrepo (sparse)\e[0m"
 git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
-cd nerd-fonts
+cd nerd-fonts || exit
 
 for font in "${fonts[@]}"; do
     echo -e "\e[0;32mScript:\e[0m \e[0;34mClonning font:\e[0m \e[0;31m${font}\e[0m"

@@ -1,7 +1,6 @@
-# oh-my-posh setup and config
+# oh-my-posh themes download
 
 THEMES_DIR=$HOME/.poshthemes
-THEME=amro
 
 if ! command -v oh-my-posh >/dev/null 2>&1; then
 
@@ -32,5 +31,3 @@ if [[ ! -d "$THEMES_DIR" ]] || [ -z "$(\ls -A $THEMES_DIR)" ]; then
     rm $THEMES_DIR/themes.zip
 
 fi
-
-eval "$(oh-my-posh init zsh --config $THEMES_DIR/$THEME.omp.json)"

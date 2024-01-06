@@ -558,7 +558,7 @@ shell:
   program: /bin/zsh # /opt/homebrew/bin/nu # /bin/zsh
   args:
     - -l
-    - -c
-    - "tmux attach || tmux"
+    #   - -c
+    #   - "tmux attach || tmux"
 # vim: nospell
 

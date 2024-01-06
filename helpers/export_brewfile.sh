@@ -26,7 +26,9 @@ if [ "$brewfile_exists" -eq 0 ] || [ "$user_input" == "y" ]; then
         cp Brewfile "$output_file"
     fi
 
-    # Dump the Brewfile
+    rm Brewfile
+
+    # Dump the Brewfile overiwrite
     brew bundle dump
 
     # Save the descriptions of the leaves installed on request to a text file, also with a timestamp (e.g., brew_20211201_123456)
