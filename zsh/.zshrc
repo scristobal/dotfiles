@@ -72,6 +72,10 @@ if [[ $(uname) == 'Darwin' ]]; then
     alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
 fi
 
+if [ ! -f "$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings ]; then
+    ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$HOME/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings"
+fi
+
 { [ ! -d "$NEOFETCH_DIR" ] || [ -z "$(\ls -A "$NEOFETCH_DIR")" ]; } && neofetch
 
 POSH_THEME=amro
