@@ -108,3 +108,5 @@ eval "$(pyenv init -)"
 export PATH=$PATH:$HOME/.adocker/bin
 
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+
+export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
