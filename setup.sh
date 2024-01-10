@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # List of stow packages
-packages=("alacritty" "zsh" "sublime")
+packages=("alacritty" "zsh" "git" "sublime")
 
 # Check if stow command is available
 if command -v stow >/dev/null 2>&1; then
