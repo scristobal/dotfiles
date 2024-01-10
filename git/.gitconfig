@@ -1,39 +1,53 @@
 [user]
-	email = el.tobal@gmail.com
-	name = Samu
-	signingkey = 53D7E132038BDB751BB510419E6AB650DDA3BC5B
+email = el.tobal@gmail.com
+name = Samuel Cristobal
+signingkey = 53D7E132038BDB751BB510419E6AB650DDA3BC5B
+
 [push]
-	default = current
+default = current
+
 [pull]
-	rebase = false
+rebase = false
+
 [core]
-	editor = nvim
-	ignorecase = false
+editor = nvim
+ignorecase = false
+
 [diff]
-  tool = vscode
+tool = vscode
+
 [difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+cmd = code --wait --diff $LOCAL $REMOTE
+
 [merge]
-  tool = vscode
+tool = vscode
+
 [mergetool "vscode"]
-  cmd = code --wait $MERGED
+cmd = code --wait $MERGED
+
 [credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+helper =
+helper = !/opt/homebrew/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+helper =
+helper = !/opt/homebrew/bin/gh auth git-credential
+
 [commit]
-	gpgsign = true
+gpgsign = true
+
 [init]
-	defaultBranch = main
+defaultBranch = main
+
 [credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
+helper =
+helper = /usr/local/share/gcm-core/git-credential-manager
+
 [credential "https://dev.azure.com"]
-	useHttpPath = true
+useHttpPath = true
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
