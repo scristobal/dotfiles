@@ -7,17 +7,22 @@ if [[ -f $HOME/antigen.zsh ]]; then
 
     # plugins
     antigen bundle git
+    antigen bundle z
+    antigen bundle fzf
     antigen bundle zsh-users/zsh-syntax-highlighting
     antigen bundle zsh-users/zsh-history-substring-search
     antigen bundle zsh-users/zsh-autosuggestions
-    antigen bundle z
-    antigen bundle lukechilds/zsh-nvm
-    antigen bundle fzf
+    antigen bundle zsh-users/zsh-completions
+    # antigen bundle zsh-users/zsh-history-substring-search
+
+    # # zsh-history-substring-search configuration
+    # bindkey '^[[A' history-substring-search-up   # or '\eOA'
+    # bindkey '^[[B' history-substring-search-down # or '\eOB'
+    # HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
     # OS dependant
     case $(uname) in
     Darwin)
-        # empty
         antigen bundle osx
         ;;
     Linux)
@@ -57,56 +62,62 @@ else
     export EDITOR='nvim'
 fi
 
+# use exa, alternative to ls if installed
 if command -v exa >/dev/null; then
     alias ls='exa --long --tree --level=1 --git --classify'
     alias lt='exa --long --tree --level=2 --git --classify'
     alias la='ls -la'
 fi
 
+# faster and better clear terminal
 alias clr="tput reset"
 alias cdlr="reset && cd && neofetch"
 
+# vscode shortcut
 alias c="code ."
 
+# support for x86 brew made explicit
 if [[ $(uname) == 'Darwin' ]]; then
     alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
 fi
 
-if [ ! -f "$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings ]; then
+# Sublime editor config requires special, platform-dependant directory
+if [[ $(uname) == 'Darwin' ]] && [ ! -f "$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings ]; then
     ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$HOME/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings"
 fi
-
-{ [ ! -d "$NEOFETCH_DIR" ] || [ -z "$(\ls -A "$NEOFETCH_DIR")" ]; } && neofetch
 
 POSH_THEME=amro
 [ -f "$HOME"/.poshthemes/$POSH_THEME.omp.json ] && eval "$(oh-my-posh init zsh --config "$HOME"/.poshthemes/$POSH_THEME.omp.json)"
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+#         . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# pyenv
+#################################
+# Python version manager -> yenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# node version manager, is installed with nvm-zsh
+##############################
+# node version manager -> nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR"/nvm.sh
 
-# go version manager -> install officially and use go install go@1.18...
+##############################################
+# go and rust do not require version managers
 
 # include Docker symlinks
 export PATH=$PATH:$HOME/.adocker/bin
@@ -114,3 +125,5 @@ export PATH=$PATH:$HOME/.adocker/bin
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
 export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
+
+eval "neofetch"
