@@ -64,8 +64,9 @@ fi
 
 # use exa, alternative to ls if installed
 if command -v exa >/dev/null; then
-    alias ls='exa --long --tree --level=1 --git --classify'
-    alias lt='exa --long --tree --level=2 --git --classify'
+    alias ls='exa --long --tree --level=1 --git --classify --no-permissions --octal-permissions'
+    alias lt='exa --long --tree --level=2 --git --classify --no-permissions --octal-permissions'
+    alias lm='exa --long --tree --level=3 --git --classify --no-permissions --octal-permissions'
     alias la='ls -la'
 fi
 
