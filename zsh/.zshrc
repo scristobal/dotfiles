@@ -47,6 +47,9 @@ if [[ $(uname) == 'Darwin' ]]; then
 
     # Compilation flags
     # export ARCHFLAGS="-arch x86_64"
+
+    # Required to link to openssl 3 instead of mac internal version
+    export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 fi
 
 # initialize Zoxide, if available
@@ -105,26 +108,23 @@ POSH_THEME=amro
 # unset __conda_setup
 # # <<< conda initialize <<<
 
-#################################
-# Python version manager -> yenv
+# Python version manager
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-##############################
-# node version manager -> nvm
+# Nodejs version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR"/nvm.sh
 
-##############################################
-# go and rust do not require version managers
+# Go and Rust do not require version managers
 
 # include Docker symlinks
 export PATH=$PATH:$HOME/.adocker/bin
 
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
-
+# Optional
 export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
 
+# Slow but looks nice
 eval "neofetch"
