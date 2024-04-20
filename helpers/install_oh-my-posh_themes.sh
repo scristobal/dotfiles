@@ -26,7 +26,7 @@ if [[ ! -d "$THEMES_DIR" ]] || [ -z "$(\ls -A $THEMES_DIR)" ]; then
 
     mkdir $THEMES_DIR
     curl -L https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip >$THEMES_DIR/themes.zip
-    unzip $THEMES_DIR/themes.zip -d $THEMES_DIR/.poshthemes
+    unzip $THEMES_DIR/themes.zip -d $THEMES_DIR
     chmod u+rw $THEMES_DIR/*.omp.*
     rm $THEMES_DIR/themes.zip
 
