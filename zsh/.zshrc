@@ -1,40 +1,6 @@
-# oh-my-zsh config using antigen, if available
-if [[ -f $HOME/antigen.zsh ]]; then
+if [ -f "$HOME"/antigen.zsh ]; then
     source "$HOME"/antigen.zsh
-
-    # aditional options https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template
-    antigen use oh-my-zsh
-
-    # plugins
-    antigen bundle git
-    antigen bundle z
-    antigen bundle fzf
-    antigen bundle zsh-users/zsh-syntax-highlighting
-    antigen bundle zsh-users/zsh-history-substring-search
-    antigen bundle zsh-users/zsh-autosuggestions
-    antigen bundle zsh-users/zsh-completions
-    # antigen bundle zsh-users/zsh-history-substring-search
-
-    # # zsh-history-substring-search configuration
-    # bindkey '^[[A' history-substring-search-up   # or '\eOA'
-    # bindkey '^[[B' history-substring-search-down # or '\eOB'
-    # HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-
-    # OS dependant
-    case $(uname) in
-    Darwin)
-        antigen bundle osx
-        ;;
-    Linux)
-        # empty
-        ;;
-    esac
-
-    # Set the theme
-    # antigen theme robbyrussell <-- overwritten by oh-my-posh
-
-    # end of antigen config
-    antigen apply
+    antigen init "$HOME"/.antigenrc
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then
@@ -109,22 +75,22 @@ POSH_THEME=amro
 # # <<< conda initialize <<<
 
 # Python version manager
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/shims:$PATH"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
-# Nodejs version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR"/nvm.sh
+# # Nodejs version manager
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR"/nvm.sh
 
-# Go and Rust do not require version managers
+# # Go and Rust do not require version managers
 
-# include Docker symlinks
-export PATH=$PATH:$HOME/.adocker/bin
+# # include Docker symlinks
+# export PATH=$PATH:$HOME/.adocker/bin
 
-# Optional
-export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
+# # Optional
+# export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
 
 # Slow but looks nice
 eval "neofetch"

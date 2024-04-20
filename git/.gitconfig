@@ -1,7 +1,7 @@
 [user]
 email = el.tobal@gmail.com
 name = Samuel Cristobal
-signingkey = 53D7E132038BDB751BB510419E6AB650DDA3BC5B
+# signingkey = 53D7E132038BDB751BB510419E6AB650/D/DA3BC5B
 
 [push]
 default = current
