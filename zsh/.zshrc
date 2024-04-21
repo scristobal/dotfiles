@@ -56,7 +56,7 @@ if [[ $(uname) == 'Darwin' ]] && [ ! -f "$HOME"/Library/Application\ Support/Sub
     ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$HOME/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings"
 fi
 
-POSH_THEME=amro
+POSH_THEME=easy-term # amro
 [ -f "$HOME"/.poshthemes/$POSH_THEME.omp.json ] && eval "$(oh-my-posh init zsh --config "$HOME"/.poshthemes/$POSH_THEME.omp.json)"
 
 # # >>> conda initialize >>>
