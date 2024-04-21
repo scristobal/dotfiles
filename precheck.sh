@@ -29,6 +29,14 @@ check_folder() {
         echo $NOT_FOUND
     fi
 }
+
+# checks if a list of folders exists
+check_folders() {
+    for i in "$@"; do
+        check_folder $i
+    done
+}
+
 # checks is a single command is installed
 check_command() {
 
@@ -48,5 +56,5 @@ check_commands() {
 }
 
 check_file antigen.zsh
-check_folder .posththemes
+check_folders .poshthemes .config/alacritty/themes/themes/
 check_commands git alacritty zoxide exa nvim code neofetch tmux fzf pyenv nvm
