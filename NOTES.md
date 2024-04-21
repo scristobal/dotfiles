@@ -19,6 +19,7 @@
 - script to install oh my posh (themes) did not run on ubuntu (something is wrong with this condition `[[ $(uname) == 'Linux' ]] && [[ $(uname -m) == 'x86_64' ]]`
 - font script worked like a charm, at least with Menlo (default)
 - generated a new gpg key and added to GH using their CLI
+- nvim config worked flawlessly
 - installed neofetch with apt
 - not installed:  pyenv, nvm, mona lisa font, zoxide
 - failed to install: tmux, Tabby
@@ -28,3 +29,8 @@
 - Create a new `precheck.sh` to check which apps are installed.
 - Remove checks from `.zshrc` to speed up launch times.
 - Use `.antigenrc` file for catching and faster boot times.
+- Adapted alacritty config to Linux, which broke macOS.
+
+### Unresolved
+
+- Find a way to switch macOS flags on/off on Alacritty config.
