@@ -11,7 +11,7 @@ Terminal 📟
 - [x] zsh
 - [x] alias
 - [x] [oh-my-zsh](https://ohmyz.sh)
-- [x] [oh-my-posh](https://ohmyposh.dev/)
+- [ ] [oh-my-posh](https://ohmyposh.dev/)
 - [x] nerd font
 - [x] tmux
 - [ ] fzf
@@ -75,7 +75,7 @@ Linux only 🐧
 Rustacean 🦀
 
 - [ ] nushell (shell)
-- [ ] starship (oh-my-posh)
+- [x] starship (oh-my-posh)
 - [ ] zellij (tmux)
 - [x] exa (ls++)
 - [x] zoxide (cd++)
@@ -99,12 +99,6 @@ Additional steps🪜
 
 ```bash
 chsh -s $(which zsh)
-```
-
-- [ ] Launch Sublime from terminal with `subl`
-
-```bash
-sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/.
 ```
 
 - [ ] Add support for latest mesa drivers PPA  [more](https://linuxconfig.org/install-and-test-vulkan-on-linux):

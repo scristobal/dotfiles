@@ -8,6 +8,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
+
 # antigen bundle zsh-users/zsh-history-substring-search
 
 # # zsh-history-substring-search configuration
@@ -25,8 +26,6 @@ Linux)
     ;;
 esac
 
-# Set the theme
-# antigen theme robbyrussell <-- overwritten by oh-my-posh
+# antigen theme robbyrussell
 
-# end of antigen config
 antigen apply
