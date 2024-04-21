@@ -57,8 +57,8 @@ alias c="code ."
 
 eval "$(starship init zsh)"
 
-source lazy_pyenv.zsh
-source lazy_nvm.zsh
+source "$HOME"/.zsh/lazy_pyenv.zsh
+source "$HOME"/.zsh/lazy_nvm.zsh
 
 # include Docker symlinks
 export PATH=$PATH:$HOME/.adocker/bin
