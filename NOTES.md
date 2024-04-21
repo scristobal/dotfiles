@@ -20,7 +20,8 @@
 - font script worked like a charm, at least with Menlo (default)
 - generated a new gpg key and added to GH using their CLI
 - installed neofetch with apt
-- not installed:  pyenv nvm, mona lisa font, zoxide
+- not installed:  pyenv, nvm, mona lisa font, zoxide
+- failed to install: tmux, Tabby
 
 ### Resolutions/changes
 
