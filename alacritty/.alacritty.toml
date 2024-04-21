@@ -381,9 +381,9 @@ dynamic_padding = true
 opacity = 1.0
 startup_mode = "Windowed"
 
-[window.padding]
-x = 20
-y = 25
+# [window.padding]
+# x = 20
+# y = 25
 
 [window.dimensions]
 columns = 120
