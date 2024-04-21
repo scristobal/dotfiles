@@ -15,14 +15,31 @@ Terminal 📟
 - [x] nerd font
 - [x] tmux
 - [ ] fzf
+
+Command Line Interfaces 🚀
+
+- [ ] jq
 - [x] neofetch
+- [ ] [bat](https://github.com/sharkdp/bat?tab=readme-ov-file#installation) (cat++)
+- [ ] [tailspin](https://github.com/bensadeh/tailspin?tab=readme-ov-file#installing)
+- [ ] [curlie](https://github.com/rs/curlie?tab=readme-ov-file#install) (curl++)
+- [ ] [glow](https://github.com/charmbracelet/glow?tab=readme-ov-file#installation) (render `.md` files)
+- [ ] [btop](https://github.com/aristocratos/btop?tab=readme-ov-file#installation) (top+++)
+- [ ] [ncdu](https://code.blicky.net/yorhel/ncdu/) (du+++)
+- [ ] [fx](https://fx.wtf/install#installation) (jq++)
+- [ ] [broot](https://github.com/Canop/broot) (finder)
+- [ ] [ncspot](https://github.com/hrkfdn/ncspot?tab=readme-ov-file#installation) (spotify)
+- [ ] [monolith](https://github.com/y2z/monolith) (save HTML single file)
+- [ ] yt-dlp (youtube downloader)
+- [ ] [topgrade](https://github.com/topgrade-rs/topgrade?tab=readme-ov-file#installation) (automatic tool upgrades, apparently)
 
 Programing 🤖
 
-- [x] nvm or fnm
-- [ ] go
-- [ ] rust
-- [ ] python
+- [ ] [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+- [x] [rustup](https://rustup.rs/)
+- [ ] [zig](https://ziglang.org/download/)
+- [ ] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
+- [ ] [go](https://go.dev/doc/install#extra_versions)
 
 Applications 🖥️
 
@@ -57,12 +74,22 @@ Linux only 🐧
 
 Rustacean 🦀
 
-- [ ] nushell (zsh)
+- [ ] nushell (shell)
 - [ ] starship (oh-my-posh)
 - [ ] zellij (tmux)
-- [x] exa (ls)
-- [x] zoxide (cd)
+- [x] exa (ls++)
+- [x] zoxide (cd++)
 - [ ] fnm (nvm)
+- [ ] [dust](https://github.com/bootandy/dust) (du+++)
+- [ ] [ripgrep](https://github.com/BurntSushi/ripgrep) (grep++)
+- [ ] [fd](https://github.com/sharkdp/fd) (find++)
+- [ ] [skim](https://github.com/lotabout/skim?tab=readme-ov-file) (fzf)
+- [ ] [hyperfine](https://github.com/sharkdp/hyperfine?tab=readme-ov-file#installation) (time++)
+- [x] [difft](https://difftastic.wilfred.me.uk/installation.html) (diff++)
+- [ ] [tealdeer](https://github.com/dbrgn/tealdeer?ref=itsfoss.com) (tldr)
+- [ ] [procs](https://github.com/dalance/procs) (ps++)
+- [ ] [macchina](https://github.com/Macchina-CLI/macchina/wiki/Installation) (neofetch)
+- [ ] [ouch](https://github.com/ouch-org/ouch?tab=readme-ov-file#installation) (de/compress)
 - [ ] lapce (vsc)
 - [ ] zed (vsc)
 

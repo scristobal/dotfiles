@@ -1,6 +1,6 @@
 # REFERENCES
 
-## Other dotfiles
+## dotfiles
 
 - <https://github.com/mhartington/dotfiles>
 - <https://github.com/Matsuuu/dotfiles>

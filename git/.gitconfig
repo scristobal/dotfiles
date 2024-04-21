@@ -51,3 +51,23 @@ clean = git-lfs clean -- %f
 smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
+
+[diff]
+tool = difftastic
+
+[difftool]
+prompt = false
+
+[difftool "difftastic"]
+cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+difftool = true
+
+# `git dft` instead of `git difftool`.
+[alias]
+dft = difftool
+
+# `git dlog` to show `git log -p` with difftastic.
+[alias]
+dlog = "-c diff.external=difft log -p --ext-diff"
