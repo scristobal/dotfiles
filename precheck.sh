@@ -5,56 +5,45 @@ NC='\033[0m' # No Color
 FOUND="${GREEN}found!${NC}"
 NOT_FOUND="${RED}not found!${NC}"
 
-# checks if a file exists
-check_file() {
-
-    echo -n "Checking for $1... "
-
-    if [ -f "$HOME"/"$1" ]; then
-        echo $FOUND
-    else
-        echo $NOT_FOUND
-
-    fi
-}
-
-# checks if a folder exists
-check_folder() {
-
-    echo -n "Checking for $1... "
-
-    if [ -d "$HOME"/"$1" ]; then
-        echo $FOUND
-    else
-        echo $NOT_FOUND
-    fi
-}
-
-# checks if a list of folders exists
-check_folders() {
+# checks if a list of files exist
+check_files() {
     for i in "$@"; do
-        check_folder $i
+        echo -n "Checking for $i... "
+
+        if [ -f "$HOME"/"$i" ]; then
+            echo $FOUND
+        else
+            echo $NOT_FOUND
+        fi
     done
 }
 
-# checks is a single command is installed
-check_command() {
+# checks if a list of folders exist
+check_folders() {
+    for i in "$@"; do
+        echo -n "Checking for $i... "
 
-    echo -n "Checking for $1... "
-    if command -v $1 >/dev/null 2>&1; then
-        echo $FOUND
-    else
-        echo $NOT_FOUND
-    fi
+        if [ -d "$HOME"/"$i" ]; then
+            echo $FOUND
+        else
+            echo $NOT_FOUND
+        fi
+    done
 }
 
 # checks if a list of commands are installed
 check_commands() {
     for i in "$@"; do
-        check_command $i
+        echo -n "Checking for $i... "
+
+        if command -v $i >/dev/null 2>&1; then
+            echo $FOUND
+        else
+            echo $NOT_FOUND
+        fi
     done
 }
 
 check_file antigen.zsh
-check_folders .poshthemes .config/alacritty/themes/themes/
+check_folders .config/alacritty/themes/themes/
 check_commands git alacritty zoxide exa nvim code neofetch tmux fzf pyenv nvm
