@@ -56,8 +56,11 @@ if [[ $(uname) == 'Darwin' ]] && [ ! -f "$HOME"/Library/Application\ Support/Sub
     ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$HOME/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings"
 fi
 
-POSH_THEME=easy-term # amro
-[ -f "$HOME"/.poshthemes/$POSH_THEME.omp.json ] && eval "$(oh-my-posh init zsh --config "$HOME"/.poshthemes/$POSH_THEME.omp.json)"
+## NOTE: old theme using oh-my-posh, replaced by startship
+# POSH_THEME=amro
+# [ -f "$HOME"/.poshthemes/$POSH_THEME.omp.json ] && eval "$(oh-my-posh init zsh --config "$HOME"/.poshthemes/$POSH_THEME.omp.json)"
+
+eval "$(starship init zsh)"
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
