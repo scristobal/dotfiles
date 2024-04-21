@@ -1,9 +1,14 @@
+# antigen bundle
+# remember to run `antigen selfupdate` and `antigen update`
+
 antigen use oh-my-zsh
 
 # plugins
 antigen bundle git
+antigen bundle tmux
 antigen bundle z
 antigen bundle fzf
+antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
