@@ -1,6 +1,6 @@
 if [ -f "$HOME"/antigen.zsh ]; then
     source "$HOME"/antigen.zsh
-    antigen init "$HOME"/.antigenrc
+    antigen init .antigenrc
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then
@@ -11,11 +11,20 @@ if [[ $(uname) == 'Darwin' ]]; then
     export LIBRARY_PATH=$HOMEBREW_REPOSITORY/lib:$LIBRARY_PATH
     export CPATH=$HOMEBREW_REPOSITORY/include:$CPATH
 
-    # Compilation flags
-    # export ARCHFLAGS="-arch x86_64"
-
     # Required to link to openssl 3 instead of mac internal version
     export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+
+    # support for x86 brew made explicit
+    alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
+
+    # remember to use compilation flags ARCHFLAGS="-arch x86_64"
+
+    # Sublime editor config requires special, platform-dependant directory
+    SUBLIME_SETTINS="$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings
+    if [ ! -f SUBLIME_SETTINS]; then
+        ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" SUBLIME_SETTINS
+    fi
+    # Launch Sublime from terminal with `subl` with `sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/.`
 fi
 
 # initialize Zoxide, if available
@@ -46,54 +55,16 @@ alias cdlr="reset && cd && neofetch"
 # vscode shortcut
 alias c="code ."
 
-# support for x86 brew made explicit
-if [[ $(uname) == 'Darwin' ]]; then
-    alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
-fi
-
-# Sublime editor config requires special, platform-dependant directory
-if [[ $(uname) == 'Darwin' ]] && [ ! -f "$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings ]; then
-    ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$HOME/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings"
-fi
-
-## NOTE: old theme using oh-my-posh, replaced by startship
-# POSH_THEME=amro
-# [ -f "$HOME"/.poshthemes/$POSH_THEME.omp.json ] && eval "$(oh-my-posh init zsh --config "$HOME"/.poshthemes/$POSH_THEME.omp.json)"
-
 eval "$(starship init zsh)"
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-#         . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+source lazy_pyenv.zsh
+source lazy_nvm.zsh
 
-# Python version manager
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/shims:$PATH"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+# include Docker symlinks
+export PATH=$PATH:$HOME/.adocker/bin
 
-# # Nodejs version manager
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR"/nvm.sh
-
-# # Go and Rust do not require version managers
-
-# # include Docker symlinks
-# export PATH=$PATH:$HOME/.adocker/bin
-
-# # Optional
-# export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
+# Optional
+export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
 
 # Slow but looks nice
 eval "neofetch"
