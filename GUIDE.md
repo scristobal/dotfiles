@@ -37,28 +37,31 @@ Programing 🤖
 
 - [ ] [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 - [x] [rustup](https://rustup.rs/)
-- [ ] [zig](https://ziglang.org/download/)
+- [x] [zigup](https://github.com/marler8997/zigup) or [zvm](https://www.zvm.app/)
 - [ ] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
 - [ ] [go](https://go.dev/doc/install#extra_versions)
 
 Applications 🖥️
 
 - [x] [alacritty](https://alacritty.org/)
-- [ ] vscode
-- [ ] [break-timer](https://github.com/tom-james-watson/breaktimer-app)
-- [ ] firefox
-- [ ] proton
+- [x] vscode
+- [x] [break-timer](https://github.com/tom-james-watson/breaktimer-app)
+- [x] firefox
+- [x] [proton mail](https://proton.me/mail/download)
+- [x] [proton VPN](https://protonvpn.com/support/official-ubuntu-vpn-setup/)
 - [ ] sublime
 - [ ] [hyper](https://hyper.is/)
 - [ ] [tabby](https://tabby.sh)
-- [ ] spotify
-- [ ] telegram
-- [ ] slack
+- [x] spotify
+- [x] telegram
 
 Darwin only 🍏
 
+> [!NOTE]
+> This will soon be deprecated in favor of Linux only tools
+
 - [ ] [xcodes](https://github.com/XcodesOrg/xcodes)
-- [x] [brew](https://brew.sh)
+- [ ] [brew](https://brew.sh)
 - [ ] sudo-touchid
 - [ ] [Mac Apple Store CLI](https://github.com/mas-cli/mas)
 - [ ] iina

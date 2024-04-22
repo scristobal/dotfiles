@@ -23,6 +23,9 @@
 - installed neofetch with apt
 - not installed:  pyenv, nvm, mona lisa font, zoxide
 - failed to install: tmux, Tabby
+- vscode config is not compatible w/ Linux:
+  - need to remove `'Mono'` at the end of the font name, can be fixed by providing the fixed font name as a fallback
+  - need to change the path of Zig's language server `"zig.zls.path"` inside settings.json
 
 ### Resolutions/changes
 
