@@ -60,6 +60,11 @@ eval "$(starship init zsh)"
 source "$HOME"/.zsh/lazy_pyenv.zsh
 source "$HOME"/.zsh/lazy_nvm.zsh
 
+# ZVM
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL/"
+
 # include Docker symlinks
 export PATH=$PATH:$HOME/.adocker/bin
 
