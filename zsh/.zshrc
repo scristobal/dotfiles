@@ -47,8 +47,9 @@ export PATH="$PATH:$ZVM_INSTALL/"
 # include Docker symlinks
 export PATH=$PATH:$HOME/.adocker/bin
 
-# Optional
-export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
+# Playdate SDK and binaries
+export PLAYDATE_SDK_PATH="$HOME"/SDKs/PlaydateSDK-2.4.2
+export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 
 # Slow but looks nice
 eval "neofetch"
