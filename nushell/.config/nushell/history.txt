@@ -1,0 +1,10 @@
+ls
+tmux
+ls
+z
+zoxide 
+exa 
+ls
+cd
+ls
+exit

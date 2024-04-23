@@ -19,7 +19,6 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [x] zsh +  `chsh -s $(which zsh)`
 - [x] alias
 - [x] [oh-my-zsh](https://ohmyz.sh)
-- [ ] [oh-my-posh](https://ohmyposh.dev/)
 - [x] [nerd fonts](./helpers/install_nerdfonts_from_source.sh)
 - [x] tmux
 - [x] fzf
@@ -43,11 +42,12 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 
 ### Programing
 
-- [ ] [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+- [x] [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 - [x] [rustup](https://rustup.rs/)
 - [x] [zigup](https://github.com/marler8997/zigup) or [zvm](https://www.zvm.app/)
 - [ ] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
 - [ ] [go](https://go.dev/doc/install#extra_versions)
+- [x] [Playdate SDK](https://play.date/dev/) + [Mirror](https://play.date/mirror/) + [project template](https://github.com/scristobal/playdate-c-api-experiments)
 
 ### Applications
 
@@ -55,6 +55,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [x] vscode
 - [x] [break-timer](https://github.com/tom-james-watson/breaktimer-app)
 - [x] firefox
+- [x] [chromium](https://snapcraft.io/chromium)
 - [x] [proton mail](https://proton.me/mail/download)
 - [x] [proton VPN](https://protonvpn.com/support/official-ubuntu-vpn-setup/)
 - [ ] sublime
@@ -67,7 +68,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 
 ### Rustacean
 
-- [ ] nushell (shell)
+- [x] [nushell](https://www.nushell.sh/book/installation.html#build-using-crates-io)  (shell)
 - [x] starship (oh-my-posh)
 - [ ] zellij (tmux)
 - [x] exa (ls++)
@@ -78,6 +79,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [ ] [fd](https://github.com/sharkdp/fd) (find++)
 - [ ] [skim](https://github.com/lotabout/skim?tab=readme-ov-file) (fzf)
 - [ ] [hyperfine](https://github.com/sharkdp/hyperfine?tab=readme-ov-file#installation) (time++)
+- [ ] [oha](https://github.com/hatoo/oha) ([hey](https://github.com/rakyll/hey))
 - [x] [difft](https://difftastic.wilfred.me.uk/installation.html) (diff++)
 - [ ] [tealdeer](https://github.com/dbrgn/tealdeer?ref=itsfoss.com) (tldr)
 - [ ] [procs](https://github.com/dalance/procs) (ps++)
@@ -91,6 +93,8 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - Add support for [latest mesa drivers](https://linuxconfig.org/install-and-test-vulkan-on-linux) PPA `bash sudo add-apt-repository ppa:graphics-drivers/ppa`
 
 - Additional video formats `sudo apt-get install ubuntu-restricted-extras libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg`
+
+- Additional build dependencies `pkg-config libssl-dev`
 
 ## Other dotfiles and tools
 
