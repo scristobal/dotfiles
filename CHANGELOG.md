@@ -1,4 +1,4 @@
-# Notes
+# CHANGELOG
 
 ## 20-Apr-2024: Installing Ubuntu 24.10
 

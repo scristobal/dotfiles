@@ -46,4 +46,4 @@ check_commands() {
 
 check_file antigen.zsh
 check_folders .config/alacritty/themes/themes/
-check_commands git alacritty zoxide exa nvim code neofetch tmux fzf pyenv nvm
+check_commands stow git alacritty zoxide exa nvim code neofetch tmux fzf pyenv nvm
