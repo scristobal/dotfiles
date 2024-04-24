@@ -3,7 +3,7 @@ if [ -f "$HOME"/antigen.zsh ]; then
     ANTIGEN_MUTEX=false
 
     source "$HOME"/antigen.zsh
-    antigen init .antigenrc
+    antigen init "$HOME"/.antigenrc
 fi
 
 # initialize Zoxide, if available
