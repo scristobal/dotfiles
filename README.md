@@ -10,54 +10,69 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 
 ### Terminal
 
-- [x] nvim
-- [x] git
+- [x] zsh ⭐️ +  `chsh -s $(which zsh)`
+- [x] nvim ⭐️
+- [x] git ⭐️
 - [x] GitHub CLI
-- [x] gpg
-- [ ] curl
+- [x] gnupg
+- [x] stow ⭐️
+- [x] curl
 - [ ] docker
-- [x] zsh +  `chsh -s $(which zsh)`
-- [x] alias
-- [x] [oh-my-zsh](https://ohmyz.sh)
-- [x] [nerd fonts](./helpers/install_nerdfonts_from_source.sh)
-- [x] tmux
+- [x] [oh-my-zsh](https://ohmyz.sh) ⭐️
+- [x] [nerd fonts](./helpers/install_nerdfonts_from_source.sh) ⭐️
+- [x] tmux ⭐️
 - [x] fzf
-
-### Command Line Interfaces
-
 - [ ] jq
 - [x] neofetch
-- [ ] [bat](https://github.com/sharkdp/bat?tab=readme-ov-file#installation) (cat++)
-- [ ] [tailspin](https://github.com/bensadeh/tailspin?tab=readme-ov-file#installing)
-- [ ] [curlie](https://github.com/rs/curlie?tab=readme-ov-file#install) (curl++)
-- [ ] [glow](https://github.com/charmbracelet/glow?tab=readme-ov-file#installation) (render `.md` files)
+- [x] [bat](https://github.com/sharkdp/bat?tab=readme-ov-file#installation) 🦀 (cat++)
+- [ ] [tailspin](https://github.com/bensadeh/tailspin?tab=readme-ov-file#installing) 🦀
+- [ ] [curlie](https://github.com/rs/curlie?tab=readme-ov-file#install) 🦫 (curl++)
+- [ ] [glow](https://github.com/charmbracelet/glow?tab=readme-ov-file#installation) 🦫 (render `.md` files)
 - [ ] [btop](https://github.com/aristocratos/btop?tab=readme-ov-file#installation) (top+++)
-- [ ] [ncdu](https://code.blicky.net/yorhel/ncdu/) (du+++)
-- [ ] [fx](https://fx.wtf/install#installation) (jq++)
-- [ ] [broot](https://github.com/Canop/broot) (finder)
-- [ ] [ncspot](https://github.com/hrkfdn/ncspot?tab=readme-ov-file#installation) (spotify)
+- [ ] [ncdu](https://code.blicky.net/yorhel/ncdu/) 🦎 (du+++)
+- [ ] [fx](https://fx.wtf/install#installation) 🦫 (jq++)
+- [ ] [broot](https://github.com/Canop/broot) 🦀 (finder)
+- [ ] [ncspot](https://github.com/hrkfdn/ncspot?tab=readme-ov-file#installation) 🦀 (spotify)
 - [ ] [monolith](https://github.com/y2z/monolith) (save HTML single file)
 - [ ] yt-dlp (youtube downloader)
 - [ ] [topgrade](https://github.com/topgrade-rs/topgrade?tab=readme-ov-file#installation) (automatic tool upgrades, apparently)
+- [x] [nushell](https://www.nushell.sh/book/installation.html#build-using-crates-io) 🦀 (shell)
+- [x] starship 🦀 (oh-my-posh)
+- [ ] zellij 🦀 (tmux)
+- [x] exa 🦀 (ls++) ⭐️
+- [x] zoxide 🦀 (cd++) ⭐️
+- [ ] fnm 🦀 (nvm)
+- [ ] [dust](https://github.com/bootandy/dust) 🦀 (du+++)
+- [ ] [ripgrep](https://github.com/BurntSushi/ripgrep) 🦀 (grep++)
+- [ ] [fd](https://github.com/sharkdp/fd) 🦀 (find++)
+- [ ] [skim](https://github.com/lotabout/skim?tab=readme-ov-file) 🦀 (fzf)
+- [ ] [hyperfine](https://github.com/sharkdp/hyperfine?tab=readme-ov-file#installation) 🦀 (time++)
+- [ ] [oha](https://github.com/hatoo/oha) 🦀 ([hey](https://github.com/rakyll/hey))
+- [x] [difft](https://difftastic.wilfred.me.uk/installation.html) 🦀 (diff++)
+- [ ] [tealdeer](https://github.com/dbrgn/tealdeer?ref=itsfoss.com) 🦀 (tldr)
+- [ ] [procs](https://github.com/dalance/procs) 🦀 (ps++)
+- [ ] [macchina](https://github.com/Macchina-CLI/macchina/wiki/Installation) 🦀 (neofetch)
+- [ ] [ouch](https://github.com/ouch-org/ouch?tab=readme-ov-file#installation) 🦀 (de/compress)
 
 ### Programing
 
-- [x] [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
-- [x] [rustup](https://rustup.rs/)
-- [x] [zigup](https://github.com/marler8997/zigup) or [zvm](https://www.zvm.app/)
-- [ ] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
+- [x] [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating) 📦️⭐️
+- [x] [rustup](https://rustup.rs/) 🦀⭐️
+- [x] [zigup](https://github.com/marler8997/zigup) (or [zvm](https://www.zvm.app/))
+- [ ] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) + [poetry](https://python-poetry.org/docs/#installation)
 - [ ] [go](https://go.dev/doc/install#extra_versions)
 - [x] [Playdate SDK](https://play.date/dev/) + [Mirror](https://play.date/mirror/) + [project template](https://github.com/scristobal/playdate-c-api-experiments)
 
 ### Applications
 
-- [x] [alacritty](https://alacritty.org/) + [themes](https://github.com/alacritty/alacritty-theme)
-- [x] vscode
+- [x] [alacritty](https://alacritty.org/) ⭐️ + [themes](https://github.com/alacritty/alacritty-theme)
+- [x] vscode ⭐️
 - [x] [break-timer](https://github.com/tom-james-watson/breaktimer-app)
-- [x] firefox
-- [x] [chromium](https://snapcraft.io/chromium)
+- [x] firefox ⭐️ + nightly
+- [x] [chromium](https://snapcraft.io/chromium) + canary
+- [x] [proton pass](https://proton.me) ⭐️
 - [x] [proton mail](https://proton.me/mail/download)
-- [x] [proton VPN](https://protonvpn.com/support/official-ubuntu-vpn-setup/)
+- [x] [proton vpn](https://protonvpn.com/support/official-ubuntu-vpn-setup/)
 - [ ] sublime
 - [ ] [hyper](https://hyper.is/)
 - [ ] [tabby](https://tabby.sh)
@@ -65,28 +80,14 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [x] telegram
 - [ ] [emote](https://snapcraft.io/emote)
 - [ ] font-manager
+- [ ] lapce 🦀 (vsc)
+- [ ] zed 🦀 (vsc)
+- [x] [aseprite](https://www.aseprite.org/) (do `Edit > Preferences > General > Screen Scaling: 400%`)
+- [x] [krita](https://krita.org/en/download/)
 
-### Rustacean
+### Drivers
 
-- [x] [nushell](https://www.nushell.sh/book/installation.html#build-using-crates-io)  (shell)
-- [x] starship (oh-my-posh)
-- [ ] zellij (tmux)
-- [x] exa (ls++)
-- [x] zoxide (cd++)
-- [ ] fnm (nvm)
-- [ ] [dust](https://github.com/bootandy/dust) (du+++)
-- [ ] [ripgrep](https://github.com/BurntSushi/ripgrep) (grep++)
-- [ ] [fd](https://github.com/sharkdp/fd) (find++)
-- [ ] [skim](https://github.com/lotabout/skim?tab=readme-ov-file) (fzf)
-- [ ] [hyperfine](https://github.com/sharkdp/hyperfine?tab=readme-ov-file#installation) (time++)
-- [ ] [oha](https://github.com/hatoo/oha) ([hey](https://github.com/rakyll/hey))
-- [x] [difft](https://difftastic.wilfred.me.uk/installation.html) (diff++)
-- [ ] [tealdeer](https://github.com/dbrgn/tealdeer?ref=itsfoss.com) (tldr)
-- [ ] [procs](https://github.com/dalance/procs) (ps++)
-- [ ] [macchina](https://github.com/Macchina-CLI/macchina/wiki/Installation) (neofetch)
-- [ ] [ouch](https://github.com/ouch-org/ouch?tab=readme-ov-file#installation) (de/compress)
-- [ ] lapce (vsc)
-- [ ] zed (vsc)
+- [x] [xencelabs pen tablet](https://www.xencelabs.com/support/download-drivers)
 
 ## Extra notes
 
