@@ -61,6 +61,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [x] [zigup](https://github.com/marler8997/zigup) (or [zvm](https://www.zvm.app/))
 - [ ] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) + [poetry](https://python-poetry.org/docs/#installation)
 - [ ] [go](https://go.dev/doc/install#extra_versions)
+- [ ] [Lua]
 - [x] [Playdate SDK](https://play.date/dev/) + [Mirror](https://play.date/mirror/) + [project template](https://github.com/scristobal/playdate-c-api-experiments)
 
 ### Applications
@@ -84,6 +85,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [ ] zed 🦀 (vsc)
 - [x] [aseprite](https://www.aseprite.org/) (do `Edit > Preferences > General > Screen Scaling: 400%`)
 - [x] [krita](https://krita.org/en/download/)
+- [ ] steam
 
 ### Drivers
 
@@ -96,6 +98,8 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - Additional video formats `sudo apt-get install ubuntu-restricted-extras libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg`
 
 - Additional build dependencies `pkg-config libssl-dev`
+
+- Dependencies for steam to work `libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 steam-libs-amd64:amd64 steam-libs-i386:i386`
 
 ## Other dotfiles and tools
 
