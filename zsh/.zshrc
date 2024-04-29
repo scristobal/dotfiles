@@ -36,8 +36,11 @@ alias c="code ."
 
 eval "$(starship init zsh)"
 
-source "$HOME"/.zsh/lazy_pyenv.zsh
-source "$HOME"/.zsh/lazy_nvm.zsh
+# activate mise
+eval "$(~/.local/bin/mise activate zsh)"
+
+# source "$HOME"/.zsh/lazy_pyenv.zsh
+# source "$HOME"/.zsh/lazy_nvm.zsh
 
 # ZVM
 export ZVM_INSTALL="$HOME/.zvm/self"
