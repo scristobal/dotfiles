@@ -53,6 +53,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [ ] [procs](https://github.com/dalance/procs) 🦀 (ps++)
 - [ ] [macchina](https://github.com/Macchina-CLI/macchina/wiki/Installation) 🦀 (neofetch)
 - [ ] [ouch](https://github.com/ouch-org/ouch?tab=readme-ov-file#installation) 🦀 (de/compress)
+- [x] [exercisim CLI](https://exercism.org/cli-walkthrough)
 
 ### Programing
 
@@ -61,7 +62,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [x] [zigup](https://github.com/marler8997/zigup) (or [zvm](https://www.zvm.app/))
 - [ ] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) + [poetry](https://python-poetry.org/docs/#installation)
 - [ ] [go](https://go.dev/doc/install#extra_versions)
-- [ ] [Lua]
+- [ ] [Lua](https://www.lua.org/download.html)
 - [x] [Playdate SDK](https://play.date/dev/) + [Mirror](https://play.date/mirror/) + [project template](https://github.com/scristobal/playdate-c-api-experiments)
 
 ### Applications

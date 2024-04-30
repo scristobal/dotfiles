@@ -54,5 +54,8 @@ export PATH=$PATH:$HOME/.adocker/bin
 export PLAYDATE_SDK_PATH="$HOME"/SDKs/PlaydateSDK-2.4.2
 export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 
+# local binaries, eg. exericism CLI
+PATH=~/bin:$PATH
+
 # Slow but looks nice
 eval "neofetch"
