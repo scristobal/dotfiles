@@ -54,6 +54,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [ ] [macchina](https://github.com/Macchina-CLI/macchina/wiki/Installation) 🦀 (neofetch)
 - [ ] [ouch](https://github.com/ouch-org/ouch?tab=readme-ov-file#installation) 🦀 (de/compress)
 - [x] [exercisim CLI](https://exercism.org/cli-walkthrough)
+- [x] [ncu](https://www.npmjs.com/package/npm-check-updates)
 
 ### Programing
 
