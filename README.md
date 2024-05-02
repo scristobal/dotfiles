@@ -65,6 +65,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [ ] [Lua](https://www.lua.org/download.html)
 - [x] [Playdate SDK](https://play.date/dev/) + [Mirror](https://play.date/mirror/) + [project template](https://github.com/scristobal/playdate-c-api-experiments)
 - [x] cmake
+- [x] ninja
 - [x] [gfortran](https://fortran-lang.org/learn/os_setup/install_gfortran/#linux)
 
 ### Applications
