@@ -61,8 +61,8 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [x] [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating) 📦️⭐️
 - [x] [rustup](https://rustup.rs/) 🦀⭐️
 - [x] [zigup](https://github.com/marler8997/zigup) (or [zvm](https://www.zvm.app/))
-- [ ] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) + [poetry](https://python-poetry.org/docs/#installation)
-- [ ] [go](https://go.dev/doc/install#extra_versions)
+- [x] [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) + [poetry](https://python-poetry.org/docs/#installation)
+- [x] [go](https://go.dev/doc/install#extra_versions)
 - [ ] [Lua](https://www.lua.org/download.html)
 - [x] [Playdate SDK](https://play.date/dev/) + [Mirror](https://play.date/mirror/) + [project template](https://github.com/scristobal/playdate-c-api-experiments)
 - [x] cmake
@@ -104,7 +104,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 
 - Additional build dependencies `pkg-config libssl-dev`
 
-- Dependencies for steam to work `libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 steam-libs-amd64:amd64 steam-libs-i386:i386`
+- Dependencies for steam to work `libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 steam-libs-amd64:amd64 steam-libs-i386:i386 libsdl2-dev`
 
 ## Other dotfiles and tools
 

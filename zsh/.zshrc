@@ -34,20 +34,33 @@ alias cdlr="reset && cd && neofetch"
 # vscode shortcut
 alias c="code ."
 
+# custom  prompt
 eval "$(starship init zsh)"
 
-# activate mise
-eval "$(~/.local/bin/mise activate zsh)"
+# Rust with rustup
+. "$HOME/.cargo/env"
 
-# source "$HOME"/.zsh/lazy_pyenv.zsh
-# source "$HOME"/.zsh/lazy_nvm.zsh
+# Python with pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-# ZVM
+# Node with nvm
+export NVM_DIR="$HOME/.config/nvm"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# Zig with ZVM
 export ZVM_INSTALL="$HOME/.zvm/self"
 export PATH="$PATH:$HOME/.zvm/bin"
 export PATH="$PATH:$ZVM_INSTALL/"
 
-# include Docker symlinks
+# Go
+export PATH=$PATH:/usr/local/go/bin
+
+# Docker
 export PATH=$PATH:$HOME/.adocker/bin
 
 # Playdate SDK and binaries
