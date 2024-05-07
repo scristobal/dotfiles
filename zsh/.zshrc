@@ -35,9 +35,7 @@ alias cdlr="reset && cd && neofetch"
 alias c="code ."
 
 # custom  prompt
-if command -v starship >/dev/null; then
-    eval "$(starship init zsh)"
-fi
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
 # Rust with rustup
 . "$HOME/.cargo/env"
@@ -46,9 +44,7 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv >/dev/null; then
-    eval "$(pyenv init -)"
-fi
+command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init -)"
 
 # Node with nvm
 export NVM_DIR="$HOME/.config/nvm"
@@ -75,4 +71,4 @@ export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 PATH=~/bin:$PATH
 
 # Slow but looks nice
-eval "neofetch"
+command -v neofetch >/dev/null 2>&1 && eval "$(neofetch)"
