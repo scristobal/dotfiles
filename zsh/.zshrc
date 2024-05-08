@@ -38,7 +38,7 @@ alias c="code ."
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
 # Rust with rustup
-. "$HOME/.cargo/env"
+[ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
 
 # Python with pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -68,7 +68,7 @@ export PLAYDATE_SDK_PATH="$HOME"/SDKs/PlaydateSDK-2.4.2
 export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 
 # local binaries, eg. exericism CLI
-PATH=~/bin:$PATH
+PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Slow but looks nice
 command -v neofetch >/dev/null 2>&1 && eval "$(neofetch)"
