@@ -81,7 +81,7 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 - [x] [proton vpn](https://protonvpn.com/support/official-ubuntu-vpn-setup/)
 - [ ] sublime
 - [ ] [hyper](https://hyper.is/)
-- [ ] [tabby](https://tabby.sh)
+- [x] [tabby](https://tabby.sh)
 - [x] spotify
 - [x] telegram
 - [ ] [emote](https://snapcraft.io/emote)
