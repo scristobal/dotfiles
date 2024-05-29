@@ -29,10 +29,17 @@ fi
 
 # faster and better clear terminal
 alias clr="tput reset"
-alias cdlr="reset && cd && neofetch"
+
+if command -v fastfetch >/dev/null; then
+    alias cdlr="reset && cd && fastfetch"
+else
+    alias cdlr="reset && cd"
+fi
 
 # vscode shortcut
-alias c="code ."
+if command -v code >/dev/null; then
+    alias c="code ."
+fi
 
 # custom  prompt
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
@@ -71,4 +78,4 @@ export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Slow but looks nice
-command -v neofetch >/dev/null 2>&1 && eval "$(neofetch)"
+command -v fastfetch >/dev/null 2>&1 && eval "$(fastfetch)"
