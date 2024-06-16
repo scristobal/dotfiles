@@ -28,8 +28,9 @@ if [[ $(uname) == 'Darwin' ]]; then
     # remember to use compilation flags ARCHFLAGS="-arch x86_64"
 
     # Sublime editor config requires special, platform-dependant directory
-    SUBLIME_SETTINS="$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings
-    if [ ! -f SUBLIME_SETTINS]; then
+    export SUBLIME_SETTINS="$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings
+
+    if [ ! -f $SUBLIME_SETTINS ]; then
         ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" SUBLIME_SETTINS
     fi
     # Launch Sublime from terminal with `subl` with `sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/.`
