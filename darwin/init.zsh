@@ -1,4 +1,9 @@
 if [[ $(uname) == 'Darwin' ]]; then
+
+    # Load Homebrew if /opt/homebrew/bin/brew exists
+    if [ -f "/opt/homebrew/bin/brew" ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
     # On ARM macs the default homebrew installation moved
     # to /opt/homebrew. For meson to be able to find homebrew
     # files you need to set the following environment:
