@@ -1,6 +1,6 @@
 if [ -f "$HOME"/antigen.zsh ]; then
     # workaround for tmux https://github.com/zsh-users/antigen/issues/543
-    ANTIGEN_MUTEX=false
+    export ANTIGEN_MUTEX=false
 
     source "$HOME"/antigen.zsh
     antigen init "$HOME"/.antigenrc
@@ -12,6 +12,7 @@ if [[ $(uname) == 'Darwin' ]]; then
     if [ -f "/opt/homebrew/bin/brew" ]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
+
     # On ARM macs the default homebrew installation moved
     # to /opt/homebrew. For meson to be able to find homebrew
     # files you need to set the following environment:
@@ -23,16 +24,16 @@ if [[ $(uname) == 'Darwin' ]]; then
     export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
     # support for x86 brew made explicit
+    # remember to use compilation flags ARCHFLAGS="-arch x86_64"
     alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
 
-    # remember to use compilation flags ARCHFLAGS="-arch x86_64"
-
     # Sublime editor config requires special, platform-dependant directory
-    export SUBLIME_SETTINS="$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings
+    SUBLIME_SETTINS="$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings
 
-    if [ ! -f $SUBLIME_SETTINS ]; then
-        ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" SUBLIME_SETTINS
+    if [ ! -L "$SUBLIME_SETTINS" ]; then
+        ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$SUBLIME_SETTINS"
     fi
+
     # Launch Sublime from terminal with `subl` with `sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/.`
 fi
 
