@@ -19,11 +19,11 @@ else
     export EDITOR='nvim'
 fi
 
-# use exa, alternative to ls if installed
-if command -v exa >/dev/null; then
-    alias ls='exa --long --tree --level=1 --git --classify --no-permissions --octal-permissions'
-    alias lt='exa --long --tree --level=2 --git --classify --no-permissions --octal-permissions'
-    alias lm='exa --long --tree --level=3 --git --classify --no-permissions --octal-permissions'
+# use eza, alternative to ls if installed
+if command -v eza >/dev/null; then
+    alias ls='eza --long --tree --level=1 --git --classify --no-permissions --octal-permissions'
+    alias lt='eza --long --tree --level=2 --git --classify --no-permissions --octal-permissions'
+    alias lm='eza --long --tree --level=3 --git --classify --no-permissions --octal-permissions'
     alias la='ls -la'
 fi
 
@@ -78,4 +78,4 @@ export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Slow but looks nice
-command -v fastfetch >/dev/null 2>&1 && eval "$(fastfetch)"
+command -v fastfetch >/dev/null 2>&1 && fastfetch
