@@ -13,6 +13,8 @@ if [[ $(uname) == 'Darwin' ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
+    alias brew="sudo -u samu brew"
+
     # On ARM macs the default homebrew installation moved
     # to /opt/homebrew. For meson to be able to find homebrew
     # files you need to set the following environment:
@@ -102,7 +104,12 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.adocker/bin
 
 # Playdate SDK and binaries
-export PLAYDATE_SDK_PATH="$HOME"/SDKs/PlaydateSDK-2.4.2
+if [[ $(uname) == 'Darwin' ]]; then
+    export PLAYDATE_SDK_PATH="$HOME"/Developer/PlaydateSDK
+else
+    export PLAYDATE_SDK_PATH="$HOME"/SDKs/PlaydateSDK-2.5.0
+fi
+
 export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 
 # local binaries, eg. exericism CLI
