@@ -32,7 +32,9 @@ x = 0
 y = 0
 
 [font.normal]
-family = "MesloLGSDZ Nerd Font"
+family = "MonoLisa Nerd Font Mono"
+
+
 
 [font.offset]
 x = 0
