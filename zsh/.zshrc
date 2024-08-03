@@ -112,6 +112,11 @@ fi
 
 export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 
+# Vulkan SDK
+export VULKAN_SDK="$HOME/vulkan/1.3.290.0"
+[ -s "$VULKAN_SDK/setup-env.sh" ] && \. "$VULKAN_SDK/setup-env.sh"
+
+
 # local binaries, eg. exericism CLI
 PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
