@@ -34,7 +34,6 @@ y = 0
 [font.normal]
 family = "Mononoki Nerd Font Mono"
 
-
 [font.offset]
 x = 0
 y = 0
@@ -352,7 +351,7 @@ args = ["-l"]
 program = "/bin/zsh"
 
 [window]
-decorations = "transparent"
+decorations = "full"
 dynamic_padding = true
 opacity = 1.0
 startup_mode = "Windowed"
