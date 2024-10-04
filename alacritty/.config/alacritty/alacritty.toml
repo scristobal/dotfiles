@@ -1,5 +1,4 @@
-
-# import = ["~/.config/alacritty/theme.toml"]
+import = ["~/.config/alacritty/theme.toml"]
 
 live_config_reload = true
 
