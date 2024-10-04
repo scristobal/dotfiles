@@ -31,7 +31,7 @@ x = 0
 y = 0
 
 [font.normal]
-family = "Mononoki Nerd Font Mono"
+family = "Mononoki Nerd Font"
 
 [font.offset]
 x = 0
