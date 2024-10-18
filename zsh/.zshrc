@@ -69,9 +69,9 @@ else
     alias cdlr="reset && cd"
 fi
 
-# vscode shortcut
-if command -v code >/dev/null; then
-    alias c="code ."
+# neovim shortcut
+if command -v nvim >/dev/null; then
+    alias n="nvim ."
 fi
 
 # custom  prompt
@@ -117,7 +117,7 @@ export VULKAN_SDK="$HOME/vulkan/1.3.290.0"
 [ -s "$VULKAN_SDK/setup-env.sh" ] && \. "$VULKAN_SDK/setup-env.sh"
 
 
-# local binaries, eg. exericism CLI
+# local binaries
 PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Slow but looks nice
