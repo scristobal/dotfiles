@@ -99,3 +99,8 @@ $env.NU_PLUGIN_DIRS = [
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
+
+mkdir ~/.cache/starship
+starship init nu | save -f ~/.cache/starship/init.nu
+
+zoxide init nushell | save -f ~/.zoxide.nu
