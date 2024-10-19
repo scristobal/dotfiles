@@ -1,9 +1,6 @@
-if [ -f "$HOME"/antigen.zsh ]; then
-    # workaround for tmux https://github.com/zsh-users/antigen/issues/543
-    export ANTIGEN_MUTEX=false
-
-    source "$HOME"/antigen.zsh
-    antigen init "$HOME"/.antigenrc
+if [ -f "/usr/share/zsh-antidote/antidote.zsh" ]; then
+    source '/usr/share/zsh-antidote/antidote.zsh'
+    antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then
