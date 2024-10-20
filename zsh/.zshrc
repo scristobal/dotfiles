@@ -100,11 +100,13 @@ export PATH=$PATH:/usr/local/go/bin
 # Docker
 export PATH=$PATH:$HOME/.adocker/bin
 
-# Playdate SDK and binaries
+# Playdate SDK 
 if [[ $(uname) == 'Darwin' ]]; then
     export PLAYDATE_SDK_PATH="$HOME"/Developer/PlaydateSDK
 else
-    export PLAYDATE_SDK_PATH="$HOME"/SDKs/PlaydateSDK-2.5.0
+    #   $ yay -S playdate-sdk
+    #   $ mkdir -p "${XDG_DATA_HOME:-"${HOME}/.local/share"}/playdate-sdk"
+    export PLAYDATE_SDK_PATH="$HOME".local/share/playdate-sdk
 fi
 
 export PATH=PLAYDATE_SDK_PATH/bin:$PATH
@@ -113,14 +115,10 @@ export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 export VULKAN_SDK="$HOME/vulkan/1.3.290.0"
 [ -s "$VULKAN_SDK/setup-env.sh" ] && \. "$VULKAN_SDK/setup-env.sh"
 
-
 # local binaries
 PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
-# Slow but looks nice
-command -v fastfetch >/dev/null 2>&1 && fastfetch
-
-# emscripten SDK, install and setup with:
+# emscripten SDK
 #   $ yay -S emsdk
 #   $ sudo /usr/lib/emsdk/emsdk install latest
 #   $ sudo /usr/lib/emsdk/emsdk activate latest
@@ -128,3 +126,6 @@ if [ -f "/usr/lib/emsdk/emsdk_env.sh" ]; then
     export EMSDK_QUIET=1  
     source "/usr/lib/emsdk/emsdk_env.sh" 
 fi
+
+# Slow but looks nice
+command -v fastfetch >/dev/null 2>&1 && fastfetch
