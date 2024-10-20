@@ -119,3 +119,12 @@ PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Slow but looks nice
 command -v fastfetch >/dev/null 2>&1 && fastfetch
+
+# emscripten SDK, install and setup with:
+#   $ yay -S emsdk
+#   $ sudo /usr/lib/emsdk/emsdk install latest
+#   $ sudo /usr/lib/emsdk/emsdk activate latest
+if [ -f "/usr/lib/emsdk/emsdk_env.sh" ]; then
+    export EMSDK_QUIET=1  
+    source "/usr/lib/emsdk/emsdk_env.sh" 
+fi
