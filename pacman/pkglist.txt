@@ -14,6 +14,7 @@ downgrade 11.3.0-1
 duf 0.8.1-3
 efibootmgr 18-3
 efitools 1.9.2-5
+emsdk 3.1.69-1
 endeavouros-keyring 20231222-1
 endeavouros-mirrorlist 24.9-1
 eos-apps-info 24.8.2-1
@@ -82,6 +83,7 @@ plasma-desktop 6.2.1-1
 plasma-disks 6.2.1-1
 plasma-firewall 6.2.1-1
 plasma-systemmonitor 6.2.1-1
+playdate-sdk 2.5.0-1
 poppler-glib 24.09.0-4
 print-manager 1:6.2.1-1
 pv 1.9.0-1
