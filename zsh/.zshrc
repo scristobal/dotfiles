@@ -106,7 +106,7 @@ if [[ $(uname) == 'Darwin' ]]; then
 else
     #   $ yay -S playdate-sdk
     #   $ mkdir -p "${XDG_DATA_HOME:-"${HOME}/.local/share"}/playdate-sdk"
-    export PLAYDATE_SDK_PATH="$HOME".local/share/playdate-sdk
+    export PLAYDATE_SDK_PATH="$HOME"/.local/share/playdate-sdk
 fi
 
 export PATH=PLAYDATE_SDK_PATH/bin:$PATH
