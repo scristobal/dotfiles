@@ -2,10 +2,6 @@
 
 Fantastic `dotfiles` and where to find them
 
-## How to get started
-
-Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install stuff until is all green.
-
 ## What is included/recommended?
 
 ### Terminal
@@ -110,9 +106,149 @@ Run [precheck.sh](./precheck.sh) to perform a harmless system checkup, install s
 
 - [Makedeb](https://docs.makedeb.org/prebuilt-mpr/getting-started/#setting-up-the-repository)
 
-## Other dotfiles and tools
 
+## Setting up a Mac
+
+### System Settings
+Siri
+- Toggle Siri off
+- Click “About Siri dict…” disable all one-by-one  
+
+Spotlight
+- Toggle all checks off
+- Click on “Search Privacy”
+    - Add “Macintosh HD” and any other drives
+
+Keyboard 
+- Crack Key repeat and Key delay to max right
+- Open “Keyboard Shortcuts”
+    - Remove both “Spotlight” shortcuts
+    - In “Launchpad & Dock” set “Show launchpad” to cmd+space
+- Text input
+    - Remove all options under “Text replacement”
+
+Mouse
+- Set “Secondary click” to “Click right side”
+- Toggle “Smart Zoom” on
+- Advance
+    - Toggle “Pointer acceleration” off
+- Click on “More gestures”
+    - Set “Swipe between pages” to “Scroll left or right with one finger”
+
+Displays
+- Toggle “Automatically adjust brightness” off
+- Toggle “True Tone” off
+
+Desktop & Dock
+- Toggle “Show indicators for open applications” off
+- Toggle “Show suggested and recent apps in Dock” off
+- Disable “Show items” on desktop
+- Toggle “Minimize windows into application icon” on
+- Toggle “Automatically hide and show the Dock” on
+- Toggle “Animate opening applications” off
+
+Accessibility
+- (optional) Reduce motion
+- (optional) Reduce transparency
+
+Control Center
+- Set Bluetooth “Show in Menu Bar”
+- Set Sound to “Always Show in Menu Bar”
+- Set Spotlight “Don’t Show in Menu Bar”
+- Set Siri “Don’t Show in Menu Bar”
+- (oled) Set Automatically hide and show the menu bar to “Always”
+
+Wallpaper
+- (oled) Choose black color
+
+### TinkerTool
+Finder
+- Toggle “Animate opening …” off
+- Toggle “Animate selecting …” off
+- Toggle “Don’t create hidden DS_Store …” on
+
+Dock
+- Toggle “Disable animation …” on
+- Toggle “Disable delay …” on
+
+Launchpad
+- Toggle “Disable fade-in …” on
+- Toggle “Disable fade-out ...” on
+- Toggle “Disable animation when …” on
+
+### Brew 
+Install brew, https://brew.sh set in PATH as indicated.
+
+Normal brew installs
+- pkg-config
+- llvm
+- stow
+- antidote 
+- neovim 
+- eza
+- zoxide
+- fzf
+- fastfetch 
+- starship 
+- tmux
+- gnupg
+- terragrunt
+- sops
+- just
+- protobuf
+
+Casks
+- proton pass
+- alt-tab
+- sublime-text
+- breaktimer
+
+Need a tap
+- terraform, https://developer.hashicorp.com/terraform/install?product_intent=terraform
+
+## Manual
+- Nerd Fonts (Mononoki), https://www.nerdfonts.com/font-downloads
+- Alacrity, https://alacritty.org
+- Rust, https://www.rust-lang.org/tools/install
+- Go, https://golang.google.cn/learn/#selected-tutorials
+- Zvm, https://www.zvm.app/guides/install-zvm/
+- Nvm, https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
+- Pyenv, https://github.com/pyenv/pyenv-installer?tab=readme-ov-file#install
+- Docker, https://docs.docker.com/desktop/setup/install/mac-install/#install-and-run-docker-desktop-on-mac
+- awscli, https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+- PlayDate SDK, https://play.date/dev/
+- Vulkan SDK, https://vulkan.lunarg.com/sdk/home#mac
+- Emscripten, https://emscripten.org/docs/getting_started/downloads.html
+- TG Pro, https://www.tunabellysoftware.com/tgpro/# search license on proton (or gmail)
+- Visual Studio Code, https://code.visualstudio.com/download
+- Tabby, https://tabby.sh
+- Proton Pass for Safari, https://apps.apple.com/es/app/proton-pass-for-safari/id6502835663?l=en-GB&mt=12
+- NordPass for Safari, https://apps.apple.com/es/app/nordpass-for-safari/id6443917910?l=en-GB&mt=12
+- Spotify, https://www.spotify.com/at/download/mac/
+- Reeder Classic, https://apps.apple.com/es/app/reeder-classic/id1529448980
+- Chrome, https://support.google.com/chrome/answer/95346?hl=en&co=GENIE.Platform%3DDesktop#zippy=%2Cmac
+- TinkerTool, https://www.bresink.biz/download2.php?ln=1&dl=TinkerTool
+- Wipr 2, Wipr 2 on the App Store
+- Telegram, https://desktop.telegram.org
+- Whatsapp, https://www.whatsapp.com
+- Slack, https://slack.com/intl/en-gb/downloads/mac
+
+## Install as you go 
+- (brew) wget, curl, grcurl and jq
+- wasm3
+- (brew) ncspot, yt-dlp
+- (brew) lunar, p7zip
+- (brew) ncdu
+- (cask) sublime 
+- (cask?) vivid
+- (cask) mos
+
+
+## Other dotfiles and tools
 - <https://github.com/mhartington/dotfiles>
 - <https://github.com/Matsuuu/dotfiles>
+- <https://github.com/ranisalt/dotfiles>
+- <https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#List_of_installed_packages>
 - <https://github.com/mhartington/dotfiles/tree/main/config/fonts>
 - <https://github.com/adrg/xdg>
+- <https://github.com/MikeMcQuaid/strap>
