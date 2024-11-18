@@ -1,75 +1,65 @@
 [user]
-email = samuel.cristobal@protonmail.com
-name = Samuel Cristobal
-signingkey = FCC3F7D5D6EE6B56
+	email = samuel.cristobal@protonmail.com
+	name = Samuel Cristobal
+	# signingkey = FCC3F7D5D6EE6B56
 
 [push]
-default = current
+	default = current
 
 [pull]
-rebase = false
+	rebase = false
 
 [core]
-editor = nvim
-ignorecase = false
+	editor = nvim
+	ignorecase = false
 
 [diff]
-tool = vscode
+	tool = vscode
 
 [difftool "vscode"]
-cmd = code --wait --diff $LOCAL $REMOTE
+	cmd = code --wait --diff $LOCAL $REMOTE
 
 [merge]
-tool = vscode
+	tool = vscode
 
 [mergetool "vscode"]
-cmd = code --wait $MERGED
-
-[credential "https://github.com"]
-helper =
-helper = !/opt/homebrew/bin/gh auth git-credential
-
-[credential "https://gist.github.com"]
-helper =
-helper = !/opt/homebrew/bin/gh auth git-credential
+	cmd = code --wait $MERGED
 
 [commit]
-gpgsign = true
+	gpgsign = true
 
 [init]
-defaultBranch = main
+	defaultBranch = main
 
 [credential]
-helper = /usr/local/share/gcm-core/git-credential-manager
+	helper = /usr/local/share/gcm-core/git-credential-manager
 
-[credential "https://dev.azure.com"]
-useHttpPath = true
 
 [filter "lfs"]
-clean = git-lfs clean -- %f
-smudge = git-lfs smudge -- %f
-process = git-lfs filter-process
-required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 [diff]
-tool = difftastic
+	tool = difftastic
 
 [difftool]
-prompt = false
+	prompt = false
 
 [difftool "difftastic"]
-cmd = difft "$LOCAL" "$REMOTE"
+	cmd = difft "$LOCAL" "$REMOTE"
 
 [pager]
-difftool = true
+	difftool = true
 
 # `git dft` instead of `git difftool`.
 [alias]
-dft = difftool
+	dft = difftool
 
 # `git dlog` to show `git log -p` with difftastic.
 [alias]
-dlog = "-c diff.external=difft log -p --ext-diff"
+	dlog = "-c diff.external=difft log -p --ext-diff"
 
 
 [includeIf "gitdir:~/repos/databeacon/"]
