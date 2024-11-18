@@ -79,7 +79,7 @@ Applications
 - font-manager
 - lapce 🦀 (vsc)
 - zed 🦀 (vsc)
-- aseprite (https://www.aseprite.org/) 
+- aseprite (https://www.aseprite.org/)
 - krita (https://krita.org/en/download/)
 - steam (see notes section)
 
@@ -103,14 +103,14 @@ System Settings
 
 Siri
 - Toggle Siri off
-- Click “About Siri dict…” disable all one-by-one  
+- Click “About Siri dict…” disable all one-by-one
 
 Spotlight
 - Toggle all checks off
 - Click on “Search Privacy”
     - Add “Macintosh HD” and any other drives
 
-Keyboard 
+Keyboard
 - Crack Key repeat and Key delay to max right
 - Open “Keyboard Shortcuts”
     - Remove both “Spotlight” shortcuts
@@ -176,13 +176,13 @@ Normal brew installs
 - pkg-config
 - llvm
 - stow
-- antidote 
-- neovim 
+- antidote
+- neovim
 - eza
 - zoxide
 - fzf
-- fastfetch 
-- starship 
+- fastfetch
+- starship
 - tmux
 - gnupg
 - aws-cli
@@ -213,7 +213,7 @@ Casks
 
 Manual installation
 
-- Nerd Fonts (Mononoki), https://www.nerdfonts.com/font-downloads
+- Nerd Fonts (Mononoki, JetBrainsMono), https://www.nerdfonts.com/font-downloads
 - Alacrity, https://alacritty.org
 - Rust, https://www.rust-lang.org/tools/install
 - Go, https://golang.google.cn/learn/#selected-tutorials
@@ -238,7 +238,7 @@ Manual installation
 - PlayDate SDK, https://play.date/dev/
 - Vulkan SDK, https://vulkan.lunarg.com/sdk/home#mac
 - Emscripten, https://emscripten.org/docs/getting_started/downloads.html
-- Parallels, 
+- Parallels,
 
 
 Other dotfiles and tools
