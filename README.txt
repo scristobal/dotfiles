@@ -238,6 +238,7 @@ Manual installation
 - PlayDate SDK, https://play.date/dev/
 - Vulkan SDK, https://vulkan.lunarg.com/sdk/home#mac
 - Emscripten, https://emscripten.org/docs/getting_started/downloads.html
+- Parallels, 
 
 
 Other dotfiles and tools
