@@ -1,4 +1,4 @@
 Created with 
 
-$  brew bundle dump
+$  brew bundle dump --no-vscode
 
