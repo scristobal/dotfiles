@@ -185,10 +185,22 @@ Normal brew installs
 - starship 
 - tmux
 - gnupg
+- aws-cli
+- terraform, needs a tap https://developer.hashicorp.com/terraform/install?product_intent=terraform
 - terragrunt
 - sops
 - just
 - protobuf
+- wget
+- curl
+- grcurl
+- jq
+- wasm3
+- ncspot
+- yt-dlp
+- lunar
+- p7zip
+- ncdu
 
 Casks
 
@@ -196,10 +208,8 @@ Casks
 - alt-tab
 - sublime-text
 - breaktimer
+- tabby, https://tabby.sh
 
-Requires a tap
-
-- terraform, https://developer.hashicorp.com/terraform/install?product_intent=terraform
 
 Manual installation
 
@@ -211,34 +221,23 @@ Manual installation
 - Nvm, https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
 - Pyenv, https://github.com/pyenv/pyenv-installer?tab=readme-ov-file#install
 - Docker, https://docs.docker.com/desktop/setup/install/mac-install/#install-and-run-docker-desktop-on-mac
-- awscli, https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-- PlayDate SDK, https://play.date/dev/
-- Vulkan SDK, https://vulkan.lunarg.com/sdk/home#mac
-- Emscripten, https://emscripten.org/docs/getting_started/downloads.html
-- TG Pro, https://www.tunabellysoftware.com/tgpro/# search license on proton (or gmail)
+- TG Pro, https://www.tunabellysoftware.com/tgpro/#  license key on proton (or gmail
 - Visual Studio Code, https://code.visualstudio.com/download
-- Tabby, https://tabby.sh
 - Proton Pass for Safari, https://apps.apple.com/es/app/proton-pass-for-safari/id6502835663?l=en-GB&mt=12
 - NordPass for Safari, https://apps.apple.com/es/app/nordpass-for-safari/id6443917910?l=en-GB&mt=12
 - Spotify, https://www.spotify.com/at/download/mac/
 - Reeder Classic, https://apps.apple.com/es/app/reeder-classic/id1529448980
 - Chrome, https://support.google.com/chrome/answer/95346?hl=en&co=GENIE.Platform%3DDesktop#zippy=%2Cmac
 - TinkerTool, https://www.bresink.biz/download2.php?ln=1&dl=TinkerTool
-- Wipr 2, Wipr 2 on the App Store
+- Wipr 2, https://apps.apple.com/es/app/wipr-2/id1662217862?l=en-GB
 - Telegram, https://desktop.telegram.org
 - Whatsapp, https://www.whatsapp.com
 - Slack, https://slack.com/intl/en-gb/downloads/mac
-
-Install as you go 
-
-- (brew) wget, curl, grcurl and jq
-- wasm3
-- (brew) ncspot, yt-dlp
-- (brew) lunar, p7zip
-- (brew) ncdu
-- (cask) sublime 
-- (cask?) vivid
-- (cask) mos
+- vivid, https://app.gumroad.com/d/bb9b38cb3c8542ff60e640e69e764a4c license key on proton (or gmail)
+- mos, https://mos.caldis.me
+- PlayDate SDK, https://play.date/dev/
+- Vulkan SDK, https://vulkan.lunarg.com/sdk/home#mac
+- Emscripten, https://emscripten.org/docs/getting_started/downloads.html
 
 
 Other dotfiles and tools

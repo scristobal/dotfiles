@@ -1,26 +1,14 @@
 {
-	"color_scheme": "GitHub Dark Legacy.sublime-color-scheme",
-	"ignored_packages":
-	[
-		"Vintage",
-	],
-	"font_face" : "MesloLGSDZ Nerd Font Mono",
-	"font_size" : 12,
-	
-	"fold_buttons": false, 
 	"hardware_acceleration": "opengl",
+	"font_size" : 12,
+	"fold_buttons": false, 
 	"line_numbers" : false,
 	"gutter" : false,
 	"margin": 12,
-
-	"native_tabs": false,
-
+	"native_tabs": true,
 	"caret_extra_top": 0,
 	"caret_extra_bottom": 0,
-	"caret_extra_width": 0,
 	"highlight_line": true,
 	"match_brackets": false,	
-
 	"draw_indent_guides": false,
-
 }

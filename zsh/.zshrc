@@ -6,11 +6,9 @@ fi
 if [[ $(uname) == 'Darwin' ]]; then
 
     # Load Homebrew if /opt/homebrew/bin/brew exists
-    if [ -f "/opt/homebrew/bin/brew" ]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
+    if [ -f "$HOMEBREW_REPOSITORY/bin/brew" ]; then
+        eval "$($HOMEBREW_REPOSITORY/bin/brew shellenv)"
     fi
-
-    alias brew="sudo -u samu brew"
 
     # On ARM macs the default homebrew installation moved
     # to /opt/homebrew. For meson to be able to find homebrew
@@ -20,11 +18,11 @@ if [[ $(uname) == 'Darwin' ]]; then
     export CPATH=$HOMEBREW_REPOSITORY/include:$CPATH
 
     # Required to link to openssl 3 instead of mac internal version
-    export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+    # export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
     # support for x86 brew made explicit
     # remember to use compilation flags ARCHFLAGS="-arch x86_64"
-    alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
+    # alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
 
     # Sublime editor config requires special, platform-dependant directory
     SUBLIME_SETTINS="$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings

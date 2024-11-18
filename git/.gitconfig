@@ -1,7 +1,7 @@
 [user]
 email = samuel.cristobal@protonmail.com
 name = Samuel Cristobal
-# signingkey = 53D7E132038BDB751BB510419E6AB650/D/DA3BC5B
+signingkey = FCC3F7D5D6EE6B56
 
 [push]
 default = current
@@ -40,7 +40,6 @@ gpgsign = true
 defaultBranch = main
 
 [credential]
-helper =
 helper = /usr/local/share/gcm-core/git-credential-manager
 
 [credential "https://dev.azure.com"]
@@ -71,3 +70,7 @@ dft = difftool
 # `git dlog` to show `git log -p` with difftastic.
 [alias]
 dlog = "-c diff.external=difft log -p --ext-diff"
+
+
+[includeIf "gitdir:~/repos/databeacon/"]
+	 path = ~/.databeacon.gitconfig
