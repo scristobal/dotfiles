@@ -139,6 +139,7 @@ Desktop & Dock
 - Toggle “Animate opening applications” off
 
 Accessibility
+- Pointer Control -> Trackpad Options -> Use trackpad for dragging -> Draggind Style -> Three Finger Drag
 - (optional) Reduce motion
 - (optional) Reduce transparency
 
