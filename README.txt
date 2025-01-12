@@ -131,14 +131,15 @@ Displays
 - Toggle “True Tone” off
 
 Desktop & Dock
-- Toggle “Show indicators for open applications” off
-- Toggle “Show suggested and recent apps in Dock” off
-- Disable “Show items” on desktop
 - Toggle “Minimize windows into application icon” on
 - Toggle “Automatically hide and show the Dock” on
 - Toggle “Animate opening applications” off
+- Toggle “Show indicators for open applications” off
+- Toggle “Show suggested and recent apps in Dock” off
+- Disable “Show items” on desktop
 
 Accessibility
+- Pointer Control -> Trackpad Options -> Use trackpad for dragging -> Draggind Style -> Three Finger Drag
 - (optional) Reduce motion
 - (optional) Reduce transparency
 
