@@ -1,0 +1,6 @@
+[
+    {
+        "key": "ctrl+k c",
+        "command": "workbench.action.toggleCenteredLayout"
+    }
+]

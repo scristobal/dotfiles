@@ -1,0 +1,3 @@
+alt - t : open -a 'Ghostty'
+alt - c : open -a 'Google Chrome'
+alt - v : open -a 'Visual Studio Code'
