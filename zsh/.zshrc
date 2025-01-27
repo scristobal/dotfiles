@@ -8,6 +8,8 @@ if [[ $(uname) == 'Darwin' ]]; then
     # Load Homebrew if /opt/homebrew/bin/brew exists
     if [ -f "$HOMEBREW_REPOSITORY/bin/brew" ]; then
         eval "$($HOMEBREW_REPOSITORY/bin/brew shellenv)"
+        autoload -Uz compinit
+        compinit
     fi
 
     # On ARM macs the default homebrew installation moved
