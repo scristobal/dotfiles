@@ -8,8 +8,6 @@ if [[ $(uname) == 'Darwin' ]]; then
     # Load Homebrew if /opt/homebrew/bin/brew exists
     if [ -f "$HOMEBREW_REPOSITORY/bin/brew" ]; then
         eval "$($HOMEBREW_REPOSITORY/bin/brew shellenv)"
-        autoload -Uz compinit
-        compinit
     fi
 
     # On ARM macs the default homebrew installation moved
@@ -59,6 +57,8 @@ fi
 
 # faster and better clear terminal
 alias clr="tput reset"
+
+alias ff="aerospace list-windows --all | fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
 
 if command -v fastfetch >/dev/null; then
     alias cdlr="reset && cd && fastfetch"
