@@ -49,14 +49,47 @@ fi
 
 # use eza, alternative to ls if installed
 if command -v eza >/dev/null; then
-    alias ls='eza --long --tree --level=1 --git --classify --no-permissions --octal-permissions'
-    alias lt='eza --long --tree --level=2 --git --classify --no-permissions --octal-permissions'
-    alias lm='eza --long --tree --level=3 --git --classify --no-permissions --octal-permissions'
-    alias la='ls -la'
+
+    alias ls="eza -l --icons --git -a"
+    alias lt="eza --tree --level=2 --long --icons --git"
+    alias ltree="eza --tree --level=2  --icons --git"
+
+    # alias ls='eza --long --tree --level=1 --git --classify --no-permissions --octal-permissions'
+    # alias lt='eza --long --tree --level=2 --git --classify --no-permissions --octal-permissions'
+    # alias lm='eza --long --tree --level=3 --git --classify --no-permissions --octal-permissions'
+    # alias la='ls -la'
 fi
+
+cx() { cd "$@" && ls; }
+
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Git
+alias gc="git commit -m"
+alias gca="git commit -a -m"
+alias gp="git push origin HEAD"
+alias gpu="git pull origin"
+alias gst="git status"
+alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit"
+alias gdiff="git diff"
+alias gco="git checkout"
+alias gb='git branch'
+alias gba='git branch -a'
+alias gadd='git add'
+alias ga='git add -p'
+alias gcoall='git checkout -- .'
+alias gr='git remote'
+alias gre='git reset'
 
 # faster and better clear terminal
 alias clr="tput reset"
+
+alias ff="aerospace list-windows --all | fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
 
 if command -v fastfetch >/dev/null; then
     alias cdlr="reset && cd && fastfetch"

@@ -1,3 +1,4 @@
+mattmc3/ez-compinit
 
 getantidote/use-omz 
 ohmyzsh/ohmyzsh path:plugins/git

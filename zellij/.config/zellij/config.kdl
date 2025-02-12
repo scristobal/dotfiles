@@ -1,30 +1,4 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-plugins {
-    // Define the "autolock" plugin.
-    autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
-        // Enabled at start?
-        is_enabled true
-        // Lock when any open these programs open.
-        triggers "nvim|vim|git|fzf|zoxide|atuin"
-        // Reaction to input occurs after this many seconds. (default=0.3)
-        // (An existing scheduled reaction prevents additional reactions.)
-        reaction_seconds "0.3"
-        // Print to Zellij log? (default=false)
-        print_to_log true
-    }
-    //...
-}
-// Load this "headless" plugin on start.
-load_plugins {
-    autolock
-}
-simplified_ui true
-theme "nord"
-ui {
-    pane_frames {
-        rounded_corners true
-    }
-}
 keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
@@ -286,13 +260,34 @@ plugins {
         cwd "/"
     }
     configuration location="zellij:configuration"
-    plugin-manager location="zellij:plugin-manager"
+    plugin-manager location="zellij:plugin-manager" 
+/*
+    autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
+        // Enabled at start?
+        is_enabled true
+        // Lock when any open these programs open.
+        triggers "nvim|vim|git|fzf|zoxide|atuin"
+        // Reaction to input occurs after this many seconds. (default=0.3)
+        // (An existing scheduled reaction prevents additional reactions.)
+        reaction_seconds "5"
+        // Print to Zellij log? (default=false)
+        print_to_log true
+    }
+*/
 }
 
 // Plugins to load in the background when a new session starts
 load_plugins {
-  // "file:/path/to/my-plugin.wasm"
-  // "https://example.com/my-plugin.wasm"
+    // "file:/path/to/my-plugin.wasm"
+    // "https://example.com/my-plugin.wasm"
+    // autolock
+}
+
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name true
+    }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -309,7 +304,7 @@ load_plugins {
 //    - true
 //    - false (Default)
 //
-// simplified_ui true
+simplified_ui true 
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
@@ -325,7 +320,7 @@ load_plugins {
 //   - true (default)
 //   - false
 //
-// pane_frames true
+pane_frames false 
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -381,12 +376,13 @@ load_plugins {
 // Default: default
 //
 // theme "default"
+theme "nord"
 
 // The name of the default layout to load on startup
 // Default: "default"
 // (Requires restart)
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal

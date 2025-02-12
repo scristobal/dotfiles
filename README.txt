@@ -170,6 +170,12 @@ Launchpad
 - Toggle “Disable animation when …” on
 
 
+Other
+- sketchy bar requires sketchybar-app-font (https://github.com/kvndrsslr/sketchybar-app-font/tree/main)
+- From https://nikitabobko.github.io/AeroSpace/goodness#
+    - disable window open animations: `defaults write -g NSAutomaticWindowAnimationsEnabled -bool false`
+    - move windows by dragging any part of the window `defaults write -g NSWindowShouldDragOnGesture -bool true`
+
 Install brew from https://brew.sh set in PATH as indicated.
 
 Normal brew installs
