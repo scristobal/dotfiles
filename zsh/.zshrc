@@ -47,6 +47,8 @@ else
     export EDITOR='nvim'
 fi
 
+alias reload= 'source ~/.zshrc'
+
 # use eza, alternative to ls if installed
 if command -v eza >/dev/null; then
 
@@ -85,6 +87,8 @@ alias ga='git add -p'
 alias gcoall='git checkout -- .'
 alias gr='git remote'
 alias gre='git reset'
+
+gcp() { 'git clone --depth 1 --recurse-submodules --shallow-submodules $1' }
 
 # faster and better clear terminal
 alias clr="tput reset"
