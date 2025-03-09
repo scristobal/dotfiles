@@ -88,7 +88,7 @@ alias gcoall='git checkout -- .'
 alias gr='git remote'
 alias gre='git reset'
 
-gcp() { 'git clone --depth 1 --recurse-submodules --shallow-submodules $1' }
+# gcp() { 'git clone --depth 1 --recurse-submodules --shallow-submodules $1' }
 
 # faster and better clear terminal
 alias clr="tput reset"
