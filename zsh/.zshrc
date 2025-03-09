@@ -112,11 +112,6 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 # Rust with rustup
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
 
-# Python with pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init -)"
 
 # Node with nvm
 export NVM_DIR="$HOME/.config/nvm"
