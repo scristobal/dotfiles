@@ -1,6 +1,9 @@
-Fantastic `dotfiles` and where to find them
+# Fantastic `dotfiles` and where to find them.
 
-What is included/recommended?
+Best used in combination with [GNU Stow](https://www.gnu.org/software/stow/).
+Should work on Linux (EndevourOS-Arch) and macOS.
+
+## Linux (EndevourOS-Arch):
 
 - zshm `chsh -s $(which zsh)`
 - nvim
@@ -54,12 +57,17 @@ Programing
 - nvm, https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 - rustup, https://rustup.rs/ 🦀
 - zigup, https://github.com/marler8997/zigup (or zvm https://www.zvm.app/
-- pyenv, https://github.com/pyenv/pyenv?tab=readme-ov-file#installation) + poetry https://python-poetry.org/docs/#installation
+- uv, https://github.com/astral-sh/uv (or Poetry + pyenv)
 - go, https://go.dev/doc/install#extra_versions
-- Lua, https://www.lua.org/download.html
-- Playdate SDK, (https://play.date/dev/) + Mirror (https://play.date/mirror/) + project template (https://github.com/scristobal/playdate-c-api-experiments)
-- cmake, ninja and meson
+- lua, https://www.lua.org/download.html
 - gfortran, https://fortran-lang.org/learn/os_setup/install_gfortran/#linux
+- gcc, cmake, ninja and meson
+
+SDKs:
+
+- Playdate SDK, (https://play.date/dev/) + Mirror (https://play.date/mirror/) + project template (https://github.com/scristobal/playdate-c-api-experiments)
+- Emscripten, https://emscripten.org/docs/getting_started/downloads.html
+- Vulkan SDK, https://vulkan.lunarg.com/sdk/home#mac
 
 Applications
 
@@ -97,9 +105,10 @@ Notes
 - Makedeb https://docs.makedeb.org/prebuilt-mpr/getting-started/#setting-up-the-repository)
 - Aseprite needs manual scaling (do `Edit > Preferences > General > Screen Scaling: 400%`)
 
-Setting up a Mac
 
-System Settings
+## macOS
+
+System Settings:
 
 Siri
 - Toggle Siri off
@@ -178,7 +187,7 @@ Other
 
 Install brew from https://brew.sh set in PATH as indicated.
 
-Normal brew installs
+recommended:
 
 - pkg-config
 - llvm
@@ -205,50 +214,36 @@ Normal brew installs
 - wasm3
 - ncspot
 - yt-dlp
-- lunar
 - p7zip
 - ncdu
 
-Casks
-
-- proton pass
-- alt-tab
-- sublime-text
-- breaktimer
-- tabby, https://tabby.sh
-
-
-Manual installation
-
 - Nerd Fonts (Mononoki, JetBrainsMono), https://www.nerdfonts.com/font-downloads
 - Alacrity, https://alacritty.org
-- Rust, https://www.rust-lang.org/tools/install
-- Go, https://golang.google.cn/learn/#selected-tutorials
-- Zvm, https://www.zvm.app/guides/install-zvm/
-- Nvm, https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
-- Pyenv, https://github.com/pyenv/pyenv-installer?tab=readme-ov-file#install
-- Docker, https://docs.docker.com/desktop/setup/install/mac-install/#install-and-run-docker-desktop-on-mac
-- TG Pro, https://www.tunabellysoftware.com/tgpro/#  license key on proton (or gmail
+- Tabby, https://tabby.sh
+
+- Docker (Desktop), https://docs.docker.com/desktop/setup/install/mac-install/#install-and-run-docker-desktop-on-mac
 - Visual Studio Code, https://code.visualstudio.com/download
-- Proton Pass for Safari, https://apps.apple.com/es/app/proton-pass-for-safari/id6502835663?l=en-GB&mt=12
-- NordPass for Safari, https://apps.apple.com/es/app/nordpass-for-safari/id6443917910?l=en-GB&mt=12
-- Spotify, https://www.spotify.com/at/download/mac/
-- Reeder Classic, https://apps.apple.com/es/app/reeder-classic/id1529448980
+- Sublime Text, https://www.sublimetext.com/
+
 - Chrome, https://support.google.com/chrome/answer/95346?hl=en&co=GENIE.Platform%3DDesktop#zippy=%2Cmac
-- TinkerTool, https://www.bresink.biz/download2.php?ln=1&dl=TinkerTool
-- Wipr 2, https://apps.apple.com/es/app/wipr-2/id1662217862?l=en-GB
+- Spotify, https://www.spotify.com/at/download/mac/
+
 - Telegram, https://desktop.telegram.org
 - Whatsapp, https://www.whatsapp.com
 - Slack, https://slack.com/intl/en-gb/downloads/mac
-- vivid, https://app.gumroad.com/d/bb9b38cb3c8542ff60e640e69e764a4c license key on proton (or gmail)
-- mos, https://mos.caldis.me
-- PlayDate SDK, https://play.date/dev/
-- Vulkan SDK, https://vulkan.lunarg.com/sdk/home#mac
-- Emscripten, https://emscripten.org/docs/getting_started/downloads.html
-- Parallels,
 
+macOs only:
 
-Other dotfiles and tools
+- Reeder Classic, https://apps.apple.com/es/app/reeder-classic/id1529448980
+- TinkerTool, https://www.bresink.biz/download2.php?ln=1&dl=TinkerTool
+- TG Pro, https://www.tunabellysoftware.com/tgpro/#  license key on proton (or gmail
+- Vivid, https://app.gumroad.com/d/bb9b38cb3c8542ff60e640e69e764a4c license key on proton (or gmail)
+- Caffeine - https://www.caffeine-app.net
+- Mos, https://mos.caldis.me
+- BreakTimer, https://breaktimer.app/
+
+---
+# Other dotfiles and tools
 
 - https://github.com/mhartington/dotfiles
 - https://github.com/Matsuuu/dotfiles

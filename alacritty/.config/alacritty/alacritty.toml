@@ -28,7 +28,7 @@ x = 0
 y = 0
 
 [font.normal]
-family = "Mononoki Nerd Font"
+family = "JetBrainsMono Nerd Font Propo"
 
 [font.offset]
 x = 0
