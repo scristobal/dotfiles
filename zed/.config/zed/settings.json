@@ -1,0 +1,56 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": {
+    "mode": "system",
+    "light": "Colored Zed Icons Theme Light",
+    "dark": "Colored Zed Icons Theme Dark"
+  },
+  "auto_install_extensions": {
+    "colored-zed-icons-theme": true,
+    "fleet-themes": true,
+    "html": true,
+    "lua": true,
+    "playdate": true,
+    "make": true,
+    "toml": true
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "openai",
+      "model": "o1-preview"
+    },
+    "version": "2"
+  },
+  "show_completions_on_input": false,
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "ui_font_size": 14,
+  "buffer_font_size": 12,
+  "theme": {
+    "mode": "system",
+    "light": "Fleet Light",
+    "dark": "Fleet Dark"
+  },
+  // "use_autoclose": false,
+  "vim_mode": true,
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_system_clipboard": "always",
+    "use_multiline_find": false,
+    "use_smartcase_find": false,
+    "highlight_on_yank_duration": 200,
+    "custom_digraphs": {}
+  },
+  "terminal": {
+    "font_family": "Mononoki Nerd Font Propo",
+    "line_height": "standard"
+  }
+}
