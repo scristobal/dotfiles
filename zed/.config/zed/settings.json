@@ -28,7 +28,7 @@
     },
     "version": "2"
   },
-  "show_completions_on_input": false,
+  "show_completions_on_input": true,
   "features": {
     "edit_prediction_provider": "zed"
   },
