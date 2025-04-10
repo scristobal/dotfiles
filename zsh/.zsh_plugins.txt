@@ -12,6 +12,8 @@ zsh-users/zsh-history-substring-search
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 
+joshskidmore/zsh-fzf-history-search
+
 mattmc3/zfunctions
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
