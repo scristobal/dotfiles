@@ -23,8 +23,8 @@
   },
   "assistant": {
     "default_model": {
-      "provider": "openai",
-      "model": "o1-preview"
+      "provider": "copilot_chat",
+      "model": "claude-3.7-sonnet-thought"
     },
     "version": "2"
   },
@@ -37,7 +37,7 @@
   "theme": {
     "mode": "system",
     "light": "Fleet Light",
-    "dark": "Fleet Dark"
+    "dark": "JetBrains New Dark"
   },
   // "use_autoclose": false,
   "vim_mode": true,
