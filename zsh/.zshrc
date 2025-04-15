@@ -10,6 +10,11 @@ if [[ $(uname) == 'Darwin' ]]; then
         eval "$($HOMEBREW_REPOSITORY/bin/brew shellenv)"
     fi
 
+    if [ -f  "$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh" ]; then
+        source $HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh
+        antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+    fi
+
     # On ARM macs the default homebrew installation moved
     # to /opt/homebrew. For meson to be able to find homebrew
     # files you need to set the following environment:
