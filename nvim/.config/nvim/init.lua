@@ -15,11 +15,10 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.have_nerd_font = true
 
-require 'plugins'
+require 'lazy-plugins'
 require 'options'
 require 'fixes'
 
 vim.schedule(function()
   require 'keymaps'
 end)
-

@@ -16,9 +16,6 @@ require('lazy').setup({
   require 'plugins.more',
   require 'theme',
 }, {
-  defaults = { lazy = true },
-  install = { colorscheme = { 'kanagawa' } },
-
   ui = {
     icons = {
       ft = '',
@@ -27,7 +24,6 @@ require('lazy').setup({
       not_loaded = '',
     },
   },
-
   performance = {
     rtp = {
       disabled_plugins = {
