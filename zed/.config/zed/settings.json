@@ -22,6 +22,7 @@
     "toml": true
   },
   "assistant": {
+    "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-3.7-sonnet-thought"
@@ -32,8 +33,12 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
+  //"ui_font_family": "JetBrainsMonoNL Nerd Font",
   "ui_font_size": 14,
-  "buffer_font_size": 12,
+  "buffer_font_family": "JetBrainsMonoNL Nerd Font Mono",
+  "buffer_font_size": 12.5,
+  "buffer_font_weight": 400,
+  "buffer_line_height": "comfortable",
   "theme": {
     "mode": "system",
     "light": "Fleet Light",
@@ -50,7 +55,7 @@
     "custom_digraphs": {}
   },
   "terminal": {
-    "font_family": "Mononoki Nerd Font Propo",
+    "font_family": "JetBrainsMonoNL Nerd Font",
     "line_height": "standard"
   }
 }
