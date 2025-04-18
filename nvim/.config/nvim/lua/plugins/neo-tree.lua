@@ -11,7 +11,7 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '\\', ':Neotree toggle position=float<CR>', desc = 'NeoTree toggle', silent = true },
   },
   opts = {
     popup_border_style = '',
