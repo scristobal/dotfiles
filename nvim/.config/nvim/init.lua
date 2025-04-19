@@ -13,9 +13,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.have_nerd_font = true
+local lazy_config = require 'configs.lazy'
 
-require 'lazy-plugins'
+require('lazy').setup('plugins', lazy_config)
+
 require 'options'
 require 'fixes'
 

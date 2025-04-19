@@ -56,7 +56,7 @@ vim.opt.scrolloff = 0
 vim.opt.confirm = true
 
 -- make all floating windows rounded
-vim.o.winborder = 'rounded'
+-- vim.o.winborder = 'rounded'
 
 -- replaces lsp_lines.nvim
 vim.diagnostic.config {

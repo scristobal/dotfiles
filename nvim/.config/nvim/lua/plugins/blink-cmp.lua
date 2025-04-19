@@ -1,6 +1,7 @@
 return {
   { -- Autocompletion
     'saghen/blink.cmp',
+    enabled = false,
     event = 'VimEnter',
     version = '1.*',
     dependencies = {
@@ -98,4 +99,3 @@ return {
     },
   },
 }
--- vim: ts=2 sts=2 sw=2 et

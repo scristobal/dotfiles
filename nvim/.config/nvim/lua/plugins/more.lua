@@ -1,4 +1,5 @@
 return {
+  -- use heuristics to config current buffer
   'tpope/vim-sleuth',
 
   -- use gc on comment code on visual mode
