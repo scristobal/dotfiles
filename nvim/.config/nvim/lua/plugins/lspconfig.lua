@@ -45,6 +45,11 @@ return {
           -- this is shift-k by default
           -- map('<leader>h', vim.lsp.buf.hover, 'Show [H]over info')
 
+          vim.diagnostic.config {
+            underline = true,
+            virtual_text = false,
+          }
+
           -- highlight references of the word under the cursor and clean up See `:help CursorHold`
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
