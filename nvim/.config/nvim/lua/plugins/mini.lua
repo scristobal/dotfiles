@@ -27,6 +27,25 @@ return {
       -- statusline.section_location = function()
       --   return '%2l:%-2v'
       -- end
+      --
+      --   require('mini.files').setup {
+      --     windows = {
+      --       preview = true,
+      --       width_preview = 120,
+      --       width_focus = 50,
+      --       width_nofocus = 15,
+      --     },
+      --   }
+      --
+      --   local toggle_files = function()
+      --     if not MiniFiles.get_explorer_state() then
+      --       MiniFiles.open()
+      --     else
+      --       MiniFiles.close()
+      --     end
+      --   end
+      --
+      --   vim.keymap.set('n', '<C-\\>', toggle_files, { desc = 'Open file tree' })
     end,
   },
 }

@@ -14,6 +14,7 @@ return {
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'nvim-tree/nvim-web-devicons', enabled = true },
+      'nvim-telescope/telescope-file-browser.nvim',
     },
     config = function()
       --  :help telescope.setup()
@@ -65,6 +66,14 @@ return {
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>/', current_buf, { desc = '[/] Fuzzily search in current buffer' })
       vim.keymap.set('n', '<leader>s/', open_files, { desc = '[S]earch [/] in Open Files' })
+
+      require('telescope').load_extension 'file_browser'
+
+      local search_dir = function()
+        require('telescope').extensions.file_browser.file_browser()
+      end
+
+      vim.keymap.set('n', '<space>sb', search_dir, { desc = '[S]earch in current [D]irectory' })
     end,
   },
 }

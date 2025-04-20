@@ -9,7 +9,7 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree toggle position=float<CR>', desc = 'NeoTree toggle', silent = true },
+    { '<C-\\>', ':Neotree toggle position=float<CR>', desc = 'NeoTree toggle', silent = true },
   },
   opts = {
     popup_border_style = '',

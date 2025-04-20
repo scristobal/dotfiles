@@ -169,4 +169,19 @@ return {
 
   -- Trouble pannel
   'folke/trouble.nvim',
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    opts = {
+      view = {
+        float = {
+          enable = true,
+          open_win_config = {
+            relative = 'editor',
+            border = 'rounded',
+          },
+        },
+      },
+    },
+  },
 }
