@@ -108,7 +108,7 @@ fi
 
 # neovim shortcut
 if command -v nvim >/dev/null; then
-    alias n="nvim ."
+    alias n="nvim"
 fi
 
 # custom  prompt

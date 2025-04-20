@@ -155,25 +155,6 @@ return {
     },
   },
 
-  -- show a scrollbar on the side
-  -- {
-  --   'petertriho/nvim-scrollbar',
-  --   opts = {},
-  -- },
-
-  -- trigger available moves on current line
-  --  {
-  --    'tris203/precognition.nvim',
-  --    opts = {},
-  --  },
-
-  -- shows missed oportunities for optimal moves
-  --  {
-  --    'm4xshen/hardtime.nvim',
-  --    dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
-  --    opts = {},
-  --  },
-
   -- {
   --   'https://github.com/fresh2dev/zellij.vim',
   --   -- Pin version to avoid breaking changes.
@@ -185,40 +166,6 @@ return {
   --     -- vim.g.zellij_navigator_no_default_mappings = 1
   --   end,
   -- },
-
-  --  {
-  --    'rachartier/tiny-inline-diagnostic.nvim',
-  --    event = 'VeryLazy', -- Or `LspAttach`
-  --    priority = 1000, -- needs to be loaded in first
-  --    config = function()
-  --      require('tiny-inline-diagnostic').setup {
-  --        preset = 'simple',
-  --        options = {
-  --          show_source = true,
-  --          use_icons_from_diagnstic = true,
-  --          multilines = {
-  --            enabled = true,
-  --          },
-  --        },
-  --      }
-  --    end,
-  --  },
-
-  -- alternative virtual text diagnostic
-  --  {
-  --    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-  --    opts = true,
-  --    keys = {
-  --      {
-  --        '<leader>l',
-  --        function()
-  --          require('lsp_lines').toggle()
-  --        end,
-  --        mode = 'n',
-  --        desc = 'Toggle lsp virtual [L]ines',
-  --      },
-  --    },
-  --  },
 
   -- Trouble pannel
   'folke/trouble.nvim',
