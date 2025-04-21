@@ -4,21 +4,27 @@ return {
     -- `lazydev` configures Lua LSP nvim config, runtime and plugins used for completion, annotations and signatures of APIs
     'folke/lazydev.nvim',
     ft = 'lua',
+    dependencies = {
+      { 'Bilal2453/luvit-meta', lazy = true },
+    },
     opts = {
       library = {
         -- Load luvit types when the `vim.uv` word is found
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        { path = 'snacks.nvim', words = { 'Snacks' } },
+        { path = 'lazy.nvim', words = { 'LazyVim' } },
       },
     },
   },
-  { 'Bilal2453/luvit-meta', lazy = true },
-  { 'b0o/schemastore.nvim' },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Mason must be loaded before its dependents and `opts = {}` ensures calling `require('mason').setup({})`
       { 'williamboman/mason.nvim', opts = {} },
       'williamboman/mason-lspconfig.nvim',
+      -- grap json schmeas from SchemaStore
+      { 'b0o/schemastore.nvim' },
+      -- shows LSP progress
       { 'j-hui/fidget.nvim', opts = {} },
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -32,23 +38,18 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
           end
 
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          -- map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          -- map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          -- map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          -- map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          -- map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+          -- map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- this is shift-k by default
           -- map('<leader>h', vim.lsp.buf.hover, 'Show [H]over info')
-
-          vim.diagnostic.config {
-            underline = true,
-            virtual_text = false,
-          }
 
           -- highlight references of the word under the cursor and clean up See `:help CursorHold`
           local client = vim.lsp.get_client_by_id(event.data.client_id)

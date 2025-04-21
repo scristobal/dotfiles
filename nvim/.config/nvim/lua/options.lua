@@ -67,14 +67,9 @@ vim.o.winborder = 'rounded'
 
 -- replaces lsp_lines.nvim
 vim.diagnostic.config {
-  -- Use the default configuration
-  -- virtual_lines = true,
-
-  -- Alternatively, customize specific options
-  virtual_lines = {
-    -- Only show virtual line diagnostics for the current cursor line
-    current_line = true,
-  },
+  underline = true,
+  virtual_text = false,
+  virtual_lines = false,
 }
 
 -- more :help vim.opt and :help option-list

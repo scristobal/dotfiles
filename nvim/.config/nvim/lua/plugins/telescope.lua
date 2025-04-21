@@ -3,6 +3,7 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
+    enabled = false,
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
