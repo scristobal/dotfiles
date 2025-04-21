@@ -1,4 +1,4 @@
--- Autoformatting
+-- [[Autoformatting]]
 return {
   {
     'stevearc/conform.nvim',
