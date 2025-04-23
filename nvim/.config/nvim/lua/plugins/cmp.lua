@@ -131,7 +131,7 @@ return {
             -- Truncate the completion entry text if it's longer than the
             -- max content width. We subtract 3 from the max content width
             -- to account for the "..." that will be appended to it.
-            if #content > max_content_width then
+            if content and #content > max_content_width then
               item.abbr = vim.fn.strcharpart(content, 0, max_content_width - 3) .. '...'
             else
               item.abbr = content .. (' '):rep(max_content_width - #content)
@@ -207,4 +207,3 @@ return {
     end,
   },
 }
--- vim: ts=2 sts=2 sw=2 et

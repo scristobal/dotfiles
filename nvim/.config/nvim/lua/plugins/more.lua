@@ -6,9 +6,6 @@ return {
   -- use gc on comment code on visual mode
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- Trouble pannel
-  'folke/trouble.nvim',
-
   -- hightlight TODOS, FIXME and co.
   {
     'folke/todo-comments.nvim',
@@ -35,6 +32,7 @@ return {
     event = 'InsertEnter',
     opts = {},
   },
+
   -- improved folding
   {
     'kevinhwang91/nvim-ufo',

@@ -1,5 +1,6 @@
 return {
   ui = {
+    border = 'rounded',
     icons = {
       ft = '',
       lazy = '󰂠 ',
