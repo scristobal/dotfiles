@@ -382,6 +382,15 @@ return {
         end,
         desc = 'LSP Workspace Symbols',
       },
+
+      {
+        '<leader>st',
+        function()
+          Snacks.picker.treesitter()
+        end,
+        desc = 'Treesitter',
+      },
+
     },
   },
 }

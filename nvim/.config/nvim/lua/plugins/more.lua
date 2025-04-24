@@ -33,32 +33,6 @@ return {
     opts = {},
   },
 
-  -- improved folding
-  {
-    'kevinhwang91/nvim-ufo',
-    event = 'BufRead',
-    dependencies = { 'kevinhwang91/promise-async' },
-    config = function()
-      vim.o.foldcolumn = '1'
-      vim.o.foldlevel = 99
-      vim.o.foldlevelstart = 99
-      vim.o.foldenable = true
-
-      require('ufo').setup()
-    end,
-  },
-
-  -- code outline sidebar
-  {
-    'hedyhli/outline.nvim',
-    lazy = true,
-    cmd = { 'Outline', 'OutlineOpen' },
-    keys = { -- Example mapping to toggle outline
-      { '<leader>o', '<cmd>Outline<CR>', desc = 'Toggle [o]utline' },
-    },
-    opts = {},
-  },
-
   -- show code docs on a separate pannel
   {
     'amrbashir/nvim-docs-view',
