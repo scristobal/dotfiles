@@ -38,7 +38,6 @@ return {
       'hrsh7th/cmp-nvim-lsp-signature-help',
     },
     config = function()
-      -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
@@ -107,7 +106,7 @@ return {
             item.kind = (cmp_kinds[item.kind] or '') .. item.kind
 
             -- Set the fixed width of the completion menu to 60 characters.
-            -- fixed_width = 30
+            -- fixed_width = 60
 
             -- Set 'fixed_width' to false if not provided.
             fixed_width = fixed_width or false

@@ -18,7 +18,7 @@ local lazy = require 'lazy'
 lazy.setup('plugins', lazy_config)
 
 require 'options'
-require 'fixes'
+require 'diagnostics'
 
 vim.schedule(function()
   require 'keymaps'

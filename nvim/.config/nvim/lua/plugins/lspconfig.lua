@@ -18,7 +18,7 @@ return {
         group = vim.api.nvim_create_augroup('custom-lsp-attach', { clear = true }),
         callback = function(event)
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename', buffer = event.buf })
-          vim.keymap.set({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code aaction', buffer = event.buf })
+          -- vim.keymap.set({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code action', buffer = event.buf })
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
 
           -- this is shift-k by default
@@ -59,33 +59,6 @@ return {
         end,
       })
 
-      -- diagnostic Config. See :help vim.diagnostic.Opts
-      vim.diagnostic.config {
-        severity_sort = true,
-        float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = '󰅚 ',
-            [vim.diagnostic.severity.WARN] = '󰀪 ',
-            [vim.diagnostic.severity.INFO] = '󰋽 ',
-            [vim.diagnostic.severity.HINT] = '󰌶 ',
-          },
-        },
-        virtual_text = {
-          source = 'if_many',
-          spacing = 2,
-          format = function(diagnostic)
-            local diagnostic_message = {
-              [vim.diagnostic.severity.ERROR] = diagnostic.message,
-              [vim.diagnostic.severity.WARN] = diagnostic.message,
-              [vim.diagnostic.severity.INFO] = diagnostic.message,
-              [vim.diagnostic.severity.HINT] = diagnostic.message,
-            }
-            return diagnostic_message[diagnostic.severity]
-          end,
-        },
-      }
 
       -- extend lsp capabilities with extra provided by cmp_nvim
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -100,7 +73,32 @@ return {
       local servers = {
         clangd = {},
         pyright = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          cargo = {
+            allFeatures = true,
+            loadOutDirsFromCheck = true,
+            runBuildScripts = true,
+          },
+          -- add clippy lints for Rust
+          checkOnSave = {
+            allFeatures = true,
+            command = 'clippy',
+            extraArgs = {
+              '--',
+              '--no-deps',
+              '--workspace',
+              '--all-targets',
+              '--all-features',
+              '-Dclippy::correctness',
+              '-Dclippy::complexity',
+              '-Wclippy::perf',
+              '-Wclippy::pedantic',
+            },
+          },
+          procMacro = {
+            enable = true,
+          },
+        },
         zls = {},
         gleam = {},
         ts_ls = {
@@ -131,15 +129,19 @@ return {
 
       require('mason-lspconfig').setup {
         ensure_installed = {},
-        automatic_installation = false,
+        automatic_installation = true,
         handlers = {
+          -- this is called when `server_name` has been installed or it is ready
           function(server_name)
             local server = servers[server_name] or {}
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            require('lspconfig')[server_name].setup(servers)
           end,
         },
       }
+
+      -- gleam LSP is not managed by mason, nor mason-lspconfig, so it needs to be setup manually
+      require('lspconfig')['gleam'].setup(servers['gleam'])
 
       vim.cmd [[nnoremap <buffer><silent> <C-space> :lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })<CR>]]
       vim.cmd [[nnoremap <buffer><silent> ]g :lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>]]

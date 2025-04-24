@@ -65,11 +65,4 @@ vim.opt.confirm = true
 -- make all floating windows rounded
 vim.o.winborder = 'rounded'
 
--- replaces lsp_lines.nvim
-vim.diagnostic.config {
-  underline = true,
-  virtual_text = false,
-  virtual_lines = false,
-}
-
 -- more :help vim.opt and :help option-list

@@ -2,12 +2,17 @@
 return {
   {
     'mfussenegger/nvim-lint',
+    dependencies = {
+      { 'williamboman/mason.nvim', opts = { ui = { border = 'rounded' } } },
+      'rshkarin/mason-nvim-lint',
+    },
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
 
       lint.linters_by_ft = {
-        rust = { 'clippy' },
+        -- configured as part of rust lsp
+        --  rust = { 'clippy' },
         markdown = { 'markdownlint' },
       }
 
@@ -20,6 +25,12 @@ return {
             lint.try_lint()
           end
         end,
+      })
+
+      -- installs linters automatically
+      ---@diagnostic disable-next-line: missing-fields
+      require('mason-nvim-lint').setup({
+        automatic_installation = true,
       })
     end,
   },

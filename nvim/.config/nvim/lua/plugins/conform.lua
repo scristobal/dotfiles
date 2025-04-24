@@ -2,6 +2,10 @@
 return {
   {
     'stevearc/conform.nvim',
+    dependencies = {
+      { 'williamboman/mason.nvim', opts = { ui = { border = 'rounded' } } },
+      'zapling/mason-conform.nvim',
+    },
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
@@ -33,12 +37,17 @@ return {
         lua = { 'stylua' },
         rust = { 'rust-analyser' },
         typescript = { 'prettier' },
-        -- Conform can also run multiple formatters sequentially
+        c = {'clang-format'},
         -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
       },
     },
+    config = function(opts)
+      require('conform').setup(opts)
+
+      require('mason-conform').setup({
+        automatic_installation = true,
+      })
+    end,
   },
 }
