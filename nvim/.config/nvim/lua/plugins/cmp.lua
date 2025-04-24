@@ -63,15 +63,15 @@ return {
           format = function(entry, item)
             -- Define menu shorthand for different completion sources.
             local menu_icon = {
-              nvim_lsp = 'NLSP',
-              nvim_lua = 'NLUA',
-              luasnip = 'LSNP',
-              buffer = 'BUFF',
-              path = 'PATH',
+              nvim_lsp = 'lsp',
+              nvim_lua = 'lua',
+              luasnip = 'snip',
+              buffer = 'buf',
+              path = 'path',
             }
 
             -- Set the menu "icon" to the shorthand for each completion source.
-            item.menu = '' -- menu_icon[entry.source.name]
+            item.menu = menu_icon[entry.source.name]
 
             -- icons for diferent kind of completions
             local cmp_kinds = {
@@ -105,19 +105,9 @@ return {
             -- set the kind "icon" for each kind
             item.kind = (cmp_kinds[item.kind] or '') .. item.kind
 
-            -- Set the fixed width of the completion menu to 60 characters.
-            -- fixed_width = 60
-
-            -- Set 'fixed_width' to false if not provided.
-            fixed_width = fixed_width or false
-
-            -- Get the completion entry text shown in the completion window.
-            local content = item.abbr
-
-            -- Set the fixed completion window width.
-            if fixed_width then
-              vim.o.pumwidth = fixed_width
-            end
+            -- Set the fixed width of the completion menu
+            local fixed_width = 50
+            vim.o.pumwidth = fixed_width
 
             -- Get the width of the current window.
             local win_width = vim.api.nvim_win_get_width(0)
@@ -130,11 +120,13 @@ return {
             -- Truncate the completion entry text if it's longer than the
             -- max content width. We subtract 3 from the max content width
             -- to account for the "..." that will be appended to it.
+            local content = item.abbr
             if content and #content > max_content_width then
               item.abbr = vim.fn.strcharpart(content, 0, max_content_width - 3) .. '...'
             else
               item.abbr = content .. (' '):rep(max_content_width - #content)
             end
+
             return item
           end,
         },
