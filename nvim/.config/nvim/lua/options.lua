@@ -1,11 +1,8 @@
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- enable 24-bit colour
 vim.opt.termguicolors = true
 
--- Make line numbers default
+-- relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.wo.number = true
@@ -53,16 +50,17 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live
 vim.opt.inccommand = 'split'
 
--- Show which line the cursor is on
+-- highlight curren line number
 vim.opt.cursorline = true
+vim.opt.cursorlineopt='number'
 
 -- Allow the cursor to be at the very bottom/top of the viewport
 vim.opt.scrolloff = 0
 
 -- dialog for commands that would otherwise fail, eg. :q with modified buffers
-vim.opt.confirm = true
+vim.opt.confirm = false
 
 -- make all floating windows rounded
 vim.o.winborder = 'rounded'
 
--- more :help vim.opt and :help option-list
+-- more :h vim.opt and :h option-list
