@@ -60,7 +60,7 @@ return {
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       '<F7>',
-      function()
+     function()
         require('dapui').toggle()
       end,
       desc = 'Debug: See last session result.',
@@ -73,7 +73,9 @@ return {
     require('mason-nvim-dap').setup {
       automatic_installation = false,
       handlers = {},
-      ensure_installed = {},
+      ensure_installed = {
+        'codelldb',
+      },
     }
 
     -- :help nvim-dap-ui
@@ -110,17 +112,17 @@ return {
       layouts = {
         {
           elements = {
-            { id = 'scopes', size = 0.25 },
+            { id = 'scopes',      size = 0.25 },
             { id = 'breakpoints', size = 0.25 },
-            { id = 'stacks', size = 0.25 },
-            { id = 'watches', size = 0.25 },
+            { id = 'stacks',      size = 0.25 },
+            { id = 'watches',     size = 0.25 },
           },
           position = 'left',
           size = 40,
         },
         {
           elements = {
-            { id = 'repl', size = 0.5 },
+            { id = 'repl',    size = 0.5 },
             { id = 'console', size = 0.5 },
           },
           position = 'bottom',
@@ -144,7 +146,14 @@ return {
     -- Change breakpoint icons
     vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
     vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
-    local breakpoint_icons = { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
+    local breakpoint_icons = {
+      Breakpoint = '',
+      BreakpointCondition = '',
+      BreakpointRejected = '',
+      LogPoint = '',
+      Stopped =
+      ''
+    }
     for type, icon in pairs(breakpoint_icons) do
       local tp = 'Dap' .. type
       local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
@@ -156,6 +165,10 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- try search for a local config
-    require('nvim-dap-projects').search_project_config()
+    --  check configs/nvimp-dap.lua for an example
+    --  copy, edit and place inside the project under `.nvim/nvim-dap.lua`
+    vim.keymap.set("n", "<leader>ld", function()
+      require('nvim-dap-projects').search_project_config()
+    end, { desc = "Load project debug config" })
   end,
 }
