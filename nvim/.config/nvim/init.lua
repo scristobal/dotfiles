@@ -19,6 +19,7 @@ lazy.setup('plugins', lazy_config)
 
 require 'options'
 require 'diagnostics'
+require 'autocmds'
 
 vim.schedule(function()
   require 'keymaps'

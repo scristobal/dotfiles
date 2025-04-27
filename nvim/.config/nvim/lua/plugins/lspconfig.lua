@@ -8,8 +8,8 @@ return {
       'williamboman/mason-lspconfig.nvim',
       -- grap json schmeas from SchemaStore
       { 'b0o/schemastore.nvim' },
-      -- shows LSP progress
-      { 'j-hui/fidget.nvim', opts = {} },
+      -- shows LSP progress, replaced by custom notification
+      -- { 'j-hui/fidget.nvim', opts = {} },
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -94,7 +94,10 @@ return {
           },
         },
         zls = {},
-        gleam = {},
+        gleam = {
+          -- uncomment to use debug LSP
+          -- cmd = { '/home/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
+        },
         ts_ls = {
           root_dir = require('lspconfig').util.root_pattern { 'package.json', 'tsconfig.json' },
           single_file_support = false,
