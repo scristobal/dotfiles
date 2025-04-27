@@ -1,24 +1,19 @@
 -- assorted plugins that require (almost) no configuration
 return {
-  -- use heuristics to config current buffer
+  -- use heuristics to config current buffer, also uses Modelines or EditorConfig if available
   'tpope/vim-sleuth',
 
-  -- use gc on comment code on visual mode
+  -- use `gc` while in visual mode <C-v> to toggle code comment
   { 'numToStr/Comment.nvim', opts = {} },
-
-  -- hightlight TODOS, FIXME and co.
-  {
-    'folke/todo-comments.nvim',
-    event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = false },
-  },
 
   -- show available key combinations
   {
     'folke/which-key.nvim',
     event = 'VimEnter',
+    ---@class wk.Opts
     opts = {
+      -- change to "helix" when either `https://github.com/folke/which-key.nvim/pull/964` or `https://github.com/folke/which-key.nvim/pull/974` is merged
+      preset = "classic",
       delay = 0,
       icons = {
         mappings = true,
@@ -34,15 +29,15 @@ return {
   },
 
   -- show code docs on a separate pannel
-  {
-    'amrbashir/nvim-docs-view',
-    lazy = true,
-    cmd = 'DocsViewToggle',
-    opts = {
-      position = 'right',
-      width = 60,
-    },
-  },
+  -- {
+  --   'amrbashir/nvim-docs-view',
+  --   lazy = true,
+  --   cmd = 'DocsViewToggle',
+  --   opts = {
+  --     position = 'right',
+  --     width = 60,
+  --   },
+  -- },
 
   -- custom tabs
   -- {
