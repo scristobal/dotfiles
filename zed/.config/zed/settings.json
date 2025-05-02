@@ -42,7 +42,7 @@
   "theme": {
     "mode": "system",
     "light": "Fleet Light",
-    "dark": "JetBrains New Dark"
+    "dark": "Ayu Dark"
   },
   // "use_autoclose": false,
   "vim_mode": true,
