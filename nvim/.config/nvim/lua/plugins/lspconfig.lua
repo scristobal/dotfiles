@@ -128,7 +128,7 @@ return {
 
       require('mason-lspconfig').setup {
         ensure_installed = {},
-        automatic_installation = true,
+        automatic_installation = false,
         handlers = {
           -- this is called when `server_name` has been installed or it is ready
           function(server_name)

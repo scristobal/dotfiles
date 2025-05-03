@@ -4,7 +4,7 @@ return {
     'mfussenegger/nvim-lint',
     dependencies = {
       { 'williamboman/mason.nvim', opts = { ui = { border = 'rounded' } } },
-      'rshkarin/mason-nvim-lint',
+      -- 'rshkarin/mason-nvim-lint',
     },
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
@@ -30,11 +30,11 @@ return {
 
       -- installs linters automatically
       ---@diagnostic disable-next-line: missing-fields
-      require('mason-nvim-lint').setup({
-        automatic_installation = true,
-        -- fortitude is not in the mason registry, must be installed manually https://fortitude.readthedocs.io/en/stable/installation/
-        ignore_install = { 'fortitude' },
-      })
+      -- require('mason-nvim-lint').setup({
+      --   automatic_installation = true,
+      --   -- fortitude is not in the mason registry, must be installed manually https://fortitude.readthedocs.io/en/stable/installation/
+      --   ignore_install = { 'fortitude' },
+      -- })
     end,
   },
 }
