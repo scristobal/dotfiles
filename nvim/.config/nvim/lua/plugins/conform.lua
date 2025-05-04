@@ -23,7 +23,7 @@ return {
         rust = { 'rust-analyser' },
         typescript = { 'prettier' },
         c = { 'clang-format' },
-        findent = { 'fortran' },
+        fortran = { 'findent' },
         -- python = { "isort", "black" },
         -- javascript = { "prettier" },
       },
