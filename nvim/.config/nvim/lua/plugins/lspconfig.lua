@@ -1,15 +1,12 @@
--- [[Language Server Providers]]
+-- [[Language Servers]]
 return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Mason must be loaded before its dependents and `opts = {}` ensures calling `require('mason').setup({})`
       { 'williamboman/mason.nvim', opts = { ui = { border = 'rounded' } } },
       'williamboman/mason-lspconfig.nvim',
       -- grap json schmeas from SchemaStore
       { 'b0o/schemastore.nvim' },
-      -- shows LSP progress, replaced by custom notification
-      -- { 'j-hui/fidget.nvim', opts = {} },
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -99,15 +96,19 @@ return {
           -- cmd = { '/Users/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
         },
         ts_ls = {
-          root_dir = require('lspconfig').util.root_pattern { 'package.json', 'tsconfig.json' },
+          root_dir = require('lspconfig').util.root_pattern { 'tsconfig.json', 'jsconfig.json', 'package.json' },
+          eoot_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
+          workspace_required = true,
           single_file_support = false,
           settings = {},
         },
-        denols = {
-          root_dir = require('lspconfig').util.root_pattern { 'deno.json', 'deno.jsonc' },
-          single_file_support = false,
-          settings = {},
-        },
+        -- denols = {
+        --   root_dir = require('lspconfig').util.root_pattern { 'deno.json', 'deno.jsonc' },
+        --   root_markers = { 'deno.json', 'deno.jsonc' },
+        --   workspace_required = true,
+        --   single_file_support = false,
+        --   settings = {},
+        -- },
         jsonls = {
           settings = {
             json = {
@@ -137,12 +138,6 @@ return {
           end,
         },
       }
-
-      for server_name in pairs(servers) do
-        local server = servers[server_name] or {}
-        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-        require('lspconfig')[server_name].setup(servers)
-      end
 
       -- gleam LSP is not managed by mason, nor mason-lspconfig, so it needs to be setup manually
       require('lspconfig')['gleam'].setup(servers['gleam'])

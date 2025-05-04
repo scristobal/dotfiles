@@ -7,7 +7,7 @@ return {
       local lint = require 'lint'
 
       lint.linters_by_ft = {
-        -- configured as part of rust lsp
+        -- Rust is configured as part of the lsp
         --  rust = { 'clippy' },
         markdown = { 'markdownlint' },
         fortran = { 'fortitude' },
