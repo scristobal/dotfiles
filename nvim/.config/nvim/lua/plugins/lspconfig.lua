@@ -59,7 +59,6 @@ return {
         end,
       })
 
-
       -- extend lsp capabilities with extra provided by cmp_nvim
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
@@ -138,6 +137,12 @@ return {
           end,
         },
       }
+
+      for server_name in pairs(servers) do
+        local server = servers[server_name] or {}
+        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+        require('lspconfig')[server_name].setup(servers)
+      end
 
       -- gleam LSP is not managed by mason, nor mason-lspconfig, so it needs to be setup manually
       require('lspconfig')['gleam'].setup(servers['gleam'])

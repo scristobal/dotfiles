@@ -1,11 +1,7 @@
--- [[Autoformatting]]
+-- [[Formatting]]
 return {
   {
     'stevearc/conform.nvim',
-    dependencies = {
-      { 'williamboman/mason.nvim', opts = { ui = { border = 'rounded' } } },
-     --  'zapling/mason-conform.nvim',
-    },
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
@@ -43,12 +39,5 @@ return {
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
       },
     },
-    -- config = function(opts)
-    --   require('conform').setup(opts)
-    --
-    --   require('mason-conform').setup({
-    --     automatic_installation = true,
-    --   })
-    -- end,
   },
 }
