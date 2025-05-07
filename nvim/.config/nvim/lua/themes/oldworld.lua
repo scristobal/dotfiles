@@ -7,9 +7,6 @@ return {
   config = function()
     require('oldworld').setup {
       variant = 'oled',
-      integrations = {
-        neo_tree = true,
-      },
     }
 
     vim.cmd.colorscheme 'oldworld'
