@@ -8,7 +8,7 @@ return {
     'nvim-neotest/nvim-nio',
 
     -- manage instalations of adapters
-    'williamboman/mason.nvim',
+    { "mason-org/mason.nvim", version = "1.11.0" },
     'jay-babu/mason-nvim-dap.nvim',
 
     -- load dap config from the project folder

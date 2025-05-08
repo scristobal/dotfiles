@@ -3,8 +3,9 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'williamboman/mason.nvim', opts = { ui = { border = 'rounded' } } },
-      'williamboman/mason-lspconfig.nvim',
+
+      { 'mason-org/mason.nvim', version = '1.11.0', opts = { ui = { border = 'rounded' } } },
+      { 'mason-org/mason-lspconfig.nvim', version = '1.32.0' },
       -- grap json schmeas from SchemaStore
       { 'b0o/schemastore.nvim' },
       -- Allows extra capabilities provided by nvim-cmp
@@ -126,6 +127,7 @@ return {
         -- gopls = {},
       }
 
+      ---@diagnostic disable-next-line: missing-fields
       require('mason-lspconfig').setup {
         ensure_installed = {},
         automatic_installation = false,
