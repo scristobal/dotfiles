@@ -8,8 +8,8 @@ return {
     'nvim-neotest/nvim-nio',
 
     -- manage instalations of adapters
-    { "mason-org/mason.nvim", version = "1.11.0" },
-    'jay-babu/mason-nvim-dap.nvim',
+    { 'mason-org/mason.nvim', version = '1.11.0' },
+    { 'jay-babu/mason-nvim-dap.nvim', version = '2.5.1' },
 
     -- load dap config from the project folder
     'ldelossa/nvim-dap-projects',
@@ -60,7 +60,7 @@ return {
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       '<F7>',
-     function()
+      function()
         require('dapui').toggle()
       end,
       desc = 'Debug: See last session result.',
@@ -112,17 +112,17 @@ return {
       layouts = {
         {
           elements = {
-            { id = 'scopes',      size = 0.25 },
+            { id = 'scopes', size = 0.25 },
             { id = 'breakpoints', size = 0.25 },
-            { id = 'stacks',      size = 0.25 },
-            { id = 'watches',     size = 0.25 },
+            { id = 'stacks', size = 0.25 },
+            { id = 'watches', size = 0.25 },
           },
           position = 'left',
           size = 40,
         },
         {
           elements = {
-            { id = 'repl',    size = 0.5 },
+            { id = 'repl', size = 0.5 },
             { id = 'console', size = 0.5 },
           },
           position = 'bottom',
@@ -151,8 +151,7 @@ return {
       BreakpointCondition = '',
       BreakpointRejected = '',
       LogPoint = '',
-      Stopped =
-      ''
+      Stopped = '',
     }
     for type, icon in pairs(breakpoint_icons) do
       local tp = 'Dap' .. type
@@ -167,8 +166,8 @@ return {
     -- try search for a local config
     --  check configs/nvimp-dap.lua for an example
     --  copy, edit and place inside the project under `.nvim/nvim-dap.lua`
-    vim.keymap.set("n", "<leader>ld", function()
+    vim.keymap.set('n', '<leader>ld', function()
       require('nvim-dap-projects').search_project_config()
-    end, { desc = "Load project debug config" })
+    end, { desc = 'Load project debug config' })
   end,
 }
