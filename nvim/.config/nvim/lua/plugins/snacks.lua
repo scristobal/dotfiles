@@ -7,10 +7,17 @@ return {
     opts = {
       bigfile = { enabled = true },
       dashboard = { enabled = true },
-      explorer = { enabled = true, replace_netrw = true },
+      explorer = {
+        enabled = true,
+        replace_netrw = true,
+      },
       input = { enabled = true },
       picker = { enabled = true },
-      notifier = { enabled = true },
+      notifier = {
+        enabled = true,
+        margin = { top = 2, right = 1, bottom = 2 },
+        top_down = false,
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
@@ -390,7 +397,6 @@ return {
         end,
         desc = 'Treesitter',
       },
-
     },
   },
 }
