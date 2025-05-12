@@ -94,7 +94,7 @@ return {
         gleam = {
           -- uncomment to use debug LSP
           -- cmd = { '/home/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
-          -- cmd = { '/Users/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
+        --  cmd = { '/Users/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
         },
         ts_ls = {
           root_dir = require('lspconfig').util.root_pattern { 'tsconfig.json', 'jsconfig.json', 'package.json' },

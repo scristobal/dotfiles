@@ -1,3 +1,3 @@
 return {
-  require 'themes.vague',
+  require 'themes.kanso',
 }
