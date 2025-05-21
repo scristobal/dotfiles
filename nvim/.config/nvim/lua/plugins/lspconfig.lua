@@ -9,7 +9,8 @@ return {
       -- grap json schmeas from SchemaStore
       { 'b0o/schemastore.nvim' },
       -- Allows extra capabilities provided by nvim-cmp
-      'hrsh7th/cmp-nvim-lsp',
+      --'hrsh7th/cmp-nvim-lsp',
+      'saghen/blink.cmp',
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -58,8 +59,9 @@ return {
       })
 
       -- extend lsp capabilities with extra provided by cmp_nvim
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+      -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local servers = {
         clangd = {},
@@ -94,7 +96,7 @@ return {
         gleam = {
           -- uncomment to use debug LSP
           -- cmd = { '/home/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
-        --  cmd = { '/Users/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
+          --  cmd = { '/Users/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
         },
         ts_ls = {
           root_dir = require('lspconfig').util.root_pattern { 'tsconfig.json', 'jsconfig.json', 'package.json' },
