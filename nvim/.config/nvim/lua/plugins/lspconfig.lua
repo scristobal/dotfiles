@@ -3,13 +3,10 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-
       { 'mason-org/mason.nvim', version = '1.11.0', opts = { ui = { border = 'rounded' } } },
       { 'mason-org/mason-lspconfig.nvim', version = '1.32.0' },
-      -- grap json schmeas from SchemaStore
+      -- grabs json schemas from SchemaStore
       { 'b0o/schemastore.nvim' },
-      -- Allows extra capabilities provided by nvim-cmp
-      --'hrsh7th/cmp-nvim-lsp',
       'saghen/blink.cmp',
     },
     config = function()
@@ -47,6 +44,7 @@ return {
               end,
             })
           end
+          -- end of highlight references
 
           -- toggle inlay hints if supported
           local toggle_hints = function()
@@ -55,12 +53,10 @@ return {
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             vim.keymap.set('n', '<leader>th', toggle_hints, { desc = 'Toggle inlay hints', buffer = event.buf })
           end
+          -- end of toggle inlay hints
         end,
       })
 
-      -- extend lsp capabilities with extra provided by cmp_nvim
-      -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-      -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local servers = {
@@ -96,7 +92,7 @@ return {
         gleam = {
           -- uncomment to use debug LSP
           -- cmd = { '/home/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
-          --  cmd = { '/Users/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
+          -- cmd = { '/Users/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
         },
         ts_ls = {
           root_dir = require('lspconfig').util.root_pattern { 'tsconfig.json', 'jsconfig.json', 'package.json' },
