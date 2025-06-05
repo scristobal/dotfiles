@@ -21,7 +21,7 @@
     "make": true,
     "toml": true
   },
-  "agent": {
+  "assistant": {
     "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
