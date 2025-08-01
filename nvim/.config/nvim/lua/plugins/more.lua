@@ -39,36 +39,48 @@ return {
   -- },
 
   -- code outline
+  -- {
+  --   'hedyhli/outline.nvim',
+  --   lazy = true,
+  --   cmd = { 'Outline', 'OutlineOpen' },
+  --   keys = {
+  --     { '<leader>o', '<cmd>Outline<CR>', desc = 'Toggle outline' },
+  --   },
+  --   opts = {
+  --     outline_window = {
+  --       position = 'left',
+  --       width = 20,
+  --       relative_width = true,
+  --       auto_jump = true,
+  --     },
+  --     outline_items = {
+  --       show_symbol_details = false,
+  --     },
+  --     symbol_folding = {
+  --       autofold_depth = 2,
+  --       auto_unfold = {
+  --         hovered = true,
+  --         only = true,
+  --       },
+  --     },
+  --     preview_window = {
+  --       auto_preview = false,
+  --     },
+  --   },
+  -- },
   {
-    'hedyhli/outline.nvim',
-    lazy = true,
-    cmd = { 'Outline', 'OutlineOpen' },
-    keys = {
-      { '<leader>o', '<cmd>Outline<CR>', desc = 'Toggle outline' },
-    },
-    opts = {
-      outline_window = {
-        position = 'left',
-        width = 20,
-        relative_width = true,
-        auto_jump = true,
-      },
-      outline_items = {
-        show_symbol_details = false,
-      },
-      symbol_folding = {
-        autofold_depth = 2,
-        auto_unfold = {
-          hovered = true,
-          only = true,
+    'oskarrrrrrr/symbols.nvim',
+    config = function()
+      local r = require 'symbols.recipes'
+      require('symbols').setup(r.DefaultFilters, r.AsciiSymbols, {
+        sidebar = {
+          -- custom settings here
+          -- e.g. hide_cursor = false
         },
-      },
-      preview_window = {
-        auto_preview = false,
-      },
-    },
+      })
+      vim.keymap.set('n', ',s', '<cmd>SymbolsToggle<CR>')
+    end,
   },
-
   -- breadcrumbs
   {
     'Bekaboo/dropbar.nvim',
