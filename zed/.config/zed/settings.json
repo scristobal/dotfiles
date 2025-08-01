@@ -10,7 +10,7 @@
   "icon_theme": {
     "mode": "system",
     "light": "Colored Zed Icons Theme Light",
-    "dark": "Colored Zed Icons Theme Dark"
+    "dark": "Zed (Default)"
   },
   "auto_install_extensions": {
     "colored-zed-icons-theme": true,
@@ -27,7 +27,6 @@
       "provider": "copilot_chat",
       "model": "claude-3.7-sonnet-thought"
     },
-    "version": "2"
   },
   "show_completions_on_input": true,
   "features": {
@@ -36,13 +35,12 @@
   //"ui_font_family": "JetBrainsMonoNL Nerd Font",
   "ui_font_size": 14,
   "buffer_font_family": "JetBrainsMonoNL Nerd Font Mono",
-  "buffer_font_size": 11,
-  "buffer_font_weight": 400,
+  "buffer_font_size": 12,
   "buffer_line_height": "comfortable",
   "theme": {
     "mode": "system",
     "light": "Fleet Light",
-    "dark": "Fleet Dark"
+    "dark": "Kanso Ink (Borderless + No italics)"
   },
   // "use_autoclose": false,
   "vim_mode": true,
