@@ -72,8 +72,11 @@ return {
     'oskarrrrrrr/symbols.nvim',
     config = function()
       local r = require 'symbols.recipes'
-      require('symbols').setup(r.DefaultFilters, r.AsciiSymbols, {
+      local symbols = require 'symbols'
+
+      symbols.setup(r.DefaultFilters, r.AsciiSymbols, {
         sidebar = {
+          cursor_follow = true,
           -- custom settings here
           -- e.g. hide_cursor = false
         },
@@ -82,15 +85,15 @@ return {
     end,
   },
   -- breadcrumbs
-  {
-    'Bekaboo/dropbar.nvim',
-    config = function()
-      local dropbar_api = require 'dropbar.api'
-      vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
-      vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
-      vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
-    end,
-  },
+  -- {
+  --   'Bekaboo/dropbar.nvim',
+  --   config = function()
+  --     local dropbar_api = require 'dropbar.api'
+  --     vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
+  --     vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
+  --     vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+  --   end,
+  -- },
 
   -- custom tabs
   -- {
@@ -146,8 +149,8 @@ return {
     end,
     dependencies = { -- These are optional
       --'nvim-treesitter/nvim-treesitter',
-     -- 'L3MON4D3/LuaSnip',
-     -- 'hrsh7th/nvim-cmp',
+      -- 'L3MON4D3/LuaSnip',
+      -- 'hrsh7th/nvim-cmp',
     },
     --opt = true, -- Set this to true if the plugin is optional
     event = 'InsertCharPre', -- Set the event to 'InsertCharPre' for better compatibility
