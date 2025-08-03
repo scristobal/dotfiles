@@ -1,9 +1,16 @@
 -- assorted plugins that require (almost) no configuration
 return {
   -- use heuristics to config current buffer, also uses Modelines or EditorConfig if available
-  { 'NMAC427/guess-indent.nvim', opts = {} },
+  {
+    'NMAC427/guess-indent.nvim',
+    opts = {},
+  },
+
   -- use `gc` while in visual mode <C-v> to toggle code comment
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+  },
 
   -- show available key combinations
   {
@@ -25,6 +32,24 @@ return {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     opts = {},
+  },
+
+  -- code outline, much  simpler
+  {
+    'oskarrrrrrr/symbols.nvim',
+    config = function()
+      local r = require 'symbols.recipes'
+      local symbols = require 'symbols'
+
+      symbols.setup(r.DefaultFilters, r.AsciiSymbols, {
+        sidebar = {
+          cursor_follow = true,
+          -- custom settings here
+          -- e.g. hide_cursor = false
+        },
+      })
+      vim.keymap.set('n', ',s', '<cmd>SymbolsToggle<CR>')
+    end,
   },
 
   -- docs on a separate pannel
@@ -68,22 +93,6 @@ return {
   --     },
   --   },
   -- },
-  {
-    'oskarrrrrrr/symbols.nvim',
-    config = function()
-      local r = require 'symbols.recipes'
-      local symbols = require 'symbols'
-
-      symbols.setup(r.DefaultFilters, r.AsciiSymbols, {
-        sidebar = {
-          cursor_follow = true,
-          -- custom settings here
-          -- e.g. hide_cursor = false
-        },
-      })
-      vim.keymap.set('n', ',s', '<cmd>SymbolsToggle<CR>')
-    end,
-  },
   -- breadcrumbs
   -- {
   --   'Bekaboo/dropbar.nvim',
@@ -122,6 +131,8 @@ return {
   --    version = '^6',
   --  },
   -- Lua
+
+  -- tab from parentesis, quotes and so on
   {
     'abecodes/tabout.nvim',
     lazy = false,

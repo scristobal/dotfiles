@@ -7,7 +7,7 @@ return {
       { 'mason-org/mason-lspconfig.nvim', version = '1.32.0' },
       -- grabs json schemas from SchemaStore
       { 'b0o/schemastore.nvim' },
-      'saghen/blink.cmp',
+      { 'saghen/blink.cmp' },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
