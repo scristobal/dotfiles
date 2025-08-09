@@ -1,4 +1,3 @@
-
 -- enable 24-bit colour
 vim.opt.termguicolors = true
 
@@ -52,7 +51,7 @@ vim.opt.inccommand = 'split'
 
 -- highlight curren line number
 vim.opt.cursorline = true
-vim.opt.cursorlineopt='number'
+vim.opt.cursorlineopt = 'number'
 
 -- Allow the cursor to be at the very bottom/top of the viewport
 vim.opt.scrolloff = 0
@@ -62,8 +61,5 @@ vim.opt.confirm = false
 
 -- make all floating windows rounded
 vim.o.winborder = 'rounded'
-
-
-vim.g.clipboard = 'osc52'
 
 -- more :h vim.opt and :h option-list

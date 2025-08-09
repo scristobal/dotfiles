@@ -56,38 +56,33 @@ return {
         end,
       })
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-
       local servers = {
-        cspell_ls = {
-          filetypes = { 'go', 'rust', 'js', 'ts', 'lua', 'html', 'css', 'json', 'yaml', 'markdown', 'gitcommit' },
-        },
+        cspell_ls = {},
         clangd = {},
-        pyright = {},
         rust_analyzer = {
-          cargo = {
-            allFeatures = true,
-            loadOutDirsFromCheck = true,
-            runBuildScripts = true,
-          },
-          -- add clippy lints for Rust
-          checkOnSave = {
-            allFeatures = true,
-            command = 'clippy',
-            extraArgs = {
-              '--',
-              '--no-deps',
-              '--workspace',
-              '--all-targets',
-              '--all-features',
-              '-Dclippy::correctness',
-              '-Dclippy::complexity',
-              '-Wclippy::perf',
-              '-Wclippy::pedantic',
+          settings = {
+            ['rust-analyzer'] = {
+              cargo = {
+                loadOutDirsFromCheck = true,
+                runBuildScripts = true,
+              },
+              allFeatures = true,
+              check = {
+                command = 'clippy',
+                extraArgs = {
+                  '--no-deps',
+                  '--all-features',
+                  '--',
+                  '-Dclippy::correctness',
+                  '-Dclippy::complexity',
+                  '-Wclippy::perf',
+                  '-Wclippy::pedantic',
+                },
+              },
+              procMacro = {
+                enable = true,
+              },
             },
-          },
-          procMacro = {
-            enable = true,
           },
         },
         zls = {},
@@ -124,16 +119,19 @@ return {
         },
         fortls = {},
         -- ruff_lsp = {},
+        -- pyright = {},
         -- gopls = {},
       }
 
-      -- Enable LSP servers using the new vim.lsp.enable API
-      for server_name, server_config in pairs(servers) do
-        local config = vim.tbl_deep_extend('force', {
-          capabilities = capabilities,
-        }, server_config)
+      -- local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-        vim.lsp.config(server_name, config)
+      for server_name, server_config in pairs(servers) do
+        -- local config = vim.tbl_deep_extend('force', {
+        --   capabilities = capabilities,
+        -- }, server_config)
+        -- vim.lsp.config(server_name, config)
+
+        vim.lsp.config(server_name, server_config)
         vim.lsp.enable(server_name)
       end
 
