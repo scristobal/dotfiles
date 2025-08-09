@@ -3,8 +3,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'mason-org/mason.nvim', version = '1.11.0', opts = { ui = { border = 'rounded' } } },
-      { 'mason-org/mason-lspconfig.nvim', version = '1.32.0' },
+      { 'mason-org/mason.nvim', opts = { ui = { border = 'rounded' } } },
       -- grabs json schemas from SchemaStore
       { 'b0o/schemastore.nvim' },
       { 'saghen/blink.cmp' },
@@ -60,6 +59,9 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local servers = {
+        cspell_ls = {
+          filetypes = { 'go', 'rust', 'js', 'ts', 'lua', 'html', 'css', 'json', 'yaml', 'markdown', 'gitcommit' },
+        },
         clangd = {},
         pyright = {},
         rust_analyzer = {
@@ -125,22 +127,15 @@ return {
         -- gopls = {},
       }
 
-      ---@diagnostic disable-next-line: missing-fields
-      require('mason-lspconfig').setup {
-        ensure_installed = {},
-        automatic_installation = false,
-        handlers = {
-          -- this is called when `server_name` has been installed or it is ready
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(servers)
-          end,
-        },
-      }
+      -- Enable LSP servers using the new vim.lsp.enable API
+      for server_name, server_config in pairs(servers) do
+        local config = vim.tbl_deep_extend('force', {
+          capabilities = capabilities,
+        }, server_config)
 
-      -- gleam LSP is not managed by mason, nor mason-lspconfig, so it needs to be setup manually
-      require('lspconfig')['gleam'].setup(servers['gleam'])
+        vim.lsp.config(server_name, config)
+        vim.lsp.enable(server_name)
+      end
 
       vim.cmd [[nnoremap <buffer><silent> <C-space> :lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })<CR>]]
       vim.cmd [[nnoremap <buffer><silent> ]g :lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>]]

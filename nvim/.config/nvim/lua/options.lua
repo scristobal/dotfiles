@@ -63,4 +63,7 @@ vim.opt.confirm = false
 -- make all floating windows rounded
 vim.o.winborder = 'rounded'
 
+
+vim.g.clipboard = 'osc52'
+
 -- more :h vim.opt and :h option-list
