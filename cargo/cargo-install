@@ -1,5 +1,13 @@
-bindgen-cli v0.70.1
-cargo-update v16.0.0
-cargo-zigbuild v0.19.4
-wasm-bindgen-cli v0.2.95
-wasmi_cli v0.39.1
+cargo-criterion v1.1.0:
+    cargo-criterion
+cargo-insta v1.43.1:
+    cargo-insta
+flamegraph v0.6.8:
+    cargo-flamegraph
+    flamegraph
+wasm-bindgen-cli v0.2.100:
+    wasm-bindgen
+    wasm-bindgen-test-runner
+    wasm2es6js
+wgsl_analyzer v0.0.0 (https://github.com/wgsl-analyzer/wgsl-analyzer?rev=5272d0d#5272d0d6):
+    wgsl_analyzer
