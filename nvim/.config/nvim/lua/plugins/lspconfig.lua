@@ -3,10 +3,8 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'mason-org/mason.nvim', opts = { ui = { border = 'rounded' } } },
       -- grabs json schemas from SchemaStore
       { 'b0o/schemastore.nvim' },
-      { 'saghen/blink.cmp' },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -53,12 +51,27 @@ return {
             vim.keymap.set('n', '<leader>th', toggle_hints, { desc = 'Toggle inlay hints', buffer = event.buf })
           end
           -- end of toggle inlay hints
+
+          -- other useful keymaps
+          vim.keymap.set('n', '<C-space>', function()
+            vim.diagnostic.open_float()
+          end, { buffer = true, silent = true, desc = 'Show line diagnostics' })
+
+          vim.keymap.set('n', ']g', function()
+            vim.diagnostic.jump { count = 1, float = true }
+          end, { buffer = true, silent = true, desc = 'Jump to next diagnostic' })
+
+          vim.keymap.set('n', '[g', function()
+            vim.diagnostic.jump { count = -1, float = true }
+          end, { buffer = true, silent = true, desc = 'Jump to previous diagnostic' })
         end,
       })
 
+      -- this could be moved to /lsp folder, worth it?
       local servers = {
         cspell_ls = {},
         clangd = {},
+        fortls = {},
         rust_analyzer = {
           settings = {
             ['rust-analyzer'] = {
@@ -85,7 +98,6 @@ return {
             },
           },
         },
-        zls = {},
         gleam = {
           -- uncomment to use debug LSP
           -- cmd = { '/home/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
@@ -105,6 +117,10 @@ return {
         --   single_file_support = false,
         --   settings = {},
         -- },
+        -- tailwindcss = {},
+        lua_ls = {
+          settings = { Lua = { completion = { callSnippet = 'Replace' } } },
+        },
         jsonls = {
           settings = {
             json = {
@@ -113,31 +129,16 @@ return {
             },
           },
         },
-        tailwindcss = {},
-        lua_ls = {
-          settings = { Lua = { completion = { callSnippet = 'Replace' } } },
-        },
-        fortls = {},
         -- ruff_lsp = {},
         -- pyright = {},
         -- gopls = {},
+        -- zls = {},
       }
 
-      -- local capabilities = require('blink.cmp').get_lsp_capabilities()
-
       for server_name, server_config in pairs(servers) do
-        -- local config = vim.tbl_deep_extend('force', {
-        --   capabilities = capabilities,
-        -- }, server_config)
-        -- vim.lsp.config(server_name, config)
-
         vim.lsp.config(server_name, server_config)
         vim.lsp.enable(server_name)
       end
-
-      vim.cmd [[nnoremap <buffer><silent> <C-space> :lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })<CR>]]
-      vim.cmd [[nnoremap <buffer><silent> ]g :lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>]]
-      vim.cmd [[nnoremap <buffer><silent> [g :lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = "single" }})<CR>]]
     end,
   },
 }
