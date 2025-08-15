@@ -129,6 +129,7 @@ return {
             },
           },
         },
+        taplo = {},
         -- ruff_lsp = {},
         -- pyright = {},
         -- gopls = {},
