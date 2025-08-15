@@ -93,12 +93,15 @@ alias gcoall='git checkout -- .'
 alias gr='git remote'
 alias gre='git reset'
 
+# Utils
+alias lzd='lazydocker'
+
 # gcp() { 'git clone --depth 1 --recurse-submodules --shallow-submodules $1' }
 
 # faster and better clear terminal
 alias clr="tput reset"
 
-alias ff="aerospace list-windows --all | fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
+# alias ff="aerospace list-windows --all | fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
 
 if command -v fastfetch >/dev/null; then
     alias cdlr="reset && cd && fastfetch"
