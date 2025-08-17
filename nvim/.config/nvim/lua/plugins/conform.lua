@@ -24,6 +24,7 @@ return {
         typescript = { 'prettier' },
         c = { 'clang-format' },
         fortran = { 'findent' },
+        toml = { 'taplo'}
         -- python = { "isort", "black" },
         -- javascript = { "prettier" },
       },
