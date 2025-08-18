@@ -1,3 +1,3 @@
 return {
-  require 'themes.kanagawa',
+  require 'themes.kanso',
 }
