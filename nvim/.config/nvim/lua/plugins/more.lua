@@ -52,6 +52,17 @@ return {
     end,
   },
 
+  -- breadcrumbs
+   {
+     'Bekaboo/dropbar.nvim',
+     config = function()
+       local dropbar_api = require 'dropbar.api'
+       vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
+       vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
+       vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+     end,
+   },
+
   -- docs on a separate pannel
   -- {
   --   'amrbashir/nvim-docs-view',
@@ -93,16 +104,6 @@ return {
   --     },
   --   },
   -- },
-  -- breadcrumbs
-  -- {
-  --   'Bekaboo/dropbar.nvim',
-  --   config = function()
-  --     local dropbar_api = require 'dropbar.api'
-  --     vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
-  --     vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
-  --     vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
-  --   end,
-  -- },
 
   -- custom tabs
   -- {
@@ -132,7 +133,7 @@ return {
   --  },
   -- Lua
 
-  -- tab from parentesis, quotes and so on
+  -- tab from parentheses, quotes and so on
   -- {
   --   'abecodes/tabout.nvim',
   --   lazy = false,
