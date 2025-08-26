@@ -53,15 +53,49 @@ return {
   },
 
   -- breadcrumbs
-   {
-     'Bekaboo/dropbar.nvim',
-     config = function()
-       local dropbar_api = require 'dropbar.api'
-       vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
-       vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
-       vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
-     end,
-   },
+  {
+    'Bekaboo/dropbar.nvim',
+    config = function()
+      local dropbar_api = require 'dropbar.api'
+      vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
+      vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
+      vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+    end,
+  },
+
+  -- run cargo comands in nvim
+  {
+    'nwiizo/cargo.nvim',
+    build = 'cargo build --release',
+    config = function()
+      require('cargo').setup {
+        float_window = true,
+        window_width = 0.8,
+        window_height = 0.8,
+        border = 'rounded',
+        auto_close = true,
+        close_timeout = 5000,
+      }
+    end,
+    ft = { 'rust' },
+    cmd = {
+      'CargoBench',
+      'CargoBuild',
+      'CargoClean',
+      'CargoDoc',
+      'CargoNew',
+      'CargoRun',
+      'CargoRunTerm',
+      'CargoTest',
+      'CargoUpdate',
+      'CargoCheck',
+      'CargoClippy',
+      'CargoAdd',
+      'CargoRemove',
+      'CargoFmt',
+      'CargoFix',
+    },
+  },
 
   -- docs on a separate pannel
   -- {
