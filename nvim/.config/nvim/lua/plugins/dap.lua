@@ -164,7 +164,7 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- try search for a local config
-    --  check configs/nvimp-dap.lua for an example
+    --  check examples/dap.lua for an example
     --  copy, edit and place inside the project under `.nvim/nvim-dap.lua`
     vim.keymap.set('n', '<leader>ld', function()
       require('nvim-dap-projects').search_project_config()
