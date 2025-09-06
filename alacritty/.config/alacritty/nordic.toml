@@ -1,0 +1,31 @@
+# Nordic Alacritty Colors
+# Based on https://github.com/AlexvZyl/nordic.nvim
+
+[colors.primary]
+background = '#242933'
+foreground = '#d8dee9'
+
+[colors.normal]
+black = '#191d24'
+red = '#bf616a'
+green = '#a3be8c'
+yellow = '#ebcb8b'
+blue = '#81a1c1'
+magenta = '#b48ead'
+cyan = '#8fbcbb'
+white = '#d8dee9'
+
+[colors.bright]
+black = '#3b4252'
+red = '#d06f79'
+green = '#b1d196'
+yellow = '#f0d399'
+blue = '#88c0d0'
+magenta = '#c895bf'
+cyan = '#93ccdc'
+white = '#e5e9f0'
+
+[colors.selection]
+background = '#2e3440'
+foreground = '#d8dee9'
+
