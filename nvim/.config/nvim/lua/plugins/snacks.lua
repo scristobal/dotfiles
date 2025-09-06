@@ -12,7 +12,16 @@ return {
         replace_netrw = true,
       },
       input = { enabled = true },
-      picker = { enabled = true },
+      picker = {
+        hidden = true,
+        ignored = true,
+        enabled = true,
+        sources = {
+          explorer = {
+            layout = { auto_hide = { 'input' } },
+          },
+        },
+      },
       notifier = {
         enabled = true,
         margin = { top = 2, right = 1, bottom = 2 },
