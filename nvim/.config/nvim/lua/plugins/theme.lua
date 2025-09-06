@@ -1,3 +1,3 @@
 return {
-  require 'themes.kanso',
+  require 'themes.nordic',
 }
