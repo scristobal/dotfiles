@@ -13,8 +13,8 @@ return {
       },
       input = { enabled = true },
       picker = {
-        hidden = true,
-        ignored = true,
+        -- hidden = true,
+        -- ignored = true,
         enabled = true,
         sources = { explorer = { layout = { auto_hide = { 'input' } } } },
       },
