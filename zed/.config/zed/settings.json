@@ -40,7 +40,7 @@
   "theme": {
     "mode": "system",
     "light": "Fleet Light",
-    "dark": "Kanso Ink (Borderless + No italics)"
+    "dark": "Nordic"
   },
   // "use_autoclose": false,
   "vim_mode": true,
