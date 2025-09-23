@@ -19,7 +19,7 @@ return {
     ---@class wk.Opts
     opts = {
       -- change to "helix" when either `https://github.com/folke/which-key.nvim/pull/964` or `https://github.com/folke/which-key.nvim/pull/974` is merged
-      preset = 'classic',
+      preset = 'helix',
       delay = 0,
       icons = {
         mappings = true,
