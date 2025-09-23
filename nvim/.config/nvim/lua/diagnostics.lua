@@ -10,7 +10,7 @@ vim.diagnostic.config {
   --     [vim.diagnostic.severity.HINT] = '󰌶 ',
   --   },
   -- },
-  virtual_text = true,
+  virtual_text = false,
   -- virtual_text = {
   --   source = 'if_many',
   --   spacing = 2,
