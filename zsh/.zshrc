@@ -1,8 +1,13 @@
+# local binaries
+PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+
+# antidote zsh plugin manager
 if [ -f "/usr/share/zsh-antidote/antidote.zsh" ]; then
     source '/usr/share/zsh-antidote/antidote.zsh'
     antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 fi
 
+# apple specific stuff
 if [[ $(uname) == 'Darwin' ]]; then
 
     # Load Homebrew if /opt/homebrew/bin/brew exists
@@ -30,12 +35,14 @@ if [[ $(uname) == 'Darwin' ]]; then
     # alias brew86="arch -x86_64 /usr/local/homebrew/bin/brew"
 
     # Sublime editor config requires special, platform-dependant directory
-    SUBLIME_SETTINS="$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings
-
-    if [ ! -L "$SUBLIME_SETTINS" ]; then
-        ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$SUBLIME_SETTINS"
-    fi
-
+    # SUBLIME_SETTINS="$HOME"/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings
+    #
+    # if [ ! -L "$SUBLIME_SETTINS" ]; then
+    #     ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$SUBLIME_SETTINS"
+# local binaries
+PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+    # fi
+    
     # Launch Sublime from terminal with `subl` with `sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/.`
 fi
 
@@ -46,9 +53,11 @@ command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
 # use nvim if not ssh otherwise use vim
 if [[ -n $SSH_CONNECTION ]]; then
     alias vim='vim'
+    alias n='vim'
     export EDITOR='vim'
 else
     alias vim='nvim'
+    alias n='nvim'
     export EDITOR='nvim'
 fi
 
@@ -66,6 +75,7 @@ if command -v eza >/dev/null; then
     # alias lm='eza --long --tree --level=3 --git --classify --no-permissions --octal-permissions'
     # alias la='ls -la'
 fi
+
 
 cx() { cd "$@" && ls; }
 
@@ -92,10 +102,6 @@ alias ga='git add -p'
 alias gcoall='git checkout -- .'
 alias gr='git remote'
 alias gre='git reset'
-
-# Utils
-alias lzd='lazydocker'
-
 # gcp() { 'git clone --depth 1 --recurse-submodules --shallow-submodules $1' }
 
 # faster and better clear terminal
@@ -109,17 +115,12 @@ else
     alias cdlr="reset && cd"
 fi
 
-# neovim shortcut
-if command -v nvim >/dev/null; then
-    alias n="nvim"
-fi
-
 # custom  prompt
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
+
 # Rust with rustup
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
-
 
 # Node with nvm
 export NVM_DIR="$HOME/.config/nvm"
@@ -127,16 +128,13 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-# Zig with ZVM
+# Zig with zvm
 export ZVM_INSTALL="$HOME/.zvm/self"
 export PATH="$PATH:$HOME/.zvm/bin"
 export PATH="$PATH:$ZVM_INSTALL/"
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
-
-# Docker
-export PATH=$PATH:$HOME/.adocker/bin
 
 # Playdate SDK 
 if [[ $(uname) == 'Darwin' ]]; then
@@ -153,8 +151,6 @@ export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 export VULKAN_SDK="$HOME/vulkan/1.3.290.0"
 [ -s "$VULKAN_SDK/setup-env.sh" ] && \. "$VULKAN_SDK/setup-env.sh"
 
-# local binaries
-PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # emscripten SDK
 #   $ yay -S emsdk
@@ -164,6 +160,9 @@ if [ -f "/usr/lib/emsdk/emsdk_env.sh" ]; then
     export EMSDK_QUIET=1  
     source "/usr/lib/emsdk/emsdk_env.sh" 
 fi
+
+# Docker
+export PATH=$PATH:$HOME/.adocker/bin
 
 # Slow but looks nice
 command -v fastfetch >/dev/null 2>&1 && fastfetch
