@@ -1,7 +1,7 @@
 [user]
 	email = samuel.cristobal@protonmail.com
 	name = Samuel Cristobal
-	# signingkey = FCC3F7D5D6EE6B56
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBeO9l6T5fPEu0iBsNg8UBhFowN9MO8n0BjrgBOBQECf
 
 [push]
 	default = current
@@ -35,7 +35,6 @@
 [credential]
 	helper = /usr/local/share/gcm-core/git-credential-manager
 
-
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -62,6 +61,11 @@
 [alias]
 	dlog = "-c diff.external=difft log -p --ext-diff"
 
-
 [includeIf "gitdir:~/repos/databeacon/"]
-	 path = ~/.databeacon.gitconfig
+	path = ~/.databeacon.gitconfig
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
