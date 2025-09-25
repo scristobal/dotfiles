@@ -1,6 +1,3 @@
-# local binaries
-PATH="$PATH:$HOME/bin:$HOME/.local/bin"
-
 # antidote zsh plugin manager
 if [ -f "/usr/share/zsh-antidote/antidote.zsh" ]; then
     source '/usr/share/zsh-antidote/antidote.zsh'
@@ -39,11 +36,12 @@ if [[ $(uname) == 'Darwin' ]]; then
     #
     # if [ ! -L "$SUBLIME_SETTINS" ]; then
     #     ln -s "$HOME/.config/sublime-text/Preferences.sublime-settings" "$SUBLIME_SETTINS"
-# local binaries
-PATH="$PATH:$HOME/bin:$HOME/.local/bin"
     # fi
-    
+
     # Launch Sublime from terminal with `subl` with `sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/.`
+    
+    # psql 
+    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
 
 # initialize Zoxide, if available
@@ -164,5 +162,10 @@ fi
 # Docker
 export PATH=$PATH:$HOME/.adocker/bin
 
+# local binaries
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+
 # Slow but looks nice
 command -v fastfetch >/dev/null 2>&1 && fastfetch
+
+
