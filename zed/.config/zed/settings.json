@@ -26,11 +26,32 @@
       "model": "claude-sonnet-4"
     }
   },
+  "auto_signature_help": true,
+  "inlay_hints": {
+    "toggle_on_modifiers_press": {
+      "control": true
+    }
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
   "project_panel": {
     "indent_size": 12,
     "indent_guides": {
       "show": "never"
     }
+  },
+  "title_bar": {
+    "show_branch_icon": true,
+    "show_menus": true
+  },
+  "scrollbar": {
+    "diagnostics": "none"
+  },
+  "minimap": {
+    "show": "never"
   },
   // "ui_font_family": "JetBrainsMonoNL Nerd Font",
   "ui_font_size": 14,
