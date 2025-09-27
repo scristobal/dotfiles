@@ -3,6 +3,24 @@
 	name = Samuel Cristobal
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBeO9l6T5fPEu0iBsNg8UBhFowN9MO8n0BjrgBOBQECf
 
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
+
+[init]
+	defaultBranch = main
+
 [push]
 	default = current
 
@@ -13,27 +31,6 @@
 [core]
 	editor = nvim
 	ignorecase = false
-
-[diff]
-	tool = vscode
-
-[difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
-
-[merge]
-	tool = vscode
-
-[mergetool "vscode"]
-	cmd = code --wait $MERGED
-
-[commit]
-	gpgsign = true
-
-[init]
-	defaultBranch = main
-
-[credential]
-	helper = /usr/local/share/gcm-core/git-credential-manager
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -61,11 +58,3 @@
 [alias]
 	dlog = "-c diff.external=difft log -p --ext-diff"
 
-[includeIf "gitdir:~/repos/databeacon/"]
-	path = ~/.databeacon.gitconfig
-
-[gpg]
-	format = ssh
-
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
