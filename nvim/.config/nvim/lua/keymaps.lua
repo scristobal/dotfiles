@@ -1,7 +1,13 @@
 -- [[ Basic Keymaps ]]
 
 -- clear highlights on search when pressing <Esc> in normal mode `:h hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', function()
+  if vim.v.hlsearch == 1 then
+    return '<cmd>nohlsearch<CR>'
+  else
+    return '<Esc>'
+  end
+end, { desc = 'Clear search highlights or fallback', expr = true })
 
 -- diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic quickfix list' })

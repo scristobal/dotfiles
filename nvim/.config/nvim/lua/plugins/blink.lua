@@ -50,7 +50,7 @@ return {
         end,
       },
       'folke/lazydev.nvim',
-      'Kaiser-Yang/blink-cmp-avante',
+      'fang2hou/blink-copilot',
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -79,6 +79,24 @@ return {
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
 
+        ['<c-y>'] = {
+          function(cmp)
+            local nes = require 'copilot-lsp.nes'
+
+            if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+              cmp.hide()
+              return (nes.apply_pending_nes() and nes.walk_cursor_end_edit())
+            end
+            if cmp.snippet_active() then
+              return cmp.accept()
+            else
+              return cmp.select_and_accept()
+            end
+          end,
+          'snippet_forward',
+          'fallback',
+        },
+
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
@@ -96,14 +114,10 @@ return {
       },
 
       sources = {
-        default = { 'avante', 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'copilot', 'lsp', 'path', 'snippets', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-          avante = {
-            module = 'blink-cmp-avante',
-            name = 'Avante',
-            opts = {},
-          },
+          copilot = { name = 'copilot', module = 'blink-copilot', score_offset = 100, async = true },
         },
       },
 
