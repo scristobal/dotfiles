@@ -23,6 +23,8 @@ return {
         margin = { top = 2, right = 1, bottom = 2 },
         top_down = false,
       },
+      image = { enabled = false },
+      lazy = { enabled = false },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
