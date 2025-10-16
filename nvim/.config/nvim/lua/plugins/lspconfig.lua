@@ -104,11 +104,11 @@ return {
           -- cmd = { '/Users/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
         },
         ts_ls = {
-          root_dir = require('lspconfig').util.root_pattern { 'tsconfig.json', 'jsconfig.json', 'package.json' },
-          eoot_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
-          workspace_required = true,
-          single_file_support = false,
-          settings = {},
+          -- root_dir = require('lspconfig').util.root_pattern { 'tsconfig.json', 'jsconfig.json', 'package.json' },
+          -- eoot_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
+          -- workspace_required = true,
+          -- single_file_support = false,
+          -- settings = {},
         },
         -- denols = {
         --   root_dir = require('lspconfig').util.root_pattern { 'deno.json', 'deno.jsonc' },
