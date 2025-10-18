@@ -1,6 +1,7 @@
 local bootstrap = require("bootstrap")
 
 bootstrap()
+
 hs.loadSpoon("SpoonInstall")
 
 spoon.SpoonInstall.repos.PaperWM = {
@@ -11,10 +12,9 @@ spoon.SpoonInstall.repos.PaperWM = {
 
 spoon.SpoonInstall:andUse("PaperWM", {
 	repo = "PaperWM",
-	config = { screen_margin = 16, window_gap = 2 },
+	config = { screen_margin = 16, window_gap = 2, swipe_fingers = 0, swipe_gain = 1.0 },
 	start = true,
-	hotkeys = 
-{
+	hotkeys = {
 		-- switch to a new focused window in tiled grid
 		focus_left = { { "alt", "cmd" }, "left" },
 		focus_right = { { "alt", "cmd" }, "right" },
@@ -23,8 +23,12 @@ spoon.SpoonInstall:andUse("PaperWM", {
 
 		-- switch windows by cycling forward/backward
 		-- (forward = down or right, backward = up or left)
-		focus_prev = { { "alt", "cmd" }, "k" },
-		focus_next = { { "alt", "cmd" }, "j" },
+		focus_prev = { { "alt", "cmd" }, "j" },
+		focus_next = { { "alt", "cmd" }, "k" },
+
+		-- increase/decrease width
+		increase_width = { { "alt", "cmd" }, "l" },
+		decrease_width = { { "alt", "cmd" }, "h" },
 
 		-- move windows around in tiled grid
 		swap_left = { { "alt", "cmd", "shift" }, "left" },
@@ -45,10 +49,6 @@ spoon.SpoonInstall:andUse("PaperWM", {
 		reverse_cycle_width = { { "ctrl", "alt", "cmd" }, "r" },
 		cycle_height = { { "alt", "cmd", "shift" }, "r" },
 		reverse_cycle_height = { { "ctrl", "alt", "cmd", "shift" }, "r" },
-
-		-- increase/decrease width
-		increase_width = { { "alt", "cmd" }, "l" },
-		decrease_width = { { "alt", "cmd" }, "h" },
 
 		-- move focused window into / out of a column
 		slurp_in = { { "alt", "cmd" }, "i" },
@@ -94,3 +94,18 @@ spoon.SpoonInstall:andUse("PaperWM", {
 	},
 })
 
+-- spoon.SpoonInstall.repos.HighlightFocusedWindow = {
+-- 	url = "https://github.com/johnnybakucz/highlight_focused_window.spoon",
+-- 	desc = "HighlightFocusedWindow.spoon repository",
+-- 	branch = "main",
+-- }
+--
+-- spoon.SpoonInstall:andUse("HighlightFocusedWindow", {
+-- 	repo = "HighlightFocusedWindow",
+-- 	config = {
+-- 		-- borderColor = { red = 0, green = 1, blue = 0, alpha = 0.8 }, -- Green border
+-- 		-- borderWidth = 10, -- 10 pixels wide
+-- 		-- updateInterval = 1, -- Update every 1 second},
+-- 	},
+-- 	start = true,
+-- })
