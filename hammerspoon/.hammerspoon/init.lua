@@ -23,8 +23,8 @@ spoon.SpoonInstall:andUse("PaperWM", {
 
 		-- switch windows by cycling forward/backward
 		-- (forward = down or right, backward = up or left)
-		focus_prev = { { "alt", "cmd" }, "j" },
-		focus_next = { { "alt", "cmd" }, "k" },
+		focus_prev = { { "alt", "cmd" }, "k" },
+		focus_next = { { "alt", "cmd" }, "j" },
 
 		-- increase/decrease width
 		increase_width = { { "alt", "cmd" }, "l" },
