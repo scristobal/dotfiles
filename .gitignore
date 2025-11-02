@@ -2,3 +2,4 @@
 history.txt
 .DS_Store
 prompts
+.env
