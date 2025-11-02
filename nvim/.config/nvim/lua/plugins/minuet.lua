@@ -1,6 +1,7 @@
 return {
   {
     'milanglacier/minuet-ai.nvim',
+    enable = false,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-lualine/lualine.nvim',
