@@ -97,6 +97,8 @@ return {
     },
   },
 
+  {'pest-parser/pest.vim'},
+
   -- docs on a separate pannel
   -- {
   --   'amrbashir/nvim-docs-view',
