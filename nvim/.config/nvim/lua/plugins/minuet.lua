@@ -1,7 +1,7 @@
 return {
   {
     'milanglacier/minuet-ai.nvim',
-    enable = false,
+    enabled = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-lualine/lualine.nvim',
@@ -10,13 +10,39 @@ return {
       require('minuet').setup {
         virtualtext = {
           auto_trigger_ft = {},
-          -- Disable default keymaps (they work in Insert mode)
-          keymap = {},
           show_on_completion_menu = true,
+          keymap = {
+            -- accept whole completion
+            accept = '<A-A>',
+            -- accept one line
+            accept_line = '<A-a>',
+            -- accept n lines (prompts for number)
+            -- e.g. "A-z 2 CR" will accept 2 lines
+            accept_n_lines = '<A-z>',
+            -- Cycle to prev completion item, or manually invoke completion
+            prev = '<A-[>',
+            -- Cycle to next completion item, or manually invoke completion
+            next = '<A-]>',
+            dismiss = '<A-e>',
+          },
         },
         provider = 'claude',
         provider_options = {
           claude = {
+            api_key = function()
+              if not _G.claude_token then
+                local token_path = vim.fn.expand('~/.claude/token')
+                local file = io.open(token_path, 'r')
+                if file then
+                  local token = file:read('*all')
+                  file:close()
+                  _G.claude_token = token:gsub('%s+', '') -- trim whitespace and cache
+                else
+                  vim.notify('Claude token file not found: ' .. token_path, vim.log.levels.ERROR)
+                end
+              end
+              return _G.claude_token
+            end,
             -- max_tokens = 256,
             model = 'claude-haiku-4-5',
             -- system = "see [Prompt] section for the default value",
@@ -40,51 +66,6 @@ return {
         -- }
 
       }
-
-      -- Set up Normal mode keymaps for Minuet virtualtext
-      local vt = require('minuet.virtualtext')
-
-      -- Trigger completion from Normal mode (enters Insert mode then triggers)
-      vim.keymap.set('n', '<A-[>', function()
-        vim.cmd('startinsert')
-        -- Schedule the trigger to run after entering insert mode
-        vim.schedule(function()
-          vt.action.prev()
-        end)
-      end, { desc = '[minuet] Trigger completion (prev)' })
-
-      vim.keymap.set('n', '<A-]>', function()
-        vim.cmd('startinsert')
-        -- Schedule the trigger to run after entering insert mode
-        vim.schedule(function()
-          vt.action.next()
-        end)
-      end, { desc = '[minuet] Trigger completion (next)' })
-
-      -- Accept/dismiss also need Insert mode to work with virtualtext
-      vim.keymap.set('n', '<A-A>', function()
-        if vt.action.is_visible() then
-          vt.action.accept()
-        end
-      end, { desc = '[minuet] Accept whole completion' })
-
-      vim.keymap.set('n', '<A-a>', function()
-        if vt.action.is_visible() then
-          vt.action.accept_line()
-        end
-      end, { desc = '[minuet] Accept one line' })
-
-      vim.keymap.set('n', '<A-z>', function()
-        if vt.action.is_visible() then
-          vt.action.accept_n_lines()
-        end
-      end, { desc = '[minuet] Accept n lines' })
-
-      vim.keymap.set('n', '<A-e>', function()
-        if vt.action.is_visible() then
-          vt.action.dismiss()
-        end
-      end, { desc = '[minuet] Dismiss completion' })
     end,
   },
 }
