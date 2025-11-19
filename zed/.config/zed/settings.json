@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "hover_popover_enabled": false,
+  "show_edit_predictions": false,
+  "format_on_save": "off",
   "edit_predictions": {
     "mode": "subtle"
   },
@@ -18,11 +21,12 @@
     "make": true,
     "toml": true
   },
-  "show_completions_on_input": true,
+  "show_completions_on_input": false,
   "features": {
     "edit_prediction_provider": "zed"
   },
   "agent": {
+    "always_allow_tool_actions": true,
     "inline_assistant_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-5-latest"
@@ -30,10 +34,10 @@
     "default_profile": "write",
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest"
+      "model": "claude-sonnet-4-5-thinking-latest"
     }
   },
-  "auto_signature_help": true,
+  "auto_signature_help": false,
   "inlay_hints": {
     "toggle_on_modifiers_press": {
       "control": true
@@ -68,7 +72,7 @@
   "theme": {
     "mode": "system",
     "light": "Ayu Light",
-    "dark": "Nordic Syntax"
+    "dark": "Tomorrow Night Min"
   },
   "vim_mode": true,
   "vim": {
@@ -81,5 +85,24 @@
   "terminal": {
     "font_family": "JetBrainsMonoNL Nerd Font",
     "line_height": "standard"
+  },
+  "file_types": { "GLSL": ["*.glsl"] },
+  "languages": {
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          // bunx @biomejs/biome
+          "command": "node_modules/.bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--use-server",
+            "--stdin-file-path=something.ts",
+            "<",
+            "{buffer_path}"
+          ]
+        }
+      }
+    }
   }
 }
