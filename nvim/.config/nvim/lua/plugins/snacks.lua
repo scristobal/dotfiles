@@ -17,7 +17,11 @@ return {
         hidden = true,
         -- ignored = true,
         enabled = true,
-        sources = { explorer = { layout = { auto_hide = { 'input' } } } },
+        sources = {
+          explorer = { layout = { auto_hide = { 'input' } } },
+          files = { hidden = true },
+          smart = { hidden = true },
+        },
       },
       notifier = {
         enabled = true,
