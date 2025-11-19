@@ -62,4 +62,14 @@ vim.opt.confirm = false
 -- make all floating windows rounded
 vim.o.winborder = 'rounded'
 
+-- Built-in completion settings
+-- 'menu'     use a popup menu to show possible completions
+-- 'menuone'  use the popup menu also when there is only one match
+-- 'noselect' do not select a match from the menu automatically
+-- vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+-- Enable completion from various sources
+-- (LSP completion is automatically available when an LSP is attached)
+-- vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
+
 -- more :h vim.opt and :h option-list

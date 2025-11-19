@@ -1,3 +1,4 @@
+-- Collection of utilities: picker, dashboard, explorer, and more
 return {
   {
     'folke/snacks.nvim',
@@ -13,7 +14,7 @@ return {
       },
       input = { enabled = true },
       picker = {
-        -- hidden = true,
+        hidden = true,
         -- ignored = true,
         enabled = true,
         sources = { explorer = { layout = { auto_hide = { 'input' } } } },

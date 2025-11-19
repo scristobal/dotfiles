@@ -1,3 +1,4 @@
+-- Code actions with a better UI
 return {
   'rachartier/tiny-code-action.nvim',
   dependencies = {

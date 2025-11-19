@@ -1,5 +1,6 @@
+-- Autocompletion engine with snippets support
 return {
-  { -- Autocompletion
+  {
     'saghen/blink.cmp',
     enabled = true,
     event = 'VimEnter',

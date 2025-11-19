@@ -1,3 +1,4 @@
+-- Statusline with icons and LSP integration
 return {
   {
     'nvim-lualine/lualine.nvim',

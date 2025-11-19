@@ -1,3 +1,4 @@
+-- Claude AI integration for code assistance
 return {
 	"coder/claudecode.nvim",
 	dependencies = { "folke/snacks.nvim" },
