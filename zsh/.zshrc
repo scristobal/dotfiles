@@ -169,3 +169,6 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 command -v fastfetch >/dev/null 2>&1 && fastfetch
 
 
+
+# bun completions
+[ -s "/Users/samu/.bun/_bun" ] && source "/Users/samu/.bun/_bun"
