@@ -16,12 +16,12 @@ return {
     },
     opts = {
       default_format_opts = {
-        lsp_format = 'first',
+        -- lsp_format = 'first',
       },
       formatters_by_ft = {
         lua = { 'stylua' },
         rust = { 'rust-analyser' },
-        typescript = { 'prettier' },
+        -- typescript = { 'prettier' },
         c = { 'clang-format' },
         fortran = { 'findent' },
         toml = { 'taplo'}
