@@ -78,20 +78,20 @@ return {
               cargo = {
                 loadOutDirsFromCheck = true,
                 runBuildScripts = true,
+                allFeatures = true,
               },
-              allFeatures = true,
-               check = {
-                 command = 'clippy',
-                 extraArgs = {
-                   '--no-deps',
-                   '--all-features',
-                   '--',
-                   --   '-Dclippy::correctness',
-                   --   '-Dclippy::complexity',
-                   --   '-Wclippy::perf',
-                   --   '-Wclippy::pedantic',
-                 },
-               },
+               -- check = {
+               --   command = 'clippy',
+               --   extraArgs = {
+               --     '--no-deps',
+               --     '--all-features',
+               --     '--',
+               --     '-Dclippy::correctness',
+               --     '-Dclippy::complexity',
+               --     '-Wclippy::perf',
+               --     '-Wclippy::pedantic',
+               --   },
+               -- },
               procMacro = {
                 enable = true,
               },
