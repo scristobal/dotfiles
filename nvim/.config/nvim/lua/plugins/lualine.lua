@@ -5,8 +5,14 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons',
       'milanglacier/minuet-ai.nvim',
+      'SmiteshP/nvim-navic',
     },
     config = function()
+      local navic = require 'nvim-navic'
+      navic.setup {
+        icons_enabled = false,
+      }
+
       require('lualine').setup({
         options = {
           component_separators = { left = '', right = '' },
@@ -30,6 +36,14 @@ return {
               -- 3: Absolute path, with tilde as the home directory
               -- 4: Filename and parent dir, with tilde as the home directory
               path = 1,
+            },
+            {
+              function()
+                return navic.get_location()
+              end,
+              cond = function()
+                return navic.is_available()
+              end,
             },
           },
 

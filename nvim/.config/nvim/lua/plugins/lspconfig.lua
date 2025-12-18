@@ -10,6 +10,13 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('custom-lsp-attach', { clear = true }),
         callback = function(event)
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+          -- Attach navic for breadcrumbs in statusline
+          if client and client.server_capabilities.documentSymbolProvider then
+            require('nvim-navic').attach(client, event.buf)
+          end
+
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename', buffer = event.buf })
           -- vim.keymap.set({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code action', buffer = event.buf })
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
@@ -18,7 +25,6 @@ return {
           -- map('<leader>h', vim.lsp.buf.hover, 'Show [H]over info')
 
           -- highlight references of the word under the cursor and clean up See `:help CursorHold`
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
             local highlight_augroup = vim.api.nvim_create_augroup('custom-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
