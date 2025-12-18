@@ -18,7 +18,7 @@ return {
         -- ignored = true,
         enabled = true,
         sources = {
-          explorer = { layout = { auto_hide = { 'input' } } },
+          explorer = { layout = { auto_hide = { 'input' } }, ignored = true },
           files = { hidden = true },
           smart = { hidden = true },
         },
