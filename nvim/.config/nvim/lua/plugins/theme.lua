@@ -1,4 +1,4 @@
 -- Color scheme configuration
 return {
-  require 'themes.nordic',
+  require 'themes.blackbag',
 }
