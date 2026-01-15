@@ -1,8 +1,19 @@
 # antidote zsh plugin manager
-if [ -f "/usr/share/zsh-antidote/antidote.zsh" ]; then
-    source '/usr/share/zsh-antidote/antidote.zsh'
-    antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
-fi
+# if [ -f "/usr/share/zsh-antidote/antidote.zsh" ]; then
+#     source '/usr/share/zsh-antidote/antidote.zsh'
+#     antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+# fi
+
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
+setopt autocd
+autoload -U compinit; compinit
+source <(fzf --zsh)
+set -o vi
+
+# Fix for backspace in vi mode
+bindkey -v '^?' backward-delete-char
 
 # apple specific stuff
 if [[ $(uname) == 'Darwin' ]]; then
@@ -119,6 +130,8 @@ command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
 # Rust with rustup
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
+[ -s "$HOME/.cargo/bin" ] && export PATH="$PATH:$HOME/.cargo/bin"
+
 
 # Node with nvm
 export NVM_DIR="$HOME/.config/nvm"
@@ -146,9 +159,8 @@ fi
 export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 
 # Vulkan SDK
-export VULKAN_SDK="$HOME/vulkan/1.3.290.0"
-[ -s "$VULKAN_SDK/setup-env.sh" ] && \. "$VULKAN_SDK/setup-env.sh"
-
+# export VULKAN_SDK="$HOME/vulkan/1.3.290.0"
+# [ -s "$VULKAN_SDK/setup-env.sh" ] && \. "$VULKAN_SDK/setup-env.sh"
 
 # emscripten SDK
 #   $ yay -S emsdk
