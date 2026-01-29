@@ -1,4 +1,4 @@
--- [[Linting]]
+-- linter
 return {
   {
     'mfussenegger/nvim-lint',

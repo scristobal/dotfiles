@@ -1,4 +1,4 @@
--- Autocompletion engine with snippets support
+-- autocompletion engine with snippets support
 return {
   {
     'saghen/blink.cmp',

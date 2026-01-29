@@ -1,4 +1,4 @@
--- AI-powered code completion
+-- AI code completion
 return {
   {
     'milanglacier/minuet-ai.nvim',

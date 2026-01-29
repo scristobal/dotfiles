@@ -1,4 +1,4 @@
--- Configures Lua LSP nvim config, runtime and plugins used for completion, annotations and signatures of APIs
+-- configures Lua LSP nvim config, runtime and plugins used for completion, annotations and signatures of APIs
 return {
   {
     'folke/lazydev.nvim',

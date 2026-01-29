@@ -1,4 +1,4 @@
--- code outline, much simpler
+-- simple code outline
 return {
   'oskarrrrrrr/symbols.nvim',
   config = function()

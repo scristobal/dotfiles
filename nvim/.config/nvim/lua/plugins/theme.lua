@@ -1,4 +1,4 @@
--- Color scheme configuration
+-- color scheme configuration
 return {
   require 'themes.vague',
 }

@@ -1,4 +1,4 @@
--- Collection of utilities: picker, dashboard, explorer, and more
+-- collection of small utilities
 return {
   {
     'folke/snacks.nvim',

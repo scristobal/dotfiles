@@ -1,4 +1,4 @@
--- collection of various small independent plugins/modules, https://github.com/echasnovski/mini.nvim
+-- collection of various small independent plugins
 return {
   {
     'echasnovski/mini.nvim',

@@ -1,4 +1,4 @@
--- use `gc` while in visual mode <C-v> to toggle code comment
+-- code comment/uncoment made easy
 return {
   'numToStr/Comment.nvim',
   opts = {},

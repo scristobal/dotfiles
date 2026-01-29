@@ -1,3 +1,4 @@
+-- show Rust diagnostic in a floating window
 return {
   "alexpasmantier/krust.nvim",
   ft = "rust",
