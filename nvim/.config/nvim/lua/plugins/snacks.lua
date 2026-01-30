@@ -17,6 +17,9 @@ return {
         hidden = true,
         -- ignored = true,
         enabled = true,
+        icons = {
+          files = { enabled = false },
+        },
         sources = {
           explorer = { layout = { auto_hide = { 'input' } }, ignored = true },
           files = { hidden = true },
