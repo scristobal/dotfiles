@@ -1,7 +1,6 @@
 -- Zellij integration
 return {
   'https://github.com/fresh2dev/zellij.vim',
-  enabled = false,
   -- Pin version to avoid breaking changes.
   -- tag = '0.3.*',
   lazy = false,

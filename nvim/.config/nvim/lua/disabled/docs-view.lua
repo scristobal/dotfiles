@@ -1,7 +1,6 @@
 -- docs on a separate pannel
 return {
   'amrbashir/nvim-docs-view',
-  enabled = false,
   lazy = true,
   cmd = 'DocsViewToggle',
   opts = {
