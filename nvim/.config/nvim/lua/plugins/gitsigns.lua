@@ -3,6 +3,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     enabled = true,
+    ---@type Gitsigns.Config
     opts = {
       signs = {
         add = { text = '+' },

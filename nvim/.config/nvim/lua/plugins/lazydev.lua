@@ -12,7 +12,12 @@ return {
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
         { path = 'snacks.nvim',        words = { 'Snacks' } },
         { path = 'lazy.nvim',          words = { 'LazyVim' } },
-        { path = 'which-key.nvim',     words = { 'wk' } }
+        { path = 'which-key.nvim',     words = { 'wk' } },
+        { path = 'gitsigns.nvim',      words = { 'gitsigns' } },
+        { path = 'conform.nvim',       words = { 'conform' } },
+        { path = 'nvim-dap',           words = { 'dap' } },
+        { path = 'nvim-lint',          words = { 'lint' } },
+        { path = 'blink.cmp',          words = { 'blink' } },
       },
     },
   },
