@@ -62,6 +62,9 @@ vim.opt.confirm = false
 -- make all floating windows rounded
 vim.o.winborder = 'rounded'
 
+-- remove wellcome message
+vim.opt.shortmess:append("I")
+
 -- Built-in completion settings
 -- 'menu'     use a popup menu to show possible completions
 -- 'menuone'  use the popup menu also when there is only one match
