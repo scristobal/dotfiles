@@ -4,7 +4,7 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
-      'milanglacier/minuet-ai.nvim',
+      -- 'milanglacier/minuet-ai.nvim',
       'SmiteshP/nvim-navic',
     },
     config = function()
@@ -67,11 +67,11 @@ return {
             },
           },
           lualine_y = {
-            {
-              require 'minuet.lualine',
-              display_name = 'model',
-              display_on_idle = true,
-            },
+            -- {
+            --   require 'minuet.lualine',
+            --   display_name = 'model',
+            --   display_on_idle = true,
+            -- },
             {
               'lsp_status',
               icon = '', -- f233
