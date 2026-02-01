@@ -50,9 +50,20 @@ if [[ $(uname) == 'Darwin' ]]; then
     # fi
 
     # Launch Sublime from terminal with `subl` with `sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/.`
-    
-    # psql 
+
+    # psql
     export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi
+
+# 1Password SSH signing for git commits
+if [[ $(uname) == 'Darwin' ]]; then
+    export GIT_CONFIG_COUNT=1
+    export GIT_CONFIG_KEY_0="gpg.ssh.program"
+    export GIT_CONFIG_VALUE_0="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+else
+    export GIT_CONFIG_COUNT=1
+    export GIT_CONFIG_KEY_0="gpg.ssh.program"
+    export GIT_CONFIG_VALUE_0="/opt/1Password/op-ssh-sign"
 fi
 
 # initialize Zoxide, if available
@@ -147,7 +158,7 @@ export PATH="$PATH:$ZVM_INSTALL/"
 # Go
 export PATH=$PATH:/usr/local/go/bin
 
-# Playdate SDK 
+# Playdate SDK
 if [[ $(uname) == 'Darwin' ]]; then
     export PLAYDATE_SDK_PATH="$HOME"/Developer/PlaydateSDK
 else
@@ -167,8 +178,8 @@ export PATH=PLAYDATE_SDK_PATH/bin:$PATH
 #   $ sudo /usr/lib/emsdk/emsdk install latest
 #   $ sudo /usr/lib/emsdk/emsdk activate latest
 if [ -f "/usr/lib/emsdk/emsdk_env.sh" ]; then
-    export EMSDK_QUIET=1  
-    source "/usr/lib/emsdk/emsdk_env.sh" 
+    export EMSDK_QUIET=1
+    source "/usr/lib/emsdk/emsdk_env.sh"
 fi
 
 # Docker
