@@ -7,10 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "hover_popover_enabled": true,
+  "which_key": {
+    "enabled": true
+  },
   "agent_servers": {
     "claude": {}
   },
-  "hover_popover_enabled": false,
   "show_edit_predictions": true,
   "format_on_save": "off",
   "edit_predictions": {
@@ -27,6 +30,26 @@
   },
   "show_completions_on_input": false,
   "agent": {
+    "show_turn_stats": true,
+    "play_sound_when_agent_done": true,
+    "favorite_models": [
+      {
+        "provider": "anthropic",
+        "model": "claude-opus-4-6-1m-context-thinking-latest"
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-opus-4-6-1m-context-latest"
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-opus-4-6-latest"
+      },
+      {
+        "provider": "anthropic",
+        "model": "claude-opus-4-6-thinking-latest"
+      }
+    ],
     "always_allow_tool_actions": true,
     "inline_assistant_model": {
       "provider": "anthropic",
@@ -35,7 +58,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-opus-4-6-thinking-latest"
+      "model": "claude-opus-4-6-latest"
     }
   },
   "auto_signature_help": false,
@@ -56,8 +79,7 @@
     }
   },
   "title_bar": {
-    "show_branch_icon": true,
-    "show_menus": true
+    "show_branch_icon": true
   },
   "scrollbar": {
     "diagnostics": "none"
@@ -66,10 +88,10 @@
     "show": "never"
   },
   // "ui_font_family": "JetBrainsMonoNL Nerd Font",
-  "ui_font_size": 14,
   "buffer_font_family": "JetBrainsMonoNL Nerd Font Mono",
   "buffer_font_size": 12,
   "buffer_line_height": "comfortable",
+  "ui_font_size": 14,
   "theme": {
     "mode": "system",
     "light": "Ayu Light",
@@ -104,6 +126,15 @@
           ]
         }
       }
+    },
+    "Python": {
+      "language_servers": [
+        // Disable basedpyright and enable ty, and otherwise
+        // use the default configuration.
+        "ty",
+        "!basedpyright",
+        "..."
+      ]
     }
   }
 }
