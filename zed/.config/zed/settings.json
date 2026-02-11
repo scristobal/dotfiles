@@ -28,7 +28,10 @@
     "make": true,
     "toml": true
   },
-  "show_completions_on_input": false,
+  "show_completions_on_input": true,
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "agent": {
     "show_turn_stats": true,
     "play_sound_when_agent_done": true,
@@ -61,7 +64,7 @@
       "model": "claude-opus-4-6-latest"
     }
   },
-  "auto_signature_help": false,
+  "auto_signature_help": true,
   "inlay_hints": {
     "toggle_on_modifiers_press": {
       "control": true
