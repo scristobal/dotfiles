@@ -1,0 +1,16 @@
+[metadata]
+name = "paru"
+description = "Browse installed packages"
+requirements = ["paru"]
+
+[source]
+command = "paru -Q | cut -d' ' -f1"
+
+[preview]
+command = "paru -Qi {}"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 60

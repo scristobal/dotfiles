@@ -1,0 +1,16 @@
+[metadata]
+name = "mason"
+description = "Browse installed Mason packages"
+requirements = ["nvim"]
+
+[source]
+command = "ls ~/.local/share/nvim/mason/packages/"
+
+[preview]
+command = "cat ~/.local/share/nvim/mason/packages/{}/mason-receipt.json"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 60

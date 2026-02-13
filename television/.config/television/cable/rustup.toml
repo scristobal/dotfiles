@@ -1,0 +1,16 @@
+[metadata]
+name = "rustup"
+description = "Browse installed Rust toolchains"
+requirements = ["rustup"]
+
+[source]
+command = "rustup toolchain list"
+
+[preview]
+command = "rustup component list --installed --toolchain {0}"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 60
