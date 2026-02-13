@@ -1,0 +1,16 @@
+[metadata]
+name = "bun"
+description = "Browse installed Bun packages"
+requirements = ["bun"]
+
+[source]
+command = "bun pm ls -g 2>/dev/null | tail -n +2 | sed 's/.*── //' | cut -d'@' -f1"
+
+[preview]
+command = "bun pm ls -g --all 2>/dev/null | sed -n '/^├── {}@/,/^├──/p' | sed '$d'"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 60

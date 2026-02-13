@@ -1,0 +1,16 @@
+[metadata]
+name = "uv"
+description = "Browse installed uv packages"
+requirements = ["uv"]
+
+[source]
+command = "uv pip list 2>/dev/null | tail -n +3 | awk '{print $1}'"
+
+[preview]
+command = "uv pip show {} 2>/dev/null"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 60

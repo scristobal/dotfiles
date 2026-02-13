@@ -1,0 +1,16 @@
+[metadata]
+name = "cargo-install"
+description = "Browse installed Cargo packages"
+requirements = ["cargo"]
+
+[source]
+command = "cargo install --list | grep -E '^\\w' | cut -d' ' -f1"
+
+[preview]
+command = "cargo install --list | sed -n '/^{} /,/^[^ ]/p' | sed '$d'"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 60

@@ -1,0 +1,16 @@
+[metadata]
+name = "npm"
+description = "Browse globally installed npm packages"
+requirements = ["npm"]
+
+[source]
+command = "npm list -g --depth=0 2>/dev/null | tail -n +2 | sed 's/.*── //' | cut -d'@' -f1"
+
+[preview]
+command = "npm info {} 2>/dev/null"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 60

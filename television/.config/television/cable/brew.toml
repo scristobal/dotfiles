@@ -1,0 +1,16 @@
+[metadata]
+name = "brew"
+description = "Browse installed Homebrew packages"
+requirements = ["brew"]
+
+[source]
+command = ["brew list --formula -1", "brew list --cask -1"]
+
+[preview]
+command = "brew info {}"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 60
