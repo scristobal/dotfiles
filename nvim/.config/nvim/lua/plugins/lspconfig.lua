@@ -127,6 +127,7 @@ return {
         lua_ls = {
           settings = { Lua = { completion = { callSnippet = 'Replace' } } },
         },
+ 	sourcekit = { capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } } },
         jsonls = {
           settings = {
             json = {
