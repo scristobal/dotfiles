@@ -67,7 +67,7 @@ else
 fi
 
 # initialize Zoxide, if available
-command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)" 2> /dev/null
 
 # Preferred editor for local and remote sessions
 # use nvim if not ssh otherwise use vim
@@ -95,7 +95,6 @@ if command -v eza >/dev/null; then
     # alias lm='eza --long --tree --level=3 --git --classify --no-permissions --octal-permissions'
     # alias la='ls -la'
 fi
-
 
 cx() { cd "$@" && ls; }
 
@@ -129,14 +128,10 @@ alias clr="tput reset"
 
 # alias ff="aerospace list-windows --all | fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
 
-if command -v fastfetch >/dev/null; then
-    alias cdlr="reset && cd && fastfetch"
-else
-    alias cdlr="reset && cd"
-fi
+alias cdlr="reset && cd && fastfetch 2> /dev/null"
 
 # custom  prompt
-command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
+eval "$(starship init zsh)" 2> /dev/null
 
 
 # Rust with rustup
@@ -189,9 +184,7 @@ export PATH=$PATH:$HOME/.adocker/bin
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 # Slow but looks nice
-command -v fastfetch >/dev/null 2>&1 && fastfetch
-
-
+fastfetch 2> /dev/null
 
 # bun completions
 [ -s "/Users/samu/.bun/_bun" ] && source "/Users/samu/.bun/_bun"
