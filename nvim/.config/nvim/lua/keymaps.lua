@@ -38,3 +38,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- copy file:name to system clipboard
+vim.keymap.set("n", "<leader>rc", function()
+  local file = vim.fn.expand("%")
+  local line = vim.fn.line(".")
+  local text = file .. ":" .. line
+
+  vim.fn.setreg("+", text) 
+  print("Copied: " .. text)
+end)

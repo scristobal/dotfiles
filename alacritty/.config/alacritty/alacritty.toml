@@ -68,3 +68,8 @@ hide_when_typing = true
 
 [debug]
 renderer = "None" # "glsl3" | "gles2" | "gles2pure" | "None" 
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
