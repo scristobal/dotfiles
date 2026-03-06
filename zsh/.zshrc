@@ -183,8 +183,8 @@ export PATH=$PATH:$HOME/.adocker/bin
 # local binaries
 export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
 # Slow but looks nice
 fastfetch 2> /dev/null
-
-# bun completions
-[ -s "/Users/samu/.bun/_bun" ] && source "/Users/samu/.bun/_bun"
