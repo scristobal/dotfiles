@@ -67,7 +67,7 @@ else
 fi
 
 # initialize Zoxide, if available
-cmd <(zoxide init zsh) 2> /dev/null
+source <(zoxide init zsh) 2> /dev/null
 
 # Preferred editor for local and remote sessions
 # use nvim if not ssh otherwise use vim
