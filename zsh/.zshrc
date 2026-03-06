@@ -67,7 +67,7 @@ else
 fi
 
 # initialize Zoxide, if available
-eval "$(zoxide init zsh)" 2> /dev/null
+cmd <(zoxide init zsh) 2> /dev/null
 
 # Preferred editor for local and remote sessions
 # use nvim if not ssh otherwise use vim
@@ -131,7 +131,7 @@ alias clr="tput reset"
 alias cdlr="reset && cd && fastfetch 2> /dev/null"
 
 # custom  prompt
-eval "$(starship init zsh)" 2> /dev/null
+source <(starship init zsh) 2> /dev/null
 
 
 # Rust with rustup
