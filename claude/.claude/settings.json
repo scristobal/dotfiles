@@ -60,7 +60,18 @@
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "playground@claude-plugins-official": true
+    "playground@claude-plugins-official": true,
+    "code-review@samu-plugins": true,
+    "codex-review@samu-plugins": true,
+    "lsp-servers@samu-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "samu-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "scristobal/claude-plugins"
+      }
+    }
   },
   "sandbox": {
     "enabled": true,
