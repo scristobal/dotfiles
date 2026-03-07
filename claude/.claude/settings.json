@@ -59,11 +59,8 @@
   "model": "opus",
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": false,
-    "figma@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "playground@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true
+    "playground@claude-plugins-official": true
   },
   "sandbox": {
     "enabled": true,
