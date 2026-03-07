@@ -1,0 +1,83 @@
+{
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyRead": ["~/.ssh", "~/.gnupg", "~/.aws"],
+      "denyWrite": ["~/"]
+    }
+  },
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "WebSearch",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(which *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(find *)",
+      "Bash(file *)",
+      "Bash(du *)",
+      "Bash(df *)",
+      "Bash(pwd)",
+      "Bash(env)",
+      "Bash(echo *)",
+      "Bash(man *)",
+      "Bash(type *)",
+      "Bash(whoami)",
+      "Bash(tree *)",
+      "Bash(diff *)",
+      "Bash(stat *)",
+      "Bash(realpath *)",
+      "Bash(uname *)",
+      "Bash(ps *)",
+      "Bash(uptime)",
+      "Bash(sw_vers *)",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git branch *)",
+      "Bash(otool *)",
+      "Bash(nm *)",
+      "Bash(strings *)",
+      "Bash(dwarfdump *)",
+      "Bash(size *)",
+      "Bash(pagestuff *)",
+      "Bash(objdump *)",
+      "Bash(readelf *)",
+      "Bash(hexdump *)",
+      "Bash(xxd *)"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(chmod *)",
+      "Bash(chown *)",
+      "Bash(sudo *)",
+      "Bash(pip *)",
+      "Bash(npm *)",
+      "Bash(brew *)"
+    ],
+    "defaultMode": "plan"
+  },
+  "skipDangerousModePermissionPrompt": false,
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "kotlin-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
+  },
+  "includeGitInstructions": false,
+  "model": "opus",
+  "effortLevel": "high"
+}
