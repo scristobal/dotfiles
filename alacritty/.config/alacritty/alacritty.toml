@@ -1,6 +1,6 @@
 [general]
 live_config_reload = true
-import = ["bindings.toml" ]
+import = ["bindings.toml", "nordic.toml"]
 
 [env]
 TERM = "xterm-256color"
