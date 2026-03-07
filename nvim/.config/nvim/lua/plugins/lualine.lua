@@ -18,6 +18,16 @@ return {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
         },
+        tabline = {
+          lualine_a = {
+            {
+              'tabs',
+              mode = 1, -- 0: tab number, 1: tab name, 2: both
+              path = 1, -- 0: just filename, 1: relative path
+              max_length = vim.o.columns,
+            },
+          },
+        },
         sections = {
           lualine_b = {
             {
