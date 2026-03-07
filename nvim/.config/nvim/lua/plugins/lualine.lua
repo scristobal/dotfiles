@@ -13,7 +13,7 @@ return {
         icons_enabled = false,
       }
 
-      require('lualine').setup({
+      require('lualine').setup {
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
@@ -27,37 +27,7 @@ return {
               max_length = vim.o.columns,
             },
           },
-        },
-        sections = {
-          lualine_b = {
-            {
-              'branch',
-              icon = '',
-            },
-          },
-          lualine_c = {
-            {
-              'filename',
-              file_status = true,  -- Displays file status (readonly status, modified status)
-              newfile_status = true, -- Display new file status (new file means no write after created)
-              -- 0: Just the filename
-              -- 1: Relative path
-              -- 2: Absolute path
-              -- 3: Absolute path, with tilde as the home directory
-              -- 4: Filename and parent dir, with tilde as the home directory
-              path = 1,
-            },
-            {
-              function()
-                return navic.get_location()
-              end,
-              cond = function()
-                return navic.is_available()
-              end,
-            },
-          },
-
-          lualine_x = {
+          lualine_y = {
             {
               'fileformat',
               symbols = {
@@ -76,12 +46,7 @@ return {
               -- Icon string ^ in table is ignored in filetype component
             },
           },
-          lualine_y = {
-            -- {
-            --   require 'minuet.lualine',
-            --   display_name = 'model',
-            --   display_on_idle = true,
-            -- },
+          lualine_z = {
             {
               'lsp_status',
               icon = '', -- f233
@@ -97,9 +62,47 @@ return {
               ignore_lsp = {},
             },
           },
+        },
+        sections = {
+          lualine_b = {
+            {
+              'branch',
+              icon = '',
+            },
+          },
+          lualine_c = {
+            {
+              'filename',
+              file_status = true, -- Displays file status (readonly status, modified status)
+              newfile_status = true, -- Display new file status (new file means no write after created)
+              -- 0: Just the filename
+              -- 1: Relative path
+              -- 2: Absolute path
+              -- 3: Absolute path, with tilde as the home directory
+              -- 4: Filename and parent dir, with tilde as the home directory
+              path = 1,
+            },
+            {
+              function()
+                return navic.get_location()
+              end,
+              cond = function()
+                return navic.is_available()
+              end,
+            },
+          },
+
+          lualine_x = {},
+          lualine_y = {
+            -- {
+            --   require 'minuet.lualine',
+            --   display_name = 'model',
+            --   display_on_idle = true,
+            -- },
+          },
           lualine_z = { 'progress', 'location' },
         },
-      })
+      }
     end,
   },
 }
