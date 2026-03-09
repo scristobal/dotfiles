@@ -7,6 +7,7 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
+$jobs\
 $cmd_duration\
 $line_break\
 $character"""
@@ -37,6 +38,12 @@ stashed = "≡"
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
+
+[jobs]
+format = "[$symbol$number]($style) "
+style = "bold blue"
+symbol = "✦"
+number_threshold = 1
 
 [cmd_duration]
 format = "[$duration]($style) "
