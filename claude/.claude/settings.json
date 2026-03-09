@@ -26,7 +26,6 @@
       "Bash(realpath *)",
       "Bash(uname *)",
       "Bash(ps *)",
-      "Bash(uptime)",
       "Bash(sw_vers *)",
       "Bash(git status *)",
       "Bash(git log *)",
@@ -45,18 +44,39 @@
     ],
     "deny": [
       "Bash(rm *)",
-      "Bash(curl *)",
-      "Bash(wget *)",
       "Bash(chmod *)",
       "Bash(chown *)",
+      "Bash(sh *)",
       "Bash(sudo *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
       "Bash(pip *)",
       "Bash(npm *)",
-      "Bash(brew *)"
+      "Bash(brew *)",
+      "Bash(cargo install *)"
     ],
     "defaultMode": "plan"
   },
+  "skipDangerousModePermissionPrompt": false,
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "allowWrite": [
+        "~/.cache"
+      ],
+      "denyWrite": [
+        "./.git"
+      ],
+      "denyRead": [
+        "~/.ssh",
+        "~/.gnupg",
+        "~/.aws"
+      ]
+    }
+  },
   "model": "opus",
+  "effortLevel": "high",
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
@@ -72,24 +92,5 @@
         "repo": "scristobal/claude-plugins"
       }
     }
-  },
-  "sandbox": {
-    "enabled": true,
-    "allowUnsandboxedCommands": false,
-    "filesystem": {
-      "allowWrite": [
-        "~/.cache"
-      ],
-      "denyWrite": [
-        "~/"
-      ],
-      "denyRead": [
-        "~/.ssh",
-        "~/.gnupg",
-        "~/.aws"
-      ]
-    }
-  },
-  "skipDangerousModePermissionPrompt": true,
-  "effortLevel": "high"
+  }
 }
