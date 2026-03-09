@@ -86,18 +86,18 @@ return {
                 runBuildScripts = true,
                 allFeatures = true,
               },
-               -- check = {
-               --   command = 'clippy',
-               --   extraArgs = {
-               --     '--no-deps',
-               --     '--all-features',
-               --     '--',
-               --     '-Dclippy::correctness',
-               --     '-Dclippy::complexity',
-               --     '-Wclippy::perf',
-               --     '-Wclippy::pedantic',
-               --   },
-               -- },
+              -- check = {
+              --   command = 'clippy',
+              --   extraArgs = {
+              --     '--no-deps',
+              --     '--all-features',
+              --     '--',
+              --     '-Dclippy::correctness',
+              --     '-Dclippy::complexity',
+              --     '-Wclippy::perf',
+              --     '-Wclippy::pedantic',
+              --   },
+              -- },
               procMacro = {
                 enable = true,
               },
@@ -124,20 +124,12 @@ return {
         --   settings = {},
         -- },
         -- tailwindcss = {},
-        lua_ls = {
-          settings = { Lua = { completion = { callSnippet = 'Replace' } } },
-        },
- 	sourcekit = { capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } } },
-        jsonls = {
-          settings = {
-            json = {
-              schemas = require('schemastore').json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        },
+        lua_ls = { settings = { Lua = { completion = { callSnippet = 'Replace' } } } },
+        sourcekit = { capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } } },
+        kotlin_lsp = {},
+        jsonls = { settings = { json = { schemas = require('schemastore').json.schemas(), validate = { enable = true } } } },
         taplo = {},
-        pest_ls = {},
+        -- pest_ls = {},
         -- ruff_lsp = {},
         -- pyright = {},
         -- gopls = {},
