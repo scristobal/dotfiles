@@ -5,7 +5,31 @@
     "allow": [
       "WebFetch",
       "WebSearch",
-      "Bash"
+      "Read",
+      "Glob",
+      "Grep",
+      "LS",
+      "Edit",
+      "MultiEdit",
+      "Write",
+      "Bash",
+      "mcp__*",
+      "mcp__plugin_*",
+      "LSP",
+      "Agent",
+      "Skill",
+      "ToolSearch",
+      "Task",
+      "TaskCreate",
+      "TaskGet",
+      "TaskList",
+      "TaskOutput",
+      "TaskStop",
+      "TaskUpdate",
+      "TodoWrite"
+    ],
+    "deny": [
+      "Bash(git push *)"
     ],
     "ask": [
       "Bash(rm *)",
@@ -48,15 +72,38 @@
       "Bash(mv /*)",
       "Bash(cp /*)"
     ],
-    "deny": [
-      "Bash(git push *)"
-    ],
-    "defaultMode": "dontAsk"
+    "defaultMode": "acceptEdits"
   },
-  "skipDangerousModePermissionPrompt": false,
+  "skipDangerousModePermissionPrompt": true,
   "sandbox": {
     "enabled": true,
     "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "localhost",
+        "127.0.0.1",
+        "github.com",
+        "*.githubusercontent.com",
+        "ghcr.io",
+        "*.ghcr.io",
+        "npmjs.org",
+        "*.npmjs.org",
+        "pypi.org",
+        "*.pythonhosted.org",
+        "crates.io",
+        "*.crates.io",
+        "*.rust-lang.org",
+        "*.apple.com",
+        "swiftpackageindex.com",
+        "*.cocoapods.org",
+        "*.google.com",
+        "*.apache.org",
+        "*.gradle.org",
+        "*.brew.sh",
+        "*.anthropic.com",
+        "json.schemastore.org"
+      ]
+    },
     "filesystem": {
       "allowWrite": [
         "~/.cache"
@@ -86,33 +133,11 @@
         "~/.zsh_history",
         "*.env"
       ]
-    },
-    "network": {
-      "allowedDomains": [
-        "localhost",
-        "127.0.0.1",
-        "github.com",
-        "*.githubusercontent.com",
-        "ghcr.io",
-        "*.ghcr.io",
-        "npmjs.org",
-        "*.npmjs.org",
-        "pypi.org",
-        "*.pythonhosted.org",
-        "crates.io",
-        "*.crates.io",
-        "*.rust-lang.org",
-        "*.apple.com",
-        "swiftpackageindex.com",
-        "*.cocoapods.org",
-        "*.google.com",
-        "*.apache.org",
-        "*.gradle.org",
-        "*.brew.sh",
-        "*.anthropic.com",
-        "json.schemastore.org"
-      ]
     }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/samu/.claude/statusline-command.sh"
   },
   "model": "opus",
   "effortLevel": "high",
@@ -122,7 +147,11 @@
     "playground@claude-plugins-official": true,
     "code-review@samu-plugins": true,
     "codex-review@samu-plugins": true,
-    "lsp-servers@samu-plugins": true
+    "lsp-servers@samu-plugins": true,
+    "claude-md-management@claude-plugins-official": true,
+    "serena@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "samu-plugins": {
