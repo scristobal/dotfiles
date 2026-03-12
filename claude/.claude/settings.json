@@ -137,7 +137,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bash /Users/samu/.claude/statusline-command.sh"
+    "command": "bash ~/.claude/statusline-command.sh"
   },
   "model": "opus",
   "effortLevel": "high",
