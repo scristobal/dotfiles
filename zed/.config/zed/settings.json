@@ -12,7 +12,12 @@
     "enabled": true
   },
   "agent_servers": {
-    "claude": {}
+    "claude-acp": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
+    }
   },
   "show_edit_predictions": true,
   "format_on_save": "off",
