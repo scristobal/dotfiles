@@ -74,7 +74,6 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -87,7 +86,6 @@
     "codex-review@samu-plugins": true,
     "lsp-servers@samu-plugins": true,
     "claude-md-management@claude-plugins-official": false,
-    "serena@claude-plugins-official": false,
     "figma@claude-plugins-official": false,
     "plugin-dev@claude-plugins-official": false
   },
@@ -101,6 +99,7 @@
   },
   "sandbox": {
     "enabled": true,
+    "autoAllowBashIfSandboxed": true,
     "allowUnsandboxedCommands": false,
     "network": {
       "allowedDomains": [
