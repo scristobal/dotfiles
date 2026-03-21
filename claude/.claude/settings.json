@@ -94,7 +94,8 @@
       "source": {
         "source": "github",
         "repo": "scristobal/claude-plugins"
-      }
+      },
+      "autoUpdate": true
     }
   },
   "sandbox": {
@@ -158,6 +159,6 @@
       ]
     }
   },
-  "effortLevel": "high",
+  "effortLevel": "max",
   "skipDangerousModePermissionPrompt": true
 }
