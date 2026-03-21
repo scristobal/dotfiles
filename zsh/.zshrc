@@ -97,47 +97,22 @@ if command -v eza >/dev/null; then
 fi
 
 cx() { cd "$@" && ls; }
-
-# Dirs
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-# Git
-alias gc="git commit -m"
-alias gca="git commit -a -m"
-alias gp="git push origin HEAD"
-alias gpu="git pull origin"
-alias gst="git status"
-alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit"
-alias gdiff="git diff"
-alias gco="git checkout"
-alias gb='git branch'
-alias gba='git branch -a'
-alias gadd='git add'
-alias ga='git add -p'
-alias gcoall='git checkout -- .'
-alias gr='git remote'
-alias gre='git reset'
-# gcp() { 'git clone --depth 1 --recurse-submodules --shallow-submodules $1' }
-
 # faster and better clear terminal
 alias clr="tput reset"
-
-# alias ff="aerospace list-windows --all | fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
-
 alias cdlr="reset && cd && fastfetch 2> /dev/null"
 
 # custom  prompt
 source <(starship init zsh) 2> /dev/null
 
-
 # Rust with rustup
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
 [ -s "$HOME/.cargo/bin" ] && export PATH="$PATH:$HOME/.cargo/bin"
-
 
 # Node with nvm
 export NVM_DIR="$HOME/.config/nvm"
