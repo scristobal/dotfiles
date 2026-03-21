@@ -81,13 +81,11 @@
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": false,
     "skill-creator@claude-plugins-official": false,
-    "playground@claude-plugins-official": false,
+    "claude-md-management@claude-plugins-official": false,
+    "plugin-dev@claude-plugins-official": false,
     "code-review@samu-plugins": true,
     "codex-review@samu-plugins": true,
-    "lsp-servers@samu-plugins": true,
-    "claude-md-management@claude-plugins-official": false,
-    "figma@claude-plugins-official": false,
-    "plugin-dev@claude-plugins-official": false
+    "lsp-servers@samu-plugins": true
   },
   "extraKnownMarketplaces": {
     "samu-plugins": {
