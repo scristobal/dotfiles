@@ -74,6 +74,8 @@
     ],
     "defaultMode": "acceptEdits"
   },
+  "model": "opus[1m]",
+  "effortLevel": "high",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -157,6 +159,5 @@
       ]
     }
   },
-  "effortLevel": "max",
   "skipDangerousModePermissionPrompt": true
 }
