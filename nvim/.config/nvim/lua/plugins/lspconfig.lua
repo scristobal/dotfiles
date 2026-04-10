@@ -27,7 +27,7 @@ return {
       local servers = {
         -- cspell_ls = {},
         -- codebook = {},
-        rust_analyzer = {},
+        rust_analyzer = { settings = { ['rust-analyzer'] = { cargo = { allFeatures = true } } } },
         gleam = {
           -- uncomment to use debug LSP
           -- cmd = { '/home/samu/repos/forks/gleam/target/debug/gleam', 'lsp' },
