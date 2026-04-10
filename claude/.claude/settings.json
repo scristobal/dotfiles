@@ -2,80 +2,10 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "includeGitInstructions": false,
   "permissions": {
-    "allow": [
-      "WebFetch",
-      "WebSearch",
-      "Read",
-      "Glob",
-      "Grep",
-      "LS",
-      "Edit",
-      "MultiEdit",
-      "Write",
-      "Bash",
-      "mcp__*",
-      "mcp__plugin_*",
-      "LSP",
-      "Agent",
-      "Skill",
-      "ToolSearch",
-      "Task",
-      "TaskCreate",
-      "TaskGet",
-      "TaskList",
-      "TaskOutput",
-      "TaskStop",
-      "TaskUpdate",
-      "TodoWrite"
-    ],
-    "deny": [
-      "Bash(git push *)"
-    ],
-    "ask": [
-      "Bash(rm *)",
-      "Bash(chmod *)",
-      "Bash(chown *)",
-      "Bash(sh *)",
-      "Bash(sudo *)",
-      "Bash(curl *)",
-      "Bash(wget *)",
-      "Bash(brew *)",
-      "Bash(python *)",
-      "Bash(python3 *)",
-      "Bash(pip *)",
-      "Bash(uv *)",
-      "Bash(uvx *)",
-      "Bash(npm *)",
-      "Bash(npx *)",
-      "Bash(bun *)",
-      "Bash(bunx *)",
-      "Bash(cargo install *)",
-      "Bash(node *)",
-      "Bash(deno *)",
-      "Bash(ruby *)",
-      "Bash(perl *)",
-      "Bash(git reset *)",
-      "Bash(git clean *)",
-      "Bash(git checkout *)",
-      "Bash(git switch *)",
-      "Bash(kill *)",
-      "Bash(pkill *)",
-      "Bash(killall *)",
-      "Bash(osascript *)",
-      "Bash(defaults *)",
-      "Bash(launchctl *)",
-      "Bash(open *)",
-      "Bash(docker *)",
-      "Bash(dd *)",
-      "Bash(ln *)",
-      "Bash(xattr *)",
-      "Bash(mv /*)",
-      "Bash(cp /*)"
-    ],
-    "defaultMode": "acceptEdits"
+    "deny": [ "Bash(git push *)" ],
+    "defaultMode": "bypassPermissions"
   },
   "model": "opus[1m]",
-  "effortLevel": "high",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -85,9 +15,7 @@
     "skill-creator@claude-plugins-official": false,
     "claude-md-management@claude-plugins-official": false,
     "plugin-dev@claude-plugins-official": false,
-    "code-review@samu-plugins": true,
-    "codex-review@samu-plugins": true,
-    "lsp-servers@samu-plugins": true
+    "code-review@samu-plugins": true
   },
   "extraKnownMarketplaces": {
     "samu-plugins": {
@@ -159,5 +87,6 @@
       ]
     }
   },
+  "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true
 }
