@@ -9,11 +9,9 @@ BOLD='\033[1m'
 NC='\033[0m'
 
 TARGETS=(
-  "$HOME/.local/share/nvim/lazy"
   "$HOME/.local/share/nvim"
   "$HOME/.local/state/nvim"
   "$HOME/.cache/nvim"
-  "$HOME/.config/nvim/lazy-lock.json"
 )
 
 echo -e "${BOLD}${CYAN}🧹 Neovim Cache Cleaner${NC}"
@@ -55,4 +53,4 @@ for target in "${TARGETS[@]}"; do
 done
 
 echo ""
-echo -e "${GREEN}${BOLD}✓ Done!${NC} Reopen Neovim — Lazy.nvim will bootstrap and reinstall everything."
+echo -e "${GREEN}${BOLD}✓ Done!${NC} Reopen Neovim — vim.pack will reinstall plugins on startup."
