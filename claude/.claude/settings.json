@@ -31,6 +31,7 @@
     "autoAllowBashIfSandboxed": true,
     "allowUnsandboxedCommands": false,
     "network": {
+      "allowLocalBinding": true,
       "allowedDomains": [
         "localhost",
         "127.0.0.1",
