@@ -28,16 +28,15 @@ vim.opt.shortmess:append('I')
 vim.cmd('syntax off')
 
 -- Keymaps
-local map = vim.keymap.set
-map('n', '<Esc>', '<cmd>nohlsearch<CR>')
-map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus left' })
-map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus right' })
-map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus down' })
-map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus up' })
-map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix list' })
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus left' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus right' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus down' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus up' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix list' })
 
-map('n', '<leader>rc', function()
+vim.keymap.set('n', '<leader>rc', function()
   local text = vim.fn.expand('%') .. ':' .. vim.fn.line('.')
   vim.fn.setreg('+', text)
   print('Copied: ' .. text)
@@ -59,7 +58,7 @@ vim.diagnostic.config {
   jump = { on_jump = vim.diagnostic.open_float },
 }
 
-map('n', '<leader>td', function()
+vim.keymap.set('n', '<leader>td', function()
   vim.diagnostic.config { virtual_lines = not vim.diagnostic.config().virtual_lines }
 end, { desc = 'Toggle diagnostic lines' })
 
@@ -74,8 +73,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
       require('nvim-navic').attach(client, ev.buf)
     end
 
-    map('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename', buffer = ev.buf })
-    map({ 'n', 'x' }, '<leader>ca', function()
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename', buffer = ev.buf })
+    vim.keymap.set({ 'n', 'x' }, '<leader>ca', function()
       require('tiny-code-action').code_action {}
     end, { desc = 'Code action', buffer = ev.buf })
 
@@ -99,16 +98,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Toggle inlay hints
     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, ev.buf) then
-      map('n', '<leader>th', function()
+      vim.keymap.set('n', '<leader>th', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = ev.buf })
       end, { desc = 'Toggle inlay hints', buffer = ev.buf })
     end
 
-    map('n', '<C-space>', function() vim.diagnostic.open_float() end,
+    vim.keymap.set('n', '<C-space>', function() vim.diagnostic.open_float() end,
       { buffer = ev.buf, silent = true, desc = 'Show line diagnostics' })
-    map('n', ']g', function() vim.diagnostic.jump { count = 1, float = true } end,
+    vim.keymap.set('n', ']g', function() vim.diagnostic.jump { count = 1, float = true } end,
       { buffer = ev.buf, silent = true, desc = 'Next diagnostic' })
-    map('n', '[g', function() vim.diagnostic.jump { count = -1, float = true } end,
+    vim.keymap.set('n', '[g', function() vim.diagnostic.jump { count = -1, float = true } end,
       { buffer = ev.buf, silent = true, desc = 'Prev diagnostic' })
   end,
 })
@@ -138,13 +137,13 @@ vim.api.nvim_create_autocmd('LspProgress', {
     end
     local msg = {}
     progress[client.id] = vim.tbl_filter(function(v) return table.insert(msg, v.msg) or not v.done end, p)
-    local spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
+    local spinner = { '◜', '◠', '◝', '◞', '◡', '◟' }
     vim.notify(table.concat(msg, '\n'), 'info', {
       id = 'lsp_progress',
       title = client.name,
       opts = function(notif)
         notif.icon = #progress[client.id] == 0 and ' '
-          or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+          or spinner[math.floor(vim.uv.hrtime() / (1e6 * 100)) % #spinner + 1]
       end,
     })
   end,
@@ -187,7 +186,7 @@ vim.pack.add({
   'https://github.com/vague2k/vague.nvim',
 })
 
-map('n', '<leader>pu', '<cmd>lua vim.pack.update()<CR>', { desc = 'Update plugins' })
+vim.keymap.set('n', '<leader>pu', '<cmd>lua vim.pack.update()<CR>', { desc = 'Update plugins' })
 
 -- Treesitter
 vim.api.nvim_create_autocmd('FileType', {
@@ -205,10 +204,10 @@ vim.schedule(function() require('nvim-treesitter').install(ts_parsers) end)
 
 -- LuaSnip
 local ls = require 'luasnip'
-map('i', '<C-K>', function() ls.expand {} end, { silent = true })
-map({ 'i', 's' }, '<C-L>', function() ls.jump(1) end, { silent = true })
-map({ 'i', 's' }, '<C-J>', function() ls.jump(-1) end, { silent = true })
-map({ 'i', 's' }, '<C-E>', function()
+vim.keymap.set('i', '<C-K>', function() ls.expand {} end, { silent = true })
+vim.keymap.set({ 'i', 's' }, '<C-L>', function() ls.jump(1) end, { silent = true })
+vim.keymap.set({ 'i', 's' }, '<C-J>', function() ls.jump(-1) end, { silent = true })
+vim.keymap.set({ 'i', 's' }, '<C-E>', function()
   if ls.choice_active() then ls.change_choice(1) end
 end, { silent = true })
 
@@ -285,7 +284,7 @@ require('conform').setup {
   },
 }
 
-map('n', '<leader>f', function()
+vim.keymap.set('n', '<leader>f', function()
   require('conform').format { async = true }
 end, { desc = 'Format buffer' })
 
@@ -326,57 +325,57 @@ require('snacks').setup {
   words = { enabled = true },
 }
 
-map('n', '<leader><space>', function() Snacks.picker.smart() end, { desc = 'Smart Find' })
-map('n', '<leader>,', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
-map('n', '<leader>/', function() Snacks.picker.grep() end, { desc = 'Grep' })
-map('n', '<leader>:', function() Snacks.picker.command_history() end, { desc = 'Command History' })
-map('n', '<leader>e', function() Snacks.explorer() end, { desc = 'File Explorer' })
-map('n', '<leader>n', function() Snacks.picker.notifications() end, { desc = 'Notifications' })
-map('n', '<leader>ff', function() Snacks.picker.files() end, { desc = 'Find Files' })
-map('n', '<leader>fb', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
-map('n', '<leader>fc', function() Snacks.picker.files { cwd = vim.fn.stdpath 'config' } end, { desc = 'Config Files' })
-map('n', '<leader>fg', function() Snacks.picker.git_files() end, { desc = 'Git Files' })
-map('n', '<leader>fp', function() Snacks.picker.projects() end, { desc = 'Projects' })
-map('n', '<leader>fr', function() Snacks.picker.recent() end, { desc = 'Recent' })
-map('n', '<leader>gb', function() Snacks.picker.git_branches() end, { desc = 'Git Branches' })
-map('n', '<leader>gd', function() Snacks.picker.git_diff() end, { desc = 'Git Diff' })
-map('n', '<leader>gf', function() Snacks.picker.git_log_file() end, { desc = 'Git Log File' })
-map('n', '<leader>gl', function() Snacks.picker.git_log() end, { desc = 'Git Log' })
-map('n', '<leader>gL', function() Snacks.picker.git_log_line() end, { desc = 'Git Log Line' })
-map('n', '<leader>gs', function() Snacks.picker.git_status() end, { desc = 'Git Status' })
-map('n', '<leader>gS', function() Snacks.picker.git_stash() end, { desc = 'Git Stash' })
-map('n', '<leader>s"', function() Snacks.picker.registers() end, { desc = 'Registers' })
-map('n', '<leader>s/', function() Snacks.picker.search_history() end, { desc = 'Search History' })
-map('n', '<leader>sa', function() Snacks.picker.autocmds() end, { desc = 'Autocmds' })
-map('n', '<leader>sb', function() Snacks.picker.lines() end, { desc = 'Buffer Lines' })
-map('n', '<leader>sB', function() Snacks.picker.grep_buffers() end, { desc = 'Grep Open Buffers' })
-map('n', '<leader>sc', function() Snacks.picker.command_history() end, { desc = 'Command History' })
-map('n', '<leader>sC', function() Snacks.picker.commands() end, { desc = 'Commands' })
-map('n', '<leader>sd', function() Snacks.picker.diagnostics() end, { desc = 'Diagnostics' })
-map('n', '<leader>sD', function() Snacks.picker.diagnostics_buffer() end, { desc = 'Buffer Diagnostics' })
-map('n', '<leader>sg', function() Snacks.picker.grep() end, { desc = 'Grep' })
-map({ 'n', 'x' }, '<leader>sw', function() Snacks.picker.grep_word() end, { desc = 'Grep Word' })
-map('n', '<leader>sh', function() Snacks.picker.help() end, { desc = 'Help' })
-map('n', '<leader>sH', function() Snacks.picker.highlights() end, { desc = 'Highlights' })
-map('n', '<leader>si', function() Snacks.picker.icons() end, { desc = 'Icons' })
-map('n', '<leader>sj', function() Snacks.picker.jumps() end, { desc = 'Jumps' })
-map('n', '<leader>sk', function() Snacks.picker.keymaps() end, { desc = 'Keymaps' })
-map('n', '<leader>sl', function() Snacks.picker.loclist() end, { desc = 'Location List' })
-map('n', '<leader>sm', function() Snacks.picker.marks() end, { desc = 'Marks' })
-map('n', '<leader>sM', function() Snacks.picker.man() end, { desc = 'Man Pages' })
-map('n', '<leader>sp', function() Snacks.picker.lazy() end, { desc = 'Plugin Spec' })
-map('n', '<leader>sq', function() Snacks.picker.qflist() end, { desc = 'Quickfix List' })
-map('n', '<leader>sR', function() Snacks.picker.resume() end, { desc = 'Resume' })
-map('n', '<leader>ss', function() Snacks.picker.lsp_symbols() end, { desc = 'LSP Symbols' })
-map('n', '<leader>sS', function() Snacks.picker.lsp_workspace_symbols() end, { desc = 'LSP Workspace Symbols' })
-map('n', '<leader>st', function() Snacks.picker.treesitter() end, { desc = 'Treesitter' })
-map('n', '<leader>su', function() Snacks.picker.undo() end, { desc = 'Undo History' })
-map('n', '<leader>uC', function() Snacks.picker.colorschemes() end, { desc = 'Colorschemes' })
-map('n', 'gd', function() Snacks.picker.lsp_definitions() end, { desc = 'Goto Definition' })
-map('n', 'gD', function() Snacks.picker.lsp_declarations() end, { desc = 'Goto Declaration' })
-map('n', 'gr', function() Snacks.picker.lsp_references() end, { nowait = true, desc = 'References' })
-map('n', 'gI', function() Snacks.picker.lsp_implementations() end, { desc = 'Goto Implementation' })
-map('n', 'gy', function() Snacks.picker.lsp_type_definitions() end, { desc = 'Goto Type Definition' })
+vim.keymap.set('n', '<leader><space>', function() Snacks.picker.smart() end, { desc = 'Smart Find' })
+vim.keymap.set('n', '<leader>,', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
+vim.keymap.set('n', '<leader>/', function() Snacks.picker.grep() end, { desc = 'Grep' })
+vim.keymap.set('n', '<leader>:', function() Snacks.picker.command_history() end, { desc = 'Command History' })
+vim.keymap.set('n', '<leader>e', function() Snacks.explorer() end, { desc = 'File Explorer' })
+vim.keymap.set('n', '<leader>n', function() Snacks.picker.notifications() end, { desc = 'Notifications' })
+vim.keymap.set('n', '<leader>ff', function() Snacks.picker.files() end, { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
+vim.keymap.set('n', '<leader>fc', function() Snacks.picker.files { cwd = vim.fn.stdpath 'config' } end, { desc = 'Config Files' })
+vim.keymap.set('n', '<leader>fg', function() Snacks.picker.git_files() end, { desc = 'Git Files' })
+vim.keymap.set('n', '<leader>fp', function() Snacks.picker.projects() end, { desc = 'Projects' })
+vim.keymap.set('n', '<leader>fr', function() Snacks.picker.recent() end, { desc = 'Recent' })
+vim.keymap.set('n', '<leader>gb', function() Snacks.picker.git_branches() end, { desc = 'Git Branches' })
+vim.keymap.set('n', '<leader>gd', function() Snacks.picker.git_diff() end, { desc = 'Git Diff' })
+vim.keymap.set('n', '<leader>gf', function() Snacks.picker.git_log_file() end, { desc = 'Git Log File' })
+vim.keymap.set('n', '<leader>gl', function() Snacks.picker.git_log() end, { desc = 'Git Log' })
+vim.keymap.set('n', '<leader>gL', function() Snacks.picker.git_log_line() end, { desc = 'Git Log Line' })
+vim.keymap.set('n', '<leader>gs', function() Snacks.picker.git_status() end, { desc = 'Git Status' })
+vim.keymap.set('n', '<leader>gS', function() Snacks.picker.git_stash() end, { desc = 'Git Stash' })
+vim.keymap.set('n', '<leader>s"', function() Snacks.picker.registers() end, { desc = 'Registers' })
+vim.keymap.set('n', '<leader>s/', function() Snacks.picker.search_history() end, { desc = 'Search History' })
+vim.keymap.set('n', '<leader>sa', function() Snacks.picker.autocmds() end, { desc = 'Autocmds' })
+vim.keymap.set('n', '<leader>sb', function() Snacks.picker.lines() end, { desc = 'Buffer Lines' })
+vim.keymap.set('n', '<leader>sB', function() Snacks.picker.grep_buffers() end, { desc = 'Grep Open Buffers' })
+vim.keymap.set('n', '<leader>sc', function() Snacks.picker.command_history() end, { desc = 'Command History' })
+vim.keymap.set('n', '<leader>sC', function() Snacks.picker.commands() end, { desc = 'Commands' })
+vim.keymap.set('n', '<leader>sd', function() Snacks.picker.diagnostics() end, { desc = 'Diagnostics' })
+vim.keymap.set('n', '<leader>sD', function() Snacks.picker.diagnostics_buffer() end, { desc = 'Buffer Diagnostics' })
+vim.keymap.set('n', '<leader>sg', function() Snacks.picker.grep() end, { desc = 'Grep' })
+vim.keymap.set({ 'n', 'x' }, '<leader>sw', function() Snacks.picker.grep_word() end, { desc = 'Grep Word' })
+vim.keymap.set('n', '<leader>sh', function() Snacks.picker.help() end, { desc = 'Help' })
+vim.keymap.set('n', '<leader>sH', function() Snacks.picker.highlights() end, { desc = 'Highlights' })
+vim.keymap.set('n', '<leader>si', function() Snacks.picker.icons() end, { desc = 'Icons' })
+vim.keymap.set('n', '<leader>sj', function() Snacks.picker.jumps() end, { desc = 'Jumps' })
+vim.keymap.set('n', '<leader>sk', function() Snacks.picker.keymaps() end, { desc = 'Keymaps' })
+vim.keymap.set('n', '<leader>sl', function() Snacks.picker.loclist() end, { desc = 'Location List' })
+vim.keymap.set('n', '<leader>sm', function() Snacks.picker.marks() end, { desc = 'Marks' })
+vim.keymap.set('n', '<leader>sM', function() Snacks.picker.man() end, { desc = 'Man Pages' })
+vim.keymap.set('n', '<leader>sp', function() Snacks.picker.lazy() end, { desc = 'Plugin Spec' })
+vim.keymap.set('n', '<leader>sq', function() Snacks.picker.qflist() end, { desc = 'Quickfix List' })
+vim.keymap.set('n', '<leader>sR', function() Snacks.picker.resume() end, { desc = 'Resume' })
+vim.keymap.set('n', '<leader>ss', function() Snacks.picker.lsp_symbols() end, { desc = 'LSP Symbols' })
+vim.keymap.set('n', '<leader>sS', function() Snacks.picker.lsp_workspace_symbols() end, { desc = 'LSP Workspace Symbols' })
+vim.keymap.set('n', '<leader>st', function() Snacks.picker.treesitter() end, { desc = 'Treesitter' })
+vim.keymap.set('n', '<leader>su', function() Snacks.picker.undo() end, { desc = 'Undo History' })
+vim.keymap.set('n', '<leader>uC', function() Snacks.picker.colorschemes() end, { desc = 'Colorschemes' })
+vim.keymap.set('n', 'gd', function() Snacks.picker.lsp_definitions() end, { desc = 'Goto Definition' })
+vim.keymap.set('n', 'gD', function() Snacks.picker.lsp_declarations() end, { desc = 'Goto Declaration' })
+vim.keymap.set('n', 'gr', function() Snacks.picker.lsp_references() end, { nowait = true, desc = 'References' })
+vim.keymap.set('n', 'gI', function() Snacks.picker.lsp_implementations() end, { desc = 'Goto Implementation' })
+vim.keymap.set('n', 'gy', function() Snacks.picker.lsp_type_definitions() end, { desc = 'Goto Type Definition' })
 
 -- Which-key
 require('which-key').setup { preset = 'modern', delay = 0, icons = { mappings = true } }
@@ -389,25 +388,25 @@ require('gitsigns').setup {
   },
   on_attach = function(bufnr)
     local gs = require 'gitsigns'
-    map('n', ']c', function()
+    vim.keymap.set('n', ']c', function()
       if vim.wo.diff then vim.cmd.normal { ']c', bang = true } else gs.nav_hunk 'next' end
     end, { desc = 'Next git change', buffer = bufnr })
-    map('n', '[c', function()
+    vim.keymap.set('n', '[c', function()
       if vim.wo.diff then vim.cmd.normal { '[c', bang = true } else gs.nav_hunk 'prev' end
     end, { desc = 'Prev git change', buffer = bufnr })
-    map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'Stage hunk', buffer = bufnr })
-    map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'Reset hunk', buffer = bufnr })
-    map('n', '<leader>hs', gs.stage_hunk, { desc = 'Stage hunk', buffer = bufnr })
-    map('n', '<leader>hr', gs.reset_hunk, { desc = 'Reset hunk', buffer = bufnr })
-    map('n', '<leader>hS', gs.stage_buffer, { desc = 'Stage buffer', buffer = bufnr })
-    map('n', '<leader>hu', gs.stage_hunk, { desc = 'Undo stage hunk', buffer = bufnr })
-    map('n', '<leader>hR', gs.reset_buffer, { desc = 'Reset buffer', buffer = bufnr })
-    map('n', '<leader>hp', gs.preview_hunk, { desc = 'Preview hunk', buffer = bufnr })
-    map('n', '<leader>hb', gs.blame_line, { desc = 'Blame line', buffer = bufnr })
-    map('n', '<leader>hd', gs.diffthis, { desc = 'Diff index', buffer = bufnr })
-    map('n', '<leader>hD', function() gs.diffthis '@' end, { desc = 'Diff last commit', buffer = bufnr })
-    map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'Toggle blame', buffer = bufnr })
-    map('n', '<leader>tD', gs.preview_hunk_inline, { desc = 'Toggle deleted', buffer = bufnr })
+    vim.keymap.set('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'Stage hunk', buffer = bufnr })
+    vim.keymap.set('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'Reset hunk', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hs', gs.stage_hunk, { desc = 'Stage hunk', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hr', gs.reset_hunk, { desc = 'Reset hunk', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hS', gs.stage_buffer, { desc = 'Stage buffer', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hu', gs.stage_hunk, { desc = 'Undo stage hunk', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hR', gs.reset_buffer, { desc = 'Reset buffer', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hp', gs.preview_hunk, { desc = 'Preview hunk', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hb', gs.blame_line, { desc = 'Blame line', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hd', gs.diffthis, { desc = 'Diff index', buffer = bufnr })
+    vim.keymap.set('n', '<leader>hD', function() gs.diffthis '@' end, { desc = 'Diff last commit', buffer = bufnr })
+    vim.keymap.set('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'Toggle blame', buffer = bufnr })
+    vim.keymap.set('n', '<leader>tD', gs.preview_hunk_inline, { desc = 'Toggle deleted', buffer = bufnr })
   end,
 }
 
@@ -431,7 +430,7 @@ local r = require 'symbols.recipes'
 require('symbols').setup(r.DefaultFilters, r.AsciiSymbols, {
   sidebar = { cursor_follow = true },
 })
-map('n', ',s', '<cmd>SymbolsToggle<CR>')
+vim.keymap.set('n', ',s', '<cmd>SymbolsToggle<CR>')
 
 -- Krust
 require('krust').setup {
@@ -441,7 +440,7 @@ require('krust').setup {
 
 -- CodeDiff
 require('codediff').setup { diff = { layout = 'inline' } }
-map('n', '<leader>cd', '<cmd>CodeDiff<CR>', { desc = 'CodeDiff' })
+vim.keymap.set('n', '<leader>cd', '<cmd>CodeDiff<CR>', { desc = 'CodeDiff' })
 
 -- Mini
 require('mini.ai').setup { n_lines = 500 }
@@ -467,7 +466,7 @@ require('lualine').setup {
     },
     lualine_z = {
       { 'lsp_status', icon = '', symbols = {
-        spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' },
+        spinner = { '◜', '◠', '◝', '◞', '◡', '◟' },
         done = '✓', separator = ' ',
       }, ignore_lsp = {} },
     },
@@ -534,14 +533,14 @@ dap.listeners.after.event_initialized['dapui_config'] = dapui.open
 dap.listeners.before.event_terminated['dapui_config'] = dapui.close
 dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-map('n', '<F5>', dap.continue, { desc = 'Debug: Continue' })
-map('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-map('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-map('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
-map('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Toggle Breakpoint' })
-map('n', '<leader>B', function() dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ') end, { desc = 'Set Breakpoint' })
-map('n', '<F7>', dapui.toggle, { desc = 'Debug UI' })
-map('n', '<leader>ld', function() require('nvim-dap-projects').search_project_config() end, { desc = 'Load project debug config' })
+vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Continue' })
+vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
+vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
+vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
+vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Toggle Breakpoint' })
+vim.keymap.set('n', '<leader>B', function() dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ') end, { desc = 'Set Breakpoint' })
+vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug UI' })
+vim.keymap.set('n', '<leader>ld', function() require('nvim-dap-projects').search_project_config() end, { desc = 'Load project debug config' })
 
 -- Theme
 require('vague').setup { transparent = true, bold = false, italic = false }
