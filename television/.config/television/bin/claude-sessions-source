@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+"""Emit one line per Claude Code session across all projects, newest first.
+Format (TAB-separated): <display>\t<session-id>\t<cwd>"""
+import json, os, sys
+from pathlib import Path
+
+projects_dir = Path(os.environ.get('CLAUDE_PROJECTS_DIR') or (Path.home() / '.claude/projects'))
+home = str(Path.home()).rstrip('/') + '/'
+if not projects_dir.is_dir():
+    sys.exit(0)
+
+def short_cwd(cwd: str) -> str:
+    return '~/' + cwd[len(home):] if cwd.startswith(home) else cwd
+
+def shorten(text: str, limit: int) -> str:
+    text = ' '.join(text.replace('\r', ' ').replace('\n', ' ').split())
+    return text if len(text) <= limit else text[: limit - 1] + '…'
+
+def extract(path: Path):
+    cwd = name = branch = first_prompt = None
+    try:
+        fh = path.open('r', encoding='utf-8', errors='replace')
+    except OSError:
+        return None
+    with fh:
+        for line in fh:
+            try: obj = json.loads(line)
+            except Exception: continue
+            t = obj.get('type')
+            if cwd is None and obj.get('cwd'):
+                cwd = obj['cwd']
+            if obj.get('gitBranch'):
+                branch = obj['gitBranch']
+            if t == 'custom-title' and obj.get('customTitle'):
+                name = obj['customTitle']
+            elif t == 'agent-name' and obj.get('agentName') and not name:
+                name = obj['agentName']
+            elif t == 'user' and first_prompt is None \
+                    and not obj.get('isSidechain') and not obj.get('isMeta'):
+                msg = obj.get('message') or {}
+                content = msg.get('content')
+                if isinstance(content, list):
+                    content = '\n'.join(
+                        p.get('text', '') for p in content
+                        if isinstance(p, dict) and p.get('type') == 'text'
+                    )
+                if isinstance(content, str) and content.strip() \
+                        and not content.startswith('<local-command-') \
+                        and not content.startswith('<command-'):
+                    first_prompt = content
+    return cwd, name, branch, first_prompt
+
+rows = []
+for path in projects_dir.glob('*/*.jsonl'):
+    if not path.is_file(): continue
+    try: mtime = path.stat().st_mtime
+    except OSError: continue
+    rows.append((mtime, path))
+rows.sort(key=lambda r: r[0], reverse=True)
+
+TITLE_W, FOLDER_W, BRANCH_W = 50, 35, 25
+
+def pad(text: str, width: int) -> str:
+    text = shorten(text, width)
+    return text + ' ' * max(0, width - len(text))
+
+for _, path in rows:
+    info = extract(path)
+    if not info: continue
+    cwd, name, branch, first_prompt = info
+    if not cwd: continue
+    title = name or first_prompt or '(no title)'
+    display = f'{pad(title, TITLE_W)}  {pad(short_cwd(cwd), FOLDER_W)}  {shorten(branch or "—", BRANCH_W)}'
+    sys.stdout.write(f'{display}\t{path.stem}\t{cwd}\n')

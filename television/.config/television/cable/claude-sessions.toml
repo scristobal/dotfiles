@@ -1,0 +1,28 @@
+[metadata]
+name = "claude-sessions"
+description = "Browse and resume Claude Code sessions across all projects"
+requirements = ["claude", "python3"]
+
+[source]
+command = "$HOME/.config/television/bin/claude-sessions-source"
+display = "{split:\t:0}"
+output = "{}"
+no_sort = true
+
+[preview]
+command = "$HOME/.config/television/bin/claude-sessions-preview '{split:\t:1}' '{split:\t:2}'"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 55
+
+[keybindings]
+enter = "actions:resume"
+
+[actions.resume]
+description = "Resume this Claude Code session in its project directory"
+command = "cd '{split:\t:2}' && claude --resume '{split:\t:1}'"
+shell = "bash"
+mode = "execute"

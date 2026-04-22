@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Preview for a Claude Code session. Args: <session-id> <cwd>"""
+import json, os, sys, textwrap
+from datetime import datetime
+from pathlib import Path
+
+if len(sys.argv) < 3:
+    sys.exit(0)
+id_, cwd = sys.argv[1], sys.argv[2]
+if not id_ or not cwd:
+    sys.exit(0)
+
+projects_dir = Path(os.environ.get('CLAUDE_PROJECTS_DIR') or (Path.home() / '.claude/projects'))
+file = next((p for p in projects_dir.glob(f'*/{id_}.jsonl') if p.is_file()), None)
+if file is None:
+    print(f'session file not found for {id_}')
+    sys.exit(0)
+
+def parse_ts(s):
+    if not isinstance(s, str): return None
+    try: return datetime.fromisoformat(s.replace('Z', '+00:00'))
+    except Exception: return None
+
+name = branch = None
+user_turns = assistant_turns = 0
+ts_first = ts_last = None
+prompts = []
+
+with file.open('r', encoding='utf-8', errors='replace') as fh:
+    for line in fh:
+        try: obj = json.loads(line)
+        except Exception: continue
+        t = obj.get('type')
+        if t == 'custom-title' and obj.get('customTitle'):
+            name = obj['customTitle']
+        elif t == 'agent-name' and obj.get('agentName') and not name:
+            name = obj['agentName']
+        elif t in ('user', 'assistant'):
+            if obj.get('isSidechain') or obj.get('isMeta'):
+                continue
+            msg = obj.get('message') or {}
+            content = msg.get('content')
+            if t == 'user':
+                is_tool_result = isinstance(content, list) and any(
+                    isinstance(p, dict) and p.get('type') == 'tool_result' for p in content
+                )
+                if is_tool_result:
+                    continue
+                if isinstance(content, list):
+                    content = '\n'.join(
+                        p.get('text', '') for p in content
+                        if isinstance(p, dict) and p.get('type') == 'text'
+                    )
+                if isinstance(content, str) and content.strip() \
+                        and not content.startswith('<local-command-') \
+                        and not content.startswith('<command-'):
+                    user_turns += 1
+                    prompts.append(content.strip())
+            else:
+                assistant_turns += 1
+            if obj.get('gitBranch'):
+                branch = obj['gitBranch']
+            ts = parse_ts(obj.get('timestamp'))
+            if ts:
+                if ts_first is None or ts < ts_first: ts_first = ts
+                if ts_last is None or ts > ts_last: ts_last = ts
+
+def fmt_duration(a, b):
+    if not a or not b: return '—'
+    secs = int((b - a).total_seconds())
+    if secs < 60: return f'{secs}s'
+    m, s = divmod(secs, 60)
+    if m < 60: return f'{m}m {s}s'
+    h, m = divmod(m, 60)
+    if h < 24: return f'{h}h {m}m'
+    d, h = divmod(h, 24)
+    return f'{d}d {h}h'
+
+rows = []
+if name: rows.append(('Name',   name))
+rows.append(('Folder',   cwd))
+rows.append(('Branch',   branch or '—'))
+rows.append(('Turns',    f'{user_turns} user / {assistant_turns} assistant'))
+rows.append(('Duration', fmt_duration(ts_first, ts_last)))
+for k, v in rows:
+    print(f'{k:<8}: {v}')
+
+def render(label, items, start=1):
+    print(f'\n── {label} ─────────────────────────────')
+    for i, p in enumerate(items, start):
+        body = textwrap.fill(p, width=100, replace_whitespace=False)[:600]
+        first, *rest = body.splitlines() or ['']
+        print(f'{i:>2}. {first}')
+        for line in rest:
+            print(f'    {line}')
+
+if not prompts:
+    print('\n(no user prompts found)')
+elif len(prompts) <= 10:
+    render(f'user prompts ({len(prompts)})', prompts)
+else:
+    render(f'first 5 of {len(prompts)} prompts', prompts[:5], start=1)
+    render('last 5 prompts', prompts[-5:], start=len(prompts) - 4)
