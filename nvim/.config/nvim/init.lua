@@ -549,7 +549,7 @@ vim.keymap.set('n', '<leader>ld', function() require('nvim-dap-projects').search
 -- require('vague').setup { transparent = true, bold = false, italic = false }
 -- vim.cmd.colorscheme 'vague'
 require("lake-dweller").setup({
-    variant = "lake-dweller",   -- "lake-dweller", "pond-dweller", or "ocean-dweller"
+    variant = "ocean-dweller",   -- "lake-dweller", "pond-dweller", or "ocean-dweller"
     transparent = true,
     italics = false,
     float_background = false,
