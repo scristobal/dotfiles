@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "hover_popover_enabled": true,
   "which_key": {
     "enabled": true
@@ -35,6 +44,7 @@
   },
   "show_completions_on_input": true,
   "agent": {
+    "dock": "right",
     "tool_permissions": {
       "default": "allow"
     },
@@ -80,6 +90,7 @@
     }
   },
   "project_panel": {
+    "dock": "left",
     "indent_size": 12,
     "indent_guides": {
       "show": "never"
