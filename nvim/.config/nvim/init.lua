@@ -218,7 +218,7 @@ require('blink.cmp').setup {
   appearance = { nerd_font_variant = 'mono' },
   completion = {
     documentation = { auto_show = true, auto_show_delay_ms = 100 },
-    ghost_text = { enabled = true },
+    ghost_text = { enabled = false },
     trigger = { prefetch_on_insert = false },
   },
   sources = {
@@ -546,12 +546,12 @@ vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug UI' })
 vim.keymap.set('n', '<leader>ld', function() require('nvim-dap-projects').search_project_config() end, { desc = 'Load project debug config' })
 
 -- Theme
--- require('vague').setup { transparent = true, bold = false, italic = false }
--- vim.cmd.colorscheme 'vague'
-require("lake-dweller").setup({
-    variant = "ocean-dweller",   -- "lake-dweller", "pond-dweller", or "ocean-dweller"
-    transparent = true,
-    italics = false,
-    float_background = false,
-})
-vim.cmd.colorscheme 'lake-dweller'
+require('vague').setup { transparent = true, bold = false, italic = false }
+vim.cmd.colorscheme 'vague'
+-- require("lake-dweller").setup({
+--     variant = "ocean-dweller",   -- "lake-dweller", "pond-dweller", or "ocean-dweller"
+--     transparent = true,
+--     italics = false,
+--     float_background = false,
+-- })
+-- vim.cmd.colorscheme 'lake-dweller'

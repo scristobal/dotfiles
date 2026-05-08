@@ -33,6 +33,10 @@
       "rev": "76f1c8bd1afaa13a22756c736478144fa38f75f8",
       "src": "https://github.com/diogo464/hotreload.nvim"
     },
+    "kintsugi-nvim": {
+      "rev": "6c8b881e6aea8ee1e3361a00858b5b1a3488d885",
+      "src": "https://github.com/metalelf0/kintsugi-nvim"
+    },
     "krust.nvim": {
       "rev": "899b65851d25d6eb250833709ab5b27c760171dd",
       "src": "https://github.com/alexpasmantier/krust.nvim"
@@ -50,7 +54,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "0c2823e0418f3d9230ff8b201c976e84de1cb401",
+      "rev": "51feb0ada33d18f3c5c71ffb46005dbf8b33bef4",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-nvim-dap.nvim": {
@@ -58,15 +62,15 @@
       "src": "https://github.com/jay-babu/mason-nvim-dap.nvim"
     },
     "mason.nvim": {
-      "rev": "cb8445f8ce85d957416c106b780efd51c6298f89",
+      "rev": "e54f5bf5f12c560da31c17eee5b3e1bd369f3ff9",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "be81509b7160aa02264a59789164a2e1c4a6750a",
+      "rev": "199b3344d4c0dab13e45483834ce11bb7744fa3a",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-autopairs": {
-      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
+      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-dap": {
@@ -86,7 +90,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "21db1fd40cbcbf1524ae154ab8f394fdf085749a",
+      "rev": "451d4ef9abd4f0f08e379ef0d55d1c391b6125a7",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -110,7 +114,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "schemastore.nvim": {
-      "rev": "c3709d579066ab8f9600f5b76ade2da5042ec1ac",
+      "rev": "1ccbd3720b5064146b16d7761957da302ea1e86f",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
@@ -130,7 +134,7 @@
       "src": "https://github.com/vague2k/vague.nvim"
     },
     "wayfinder.nvim": {
-      "rev": "d9e4973efa2b9438d0f56a3481b1d75c02ec04a1",
+      "rev": "c5fafe5189b3b9ef1a7a4bee7498619e0aa1329d",
       "src": "https://github.com/error311/wayfinder.nvim"
     },
     "which-key.nvim": {
