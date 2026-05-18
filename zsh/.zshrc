@@ -137,7 +137,7 @@ else
     export PLAYDATE_SDK_PATH="$HOME"/.local/share/playdate-sdk
 fi
 
-export PATH=PLAYDATE_SDK_PATH/bin:$PATH
+export PATH="$PLAYDATE_SDK_PATH/bin:$PATH"
 
 # Vulkan SDK
 # export VULKAN_SDK="$HOME/vulkan/1.3.290.0"
