@@ -4,7 +4,7 @@ description = "Browse installed packages"
 requirements = ["paru"]
 
 [source]
-command = "paru -Q | cut -d' ' -f1"
+command = ["paru -Qe | cut -d' ' -f1", "paru -Q | cut -d' ' -f1"]
 
 [preview]
 command = "paru -Qi {}"
