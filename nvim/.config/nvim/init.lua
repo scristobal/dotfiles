@@ -179,8 +179,8 @@ vim.pack.add({
   'https://github.com/esmuellert/codediff.nvim',
   'https://github.com/scristobal/code-review.nvim',
   'https://github.com/mfussenegger/nvim-dap',
-  'https://github.com/rcarriga/nvim-dap-ui',
   'https://github.com/nvim-neotest/nvim-nio',
+  'https://github.com/rcarriga/nvim-dap-ui',
   'https://github.com/jay-babu/mason-nvim-dap.nvim',
   'https://github.com/ldelossa/nvim-dap-projects',
   'https://github.com/vague2k/vague.nvim',
@@ -240,40 +240,36 @@ vim.lsp.config('*', {
   capabilities = require('blink.cmp').get_lsp_capabilities(),
 })
 
--- START OF mpl-stuff
+--- dev setup for mpl related stuff
 
-vim.filetype.add({
-  extension = {
-    mpl = "mpl",
-  },
-})
+local mpl_ts_dir = vim.fn.expand('~/repos/samu/tree-sitter-mpl')
+local mpl_parser = mpl_ts_dir .. '/mpl.so'
+local mpl_queries = mpl_ts_dir .. '/queries/mpl'
+local mpl_lsp = vim.fn.expand('~/repos/forks/mpl/target/release/mpl-lsp')
 
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'TSUpdate',
-  desc = 'Register local MPL tree-sitter parser',
-  callback = function()
-    require('nvim-treesitter.parsers').mpl = {
-      ---@diagnostic disable-next-line: missing-fields
-      install_info = {
-        path = vim.fn.expand('~/repos/samu/tree-sitter-mpl'),
-        queries = 'queries/mpl',
-      },
-      tier = 3,
-    }
-  end,
-})
+if vim.fn.filereadable(mpl_parser) == 1 and vim.fn.executable(mpl_lsp) == 1 then
+  vim.filetype.add({
+    extension = {
+      mpl = 'mpl',
+    },
+  })
 
-vim.treesitter.language.register('mpl', 'mpl')
-vim.schedule(function() require('nvim-treesitter').install { 'mpl' } end)
+  if vim.fn.isdirectory(mpl_queries) == 1 then
+    vim.opt.runtimepath:append(mpl_ts_dir)
+  end
 
-vim.lsp.config("mpl", {
-  cmd = { vim.fn.expand('~/repos/forks/mpl/target/release/mpl-lsp') },
-  filetypes = { "mpl" },
-})
+  vim.treesitter.language.register('mpl', 'mpl')
+  local ok, err = vim.treesitter.language.add('mpl', { path = mpl_parser })
+  if not ok then
+    vim.notify(('Failed to load MPL tree-sitter parser: %s'):format(err), vim.log.levels.WARN)
+  end
 
-vim.lsp.enable("mpl")
-
--- END OF mpl-stuff
+  vim.lsp.config('mpl', {
+    cmd = { mpl_lsp },
+    filetypes = { 'mpl' },
+  })
+  vim.lsp.enable('mpl')
+end
 
 vim.lsp.config('rust_analyzer', {
   settings = { ['rust-analyzer'] = { cargo = { allFeatures = true } } },
