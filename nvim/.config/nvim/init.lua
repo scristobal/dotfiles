@@ -240,6 +240,41 @@ vim.lsp.config('*', {
   capabilities = require('blink.cmp').get_lsp_capabilities(),
 })
 
+-- START OF mpl-stuff
+
+vim.filetype.add({
+  extension = {
+    mpl = "mpl",
+  },
+})
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TSUpdate',
+  desc = 'Register local MPL tree-sitter parser',
+  callback = function()
+    require('nvim-treesitter.parsers').mpl = {
+      ---@diagnostic disable-next-line: missing-fields
+      install_info = {
+        path = vim.fn.expand('~/repos/samu/tree-sitter-mpl'),
+        queries = 'queries/mpl',
+      },
+      tier = 3,
+    }
+  end,
+})
+
+vim.treesitter.language.register('mpl', 'mpl')
+vim.schedule(function() require('nvim-treesitter').install { 'mpl' } end)
+
+vim.lsp.config("mpl", {
+  cmd = { vim.fn.expand('~/repos/forks/mpl/target/release/mpl-lsp') },
+  filetypes = { "mpl" },
+})
+
+vim.lsp.enable("mpl")
+
+-- END OF mpl-stuff
+
 vim.lsp.config('rust_analyzer', {
   settings = { ['rust-analyzer'] = { cargo = { allFeatures = true } } },
 })
@@ -415,10 +450,10 @@ require('gitsigns').setup {
 require('nvim-autopairs').setup()
 
 -- Guess indent
-require('guess-indent').setup()
+require('guess-indent').setup {}
 
 -- Hotreload
-require('hotreload').setup()
+require('hotreload').setup { silent = true }
 
 -- Code review
 require('review').setup()
@@ -449,14 +484,14 @@ require('mini.surround').setup()
 
 -- Lualine + Navic
 local navic = require 'nvim-navic'
-navic.setup { icons_enabled = false }
+---@diagnostic disable-next-line: missing-fields
+navic.setup { icons = { enabled = false } }
 
 require('lualine').setup {
   options = {
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     theme = require("lualine.themes.lake-dweller"),
-    
   },
   tabline = {
     lualine_a = {
@@ -496,6 +531,7 @@ require('mason-nvim-dap').setup {
   ensure_installed = { 'codelldb' },
 }
 
+---@diagnostic disable-next-line: missing-fields
 dapui.setup {
   controls = {
     element = 'repl', enabled = true,
