@@ -24,8 +24,8 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.opt.cursorlineopt = 'number'
 vim.o.scrolloff = 10
-vim.opt.shortmess:append('I')
-vim.cmd('syntax off')
+-- vim.opt.shortmess:append('I')
+-- vim.cmd('syntax off')
 
 -- Keymaps
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -245,7 +245,7 @@ vim.lsp.config('*', {
 local mpl_ts_dir = vim.fn.expand('~/repos/samu/tree-sitter-mpl')
 local mpl_parser = mpl_ts_dir .. '/mpl.so'
 local mpl_queries = mpl_ts_dir .. '/queries/mpl'
-local mpl_lsp = vim.fn.expand('~/repos/forks/mpl/target/release/mpl-lsp')
+local mpl_lsp = vim.fn.expand('~/repos/samu/mpl-analyzer/target/release/mpl-lsp')
 
 if vim.fn.filereadable(mpl_parser) == 1 and vim.fn.executable(mpl_lsp) == 1 then
   vim.filetype.add({

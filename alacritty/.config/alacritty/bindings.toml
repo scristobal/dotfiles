@@ -24,6 +24,56 @@ key = "Return"
 mods = "Command"
 
 [[keyboard.bindings]]
+action = "SelectLastTab"
+key = "0"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectTab1"
+key = "1"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectTab2"
+key = "2"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectTab3"
+key = "3"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectTab4"
+key = "4"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectTab5"
+key = "5"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectTab6"
+key = "6"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectTab7"
+key = "7"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectTab8"
+key = "8"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "SelectLastTab"
+key = "9"
+mods = "Super"
+
+[[keyboard.bindings]]
 chars = "\u001BOH"
 key = "Home"
 mode = "AppCursor"
