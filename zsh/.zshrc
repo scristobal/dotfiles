@@ -72,11 +72,9 @@ source <(zoxide init zsh) 2> /dev/null
 # Preferred editor for local and remote sessions
 # use nvim if not ssh otherwise use vim
 if [[ -n $SSH_CONNECTION ]]; then
-    alias vim='vim'
     alias n='vim'
     export EDITOR='vim'
 else
-    alias vim='nvim'
     alias n='nvim'
     export EDITOR='nvim'
 fi
@@ -86,9 +84,9 @@ alias reload= 'source ~/.zshrc'
 # use eza, alternative to ls if installed
 if command -v eza >/dev/null; then
 
-    alias ls="eza -l --icons --git -a"
-    alias lt="eza --tree --level=2 --long --icons --git"
-    alias ltree="eza --tree --level=2  --icons --git"
+    alias e="eza -l --icons --git -a"
+    alias et="eza --tree --level=2 --long --icons --git"
+    alias er="eza --tree --level=2  --icons --git"
 
     # alias ls='eza --long --tree --level=1 --git --classify --no-permissions --octal-permissions'
     # alias lt='eza --long --tree --level=2 --git --classify --no-permissions --octal-permissions'
@@ -126,7 +124,7 @@ export PATH="$PATH:$HOME/.zvm/bin"
 export PATH="$PATH:$ZVM_INSTALL/"
 
 # Go
-export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 
 # Playdate SDK
 if [[ $(uname) == 'Darwin' ]]; then
