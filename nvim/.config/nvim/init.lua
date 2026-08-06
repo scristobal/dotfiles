@@ -23,6 +23,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.opt.cursorlineopt = 'number'
+vim.opt.termguicolors = true
 vim.o.scrolloff = 10
 -- vim.opt.shortmess:append('I')
 -- vim.cmd('syntax off')
@@ -243,29 +244,29 @@ vim.lsp.config('*', {
 --- dev setup for mpl related stuff
 
 local mpl_ts_dir = vim.fn.expand('~/repos/samu/tree-sitter-mpl')
-local mpl_parser = mpl_ts_dir .. '/mpl.so'
-local mpl_queries = mpl_ts_dir .. '/queries/mpl'
-local mpl_lsp = vim.fn.expand('~/repos/samu/mpl-analyzer/target/release/mpl-lsp')
+local mpl_parser_lib = mpl_ts_dir .. '/parser/mpl.so'
+local mpl_queries_dir = mpl_ts_dir .. '/queries/mpl'
+local mpl_lsp_bin = vim.fn.expand('~/repos/samu/mpl-analyzer/target/release/mpl-lsp')
 
-if vim.fn.filereadable(mpl_parser) == 1 and vim.fn.executable(mpl_lsp) == 1 then
+if vim.fn.filereadable(mpl_parser_lib) == 1 and vim.fn.executable(mpl_lsp_bin) == 1 then
   vim.filetype.add({
     extension = {
       mpl = 'mpl',
     },
   })
 
-  if vim.fn.isdirectory(mpl_queries) == 1 then
+  if vim.fn.isdirectory(mpl_queries_dir) == 1 then
     vim.opt.runtimepath:append(mpl_ts_dir)
   end
 
   vim.treesitter.language.register('mpl', 'mpl')
-  local ok, err = vim.treesitter.language.add('mpl', { path = mpl_parser })
+  local ok, err = vim.treesitter.language.add('mpl', { path = mpl_parser_lib })
   if not ok then
     vim.notify(('Failed to load MPL tree-sitter parser: %s'):format(err), vim.log.levels.WARN)
   end
 
   vim.lsp.config('mpl', {
-    cmd = { mpl_lsp },
+    cmd = { mpl_lsp_bin },
     filetypes = { 'mpl' },
   })
   vim.lsp.enable('mpl')
