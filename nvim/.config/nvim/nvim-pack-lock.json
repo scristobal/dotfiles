@@ -25,6 +25,10 @@
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "diffbandit.nvim": {
+      "rev": "207ef5718edb74161897eafb1cbe6f7832cda28b",
+      "src": "https://github.com/CoreyKaylor/diffbandit.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim"

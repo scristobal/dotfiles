@@ -177,6 +177,7 @@ vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/oskarrrrrrr/symbols.nvim',
   'https://github.com/alexpasmantier/krust.nvim',
+  'https://github.com/CoreyKaylor/diffbandit.nvim',
   'https://github.com/esmuellert/codediff.nvim',
   'https://github.com/scristobal/code-review.nvim',
   'https://github.com/mfussenegger/nvim-dap',
@@ -470,6 +471,9 @@ require('krust').setup {
   keymap = '<leader>k',
   float_win = { border = 'rounded', auto_focus = false },
 }
+
+-- DiffBandit
+require('diffbandit').setup()
 
 -- CodeDiff
 require('codediff').setup { diff = { layout = 'inline' } }
