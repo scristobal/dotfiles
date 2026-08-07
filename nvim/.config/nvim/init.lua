@@ -114,6 +114,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- LSP progress notifications
+local lsp_spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()
 vim.api.nvim_create_autocmd('LspProgress', {
@@ -138,13 +139,12 @@ vim.api.nvim_create_autocmd('LspProgress', {
     end
     local msg = {}
     progress[client.id] = vim.tbl_filter(function(v) return table.insert(msg, v.msg) or not v.done end, p)
-    local spinner = { '◜', '◠', '◝', '◞', '◡', '◟' }
     vim.notify(table.concat(msg, '\n'), 'info', {
       id = 'lsp_progress',
       title = client.name,
       opts = function(notif)
         notif.icon = #progress[client.id] == 0 and ' '
-          or spinner[math.floor(vim.uv.hrtime() / (1e6 * 100)) % #spinner + 1]
+          or lsp_spinner[math.floor(vim.uv.hrtime() / (1e6 * 100)) % #lsp_spinner + 1]
       end,
     })
   end,
@@ -507,7 +507,7 @@ require('lualine').setup {
     },
     lualine_z = {
       { 'lsp_status', icon = '', symbols = {
-        spinner = { '◜', '◠', '◝', '◞', '◡', '◟' },
+        spinner = lsp_spinner,
         done = '✓', separator = ' ',
       }, ignore_lsp = {} },
     },
