@@ -186,7 +186,9 @@ vim.pack.add({
   'https://github.com/jay-babu/mason-nvim-dap.nvim',
   'https://github.com/ldelossa/nvim-dap-projects',
   'https://github.com/vague2k/vague.nvim',
-  'https://github.com/yonatanperel/lake-dweller.nvim'
+  'https://github.com/yonatanperel/lake-dweller.nvim',
+  'https://github.com/Aejkatappaja/cendre',
+  'https://github.com/ThorstenRhau/token'
 })
 
 vim.keymap.set('n', '<leader>pu', '<cmd>lua vim.pack.update()<CR>', { desc = 'Update plugins' })
@@ -583,12 +585,33 @@ vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug UI' })
 vim.keymap.set('n', '<leader>ld', function() require('nvim-dap-projects').search_project_config() end, { desc = 'Load project debug config' })
 
 -- Theme
-require('vague').setup { transparent = true, bold = false, italic = false }
-vim.cmd.colorscheme 'vague'
--- require("lake-dweller").setup({
+
+-- require('vague').setup { 
+--   transparent = true, 
+--   bold = false, 
+--   italic = false 
+-- }
+-- vim.cmd.colorscheme 'vague'
+
+-- require("lake-dweller").setup {
 --     variant = "ocean-dweller",   -- "lake-dweller", "pond-dweller", or "ocean-dweller"
 --     transparent = true,
 --     italics = false,
 --     float_background = false,
--- })
+-- }
 -- vim.cmd.colorscheme 'lake-dweller'
+
+local token = require('token')
+---@type token.Config
+local config = {
+  transparent = true,
+  plugins = { gitsigns = true, snacks = true, blink = true },
+}
+token.setup(config)
+vim.cmd.colorscheme('token')
+
+-- require("cendre").setup {
+--   background = "hard", -- "hard" | "medium" | "soft"
+--   italic_virtual_text = false,
+-- }
+-- vim.cmd.colorscheme 'cendre'

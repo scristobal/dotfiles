@@ -13,6 +13,10 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 1.1.0"
     },
+    "cendre": {
+      "rev": "a7304d196a461b4fd341803790329b400c9cff84",
+      "src": "https://github.com/Aejkatappaja/cendre"
+    },
     "code-review.nvim": {
       "rev": "124a42eabaeee971f9e0b4224448bb9a58ddbaf6",
       "src": "https://github.com/scristobal/code-review.nvim"
@@ -136,6 +140,10 @@
     "tiny-code-action.nvim": {
       "rev": "0d040ed81f7953118b81cd12681fcdfcac069803",
       "src": "https://github.com/rachartier/tiny-code-action.nvim"
+    },
+    "token": {
+      "rev": "7284e7658223c8626487cd85153e8507f3dadd5e",
+      "src": "https://github.com/ThorstenRhau/token"
     },
     "vague.nvim": {
       "rev": "161384e625e7b6cca118a3fa66225ba5cacdfb50",
