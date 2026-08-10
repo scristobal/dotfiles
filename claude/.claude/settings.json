@@ -1,109 +1,45 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "effortLevel": "high",
+  "includeGitInstructions": false,
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "sonnet",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/samu/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": false,
     "claude-md-management@claude-plugins-official": false,
     "code-review@samu-plugins": true,
     "plugin-dev@claude-plugins-official": false,
-    "skill-creator@claude-plugins-official": false
+    "skill-creator@claude-plugins-official": false,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "samu-plugins": {
-      "autoUpdate": true,
       "source": {
-        "repo": "scristobal/claude-plugins",
-        "source": "github"
-      }
+        "source": "github",
+        "repo": "scristobal/claude-plugins"
+      },
+      "autoUpdate": true
     }
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "bash '/home/samu/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      }
-    ]
-  },
-  "includeGitInstructions": false,
-  "model": "opus[1m]",
-  "permissions": {
-    "defaultMode": "bypassPermissions",
-    "deny": [
-      "Bash(git push *)"
-    ]
   },
   "sandbox": {
-    "allowUnsandboxedCommands": false,
-    "autoAllowBashIfSandboxed": true,
-    "enabled": true,
-    "filesystem": {
-      "allowWrite": [
-        "~/.cache"
-      ],
-      "denyRead": [
-        "~/.ssh",
-        "~/.gnupg",
-        "~/.aws",
-        "~/.docker",
-        "~/.kube",
-        "~/.netrc",
-        "~/.npmrc",
-        "~/.pypirc",
-        "~/.config/gh",
-        "~/.bash_history",
-        "~/.zsh_history",
-        "*.env"
-      ],
-      "denyWrite": [
-        "./.git",
-        "~/.bashrc",
-        "~/.zshrc",
-        "~/.zprofile",
-        "~/.bash_profile",
-        "~/.profile",
-        "~/.ssh",
-        "~/.gnupg",
-        "~/.aws"
-      ]
-    },
-    "network": {
-      "allowLocalBinding": true,
-      "allowedDomains": [
-        "localhost",
-        "127.0.0.1",
-        "github.com",
-        "*.githubusercontent.com",
-        "ghcr.io",
-        "*.ghcr.io",
-        "npmjs.org",
-        "*.npmjs.org",
-        "pypi.org",
-        "*.pythonhosted.org",
-        "crates.io",
-        "*.crates.io",
-        "*.rust-lang.org",
-        "*.apple.com",
-        "swiftpackageindex.com",
-        "*.cocoapods.org",
-        "*.google.com",
-        "*.apache.org",
-        "*.gradle.org",
-        "*.brew.sh",
-        "*.anthropic.com",
-        "json.schemastore.org"
-      ]
-    }
+    "enabled": false
   },
-  "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "command": "bash ~/.claude/statusline-command.sh",
-    "type": "command"
-  }
+  "effortLevel": "low",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true
 }
