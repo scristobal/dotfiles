@@ -64,9 +64,9 @@ alias n='nvim'
 export EDITOR='nvim'
 
 # eza is an alternative to ls
-alias e="eza -l --icons --git -a"
-alias et="eza --tree --level=2 --long --icons --git"
-alias er="eza --tree --level=2  --icons --git"
+alias e="eza -a -l --icons --git -a"
+alias et="eza -a --tree --level=2 --long --icons --git"
+alias er="eza -a --tree --level=2  --icons --git"
 
 cx() { cd "$@" && ls; }
 alias ..="cd .."
