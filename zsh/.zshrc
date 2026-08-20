@@ -71,6 +71,8 @@ alias er= "eza -a --tree --level=2  --icons --git"
 alias err="eza -a --tree --level=3  --icons --git"
 
 cx() { cd "$@" && ls; }
+alias tg="tv git-repos"
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

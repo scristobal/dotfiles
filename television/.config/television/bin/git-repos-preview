@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+repository=${1:-}
+[[ -n $repository ]] || exit 0
+
+printf 'Repository: %s\n\n' "$repository"
+git -C "$repository" -c color.status=always status \
+    --short --branch --untracked-files=no 2>/dev/null || true
+printf '\n'
+git -C "$repository" -c color.ui=always --no-pager log \
+    --all --graph --decorate --date=short -n 100 \
+    --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%ad%Creset %C(blue)<%an>%Creset' \
+    2>/dev/null || true

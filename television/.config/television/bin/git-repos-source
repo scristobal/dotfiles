@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+"""List top-level Git repositories below Television's working directory.
+
+Once a repository is found, its contents are pruned so nested repositories and
+submodules are not emitted. Output is TAB-separated: <relative path>\t<path>.
+"""
+
+import os
+import sys
+from pathlib import Path
+
+root = Path.cwd()
+repositories: list[Path] = []
+
+
+def ignore_walk_error(_: OSError) -> None:
+    """Skip directories that cannot be read."""
+
+
+for directory, child_directories, files in os.walk(
+    root, topdown=True, onerror=ignore_walk_error, followlinks=False
+):
+    child_directories.sort(key=str.casefold)
+
+    if ".git" not in child_directories and ".git" not in files:
+        continue
+
+    repository = Path(directory)
+    repositories.append(repository)
+
+    # Do not discover submodules or any other repositories nested in this one.
+    child_directories.clear()
+
+for repository in repositories:
+    relative = repository.relative_to(root)
+    display = repository.name if relative == Path(".") else str(relative)
+    path = str(repository)
+
+    # Television uses one line per entry and a TAB to separate these fields.
+    if any(character in display or character in path for character in ("\n", "\t")):
+        continue
+
+    sys.stdout.write(f"{display}\t{path}\n")

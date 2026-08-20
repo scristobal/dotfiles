@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+repository=${1:-}
+[[ -n $repository ]] || exit 1
+
+candidates=$(git -C "$repository" clean -ndX) || exit 1
+if [[ -z $candidates ]]; then
+    printf 'No ignored files to clean in %s\n' "$repository"
+    exit 0
+fi
+
+printf 'Ignored files that will be deleted from %s:\n\n%s\n\n' \
+    "$repository" "$candidates"
+read -r -p 'Delete these files permanently? [y/N] ' answer
+
+case $answer in
+    y | Y | yes | YES | Yes)
+        git -C "$repository" clean -fdX
+        ;;
+    *)
+        printf 'Cancelled.\n'
+        ;;
+esac

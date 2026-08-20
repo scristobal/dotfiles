@@ -1,0 +1,42 @@
+[metadata]
+name = "git-repos"
+description = "Browse top-level Git repositories below the current directory"
+requirements = ["git", "python3"]
+
+[source]
+command = "$HOME/.config/television/bin/git-repos-source"
+display = "{split:\t:0}"
+output = "{split:\t:1}"
+
+[preview]
+command = "$HOME/.config/television/bin/git-repos-preview '{split:\t:1}'"
+
+[ui.preview_panel]
+size = 60
+
+[keybindings]
+enter = "actions:edit"
+ctrl-e = "actions:edit"
+ctrl-s = "actions:shell"
+ctrl-d = "actions:clean"
+ctrl-x = "toggle_action_picker"
+tab = "no_op"
+backtab = "no_op"
+
+[actions.shell]
+description = "Open a shell in the selected repository"
+command = "cd -- '{split:\t:1}' && exec \"${SHELL:-/bin/sh}\""
+shell = "bash"
+mode = "execute"
+
+[actions.edit]
+description = "Open the selected repository in the configured editor"
+command = "${EDITOR:-vim} '{split:\t:1}'"
+shell = "bash"
+mode = "execute"
+
+[actions.clean]
+description = "Permanently delete files ignored by Git"
+command = "$HOME/.config/television/bin/git-repos-clean '{split:\t:1}'"
+shell = "bash"
+mode = "execute"
