@@ -193,6 +193,10 @@ vim.pack.add({
 
 vim.keymap.set('n', '<leader>pu', '<cmd>lua vim.pack.update()<CR>', { desc = 'Update plugins' })
 
+-- Lean4 support
+vim.pack.add { "https://github.com/Julian/lean.nvim" }
+vim.g.lean_config = { mappings = true }
+
 -- Treesitter
 vim.api.nvim_create_autocmd('FileType', {
   callback = function()
