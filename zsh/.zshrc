@@ -87,20 +87,6 @@ if [[ $OSTYPE == darwin* ]]; then
 
 fi
 
-# 1Password SSH signing for git commits
-case "$OSTYPE" in
-    darwin*)
-        export GIT_CONFIG_COUNT=1
-        export GIT_CONFIG_KEY_0="gpg.ssh.program"
-        export GIT_CONFIG_VALUE_0="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-        ;;
-    linux*)
-        export GIT_CONFIG_COUNT=1
-        export GIT_CONFIG_KEY_0="gpg.ssh.program"
-        export GIT_CONFIG_VALUE_0="/opt/1Password/op-ssh-sign"
-        ;;
-esac
-
 # initialize Zoxide, if available
 if (( $+commands[zoxide] )); then
     source <(zoxide init zsh)

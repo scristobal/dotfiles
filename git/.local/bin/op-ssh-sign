@@ -1,0 +1,15 @@
+#!/bin/sh
+
+for signer in \
+    /Applications/1Password.app/Contents/MacOS/op-ssh-sign \
+    /opt/1Password/op-ssh-sign \
+    /usr/share/1password/op-ssh-sign \
+    /usr/bin/op-ssh-sign
+do
+    if [ -x "$signer" ]; then
+        exec "$signer" "$@"
+    fi
+done
+
+printf '%s\n' 'op-ssh-sign: 1Password SSH signer not found' >&2
+exit 127

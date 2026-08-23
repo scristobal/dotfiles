@@ -1,7 +1,7 @@
 [user]
 	email = samuel.cristobal@protonmail.com
 	name = Samuel Cristobal
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBeO9l6T5fPEu0iBsNg8UBhFowN9MO8n0BjrgBOBQECf
+	signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBeO9l6T5fPEu0iBsNg8UBhFowN9MO8n0BjrgBOBQECf
 
 [credential]
 	helper = /usr/local/share/gcm-core/git-credential-manager
@@ -11,6 +11,10 @@
 
 [gpg]
 	format = ssh
+
+[gpg "ssh"]
+	program = op-ssh-sign
+	allowedSignersFile = ~/.config/git/allowed_signers
 
 
 [init]
