@@ -53,6 +53,8 @@ unset _history_dir
 # antidote zsh plugin manager
 if [[ -r /usr/share/zsh-antidote/antidote.zsh ]]; then
     source /usr/share/zsh-antidote/antidote.zsh
+elif [[ -r "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh" ]]; then
+    source "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh"
 elif [[ -r /opt/homebrew/opt/antidote/share/antidote/antidote.zsh ]]; then
     source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 elif [[ -r /usr/local/opt/antidote/share/antidote/antidote.zsh ]]; then
