@@ -1,0 +1,28 @@
+[metadata]
+name = "codex-sessions"
+description = "Browse and resume Codex sessions across all projects"
+requirements = ["codex", "python3"]
+
+[source]
+command = "$HOME/.config/television/bin/codex-sessions source"
+display = "{split:\t:0}"
+output = "{}"
+no_sort = true
+
+[preview]
+command = "$HOME/.config/television/bin/codex-sessions preview '{split:\t:1}'"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 55
+
+[keybindings]
+enter = "actions:resume"
+
+[actions.resume]
+description = "Resume this Codex session in its project directory"
+command = "$HOME/.config/television/bin/codex-sessions resume '{split:\t:1}'"
+shell = "bash"
+mode = "execute"

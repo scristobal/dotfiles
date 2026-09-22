@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+"""List, preview and resume Codex rollouts across all projects."""
+import base64
+import json
+import os
+import sys
+import textwrap
+from pathlib import Path
+
+CODEX_HOME = Path(os.environ.get('CODEX_HOME') or Path.home() / '.codex')
+
+
+def records(path):
+    try:
+        with path.open(encoding='utf-8', errors='replace') as stream:
+            for line in stream:
+                try:
+                    obj = json.loads(line)
+                except ValueError:
+                    continue
+                if isinstance(obj, dict) and isinstance(obj.get('payload'), dict):
+                    yield obj
+    except OSError:
+        return
+
+
+def extract(path, full=False):
+    meta = {}
+    prompts = []
+    fallback = []
+    last = ''
+    for obj in records(path):
+        payload = obj['payload']
+        last = obj.get('timestamp', last)
+        if obj.get('type') == 'session_meta':
+            meta = payload
+        elif obj.get('type') == 'event_msg' and payload.get('type') == 'user_message':
+            message = payload.get('message')
+            if isinstance(message, str) and message.strip():
+                prompts.append(message.strip())
+                if not full and meta:
+                    break
+        elif obj.get('type') == 'response_item' and payload.get('role') == 'user':
+            content = payload.get('content', [])
+            if isinstance(content, list):
+                text = '\n'.join(p.get('text', '') for p in content
+                                 if isinstance(p, dict) and p.get('type') == 'input_text')
+                if text.strip() and not text.startswith(('# AGENTS.md', '<environment_context>', '<permissions instructions>')):
+                    fallback.append(text.strip())
+    return meta, prompts or fallback, last
+
+
+def shorten(text, width):
+    text = ' '.join(str(text).split())
+    return text if len(text) <= width else text[:width - 1] + '…'
+
+
+def source():
+    titles = {}
+    try:
+        with (CODEX_HOME / 'session_index.jsonl').open() as stream:
+            for line in stream:
+                try:
+                    entry = json.loads(line)
+                except ValueError:
+                    continue
+                if isinstance(entry, dict) and entry.get('id') and entry.get('thread_name'):
+                    titles[entry['id']] = entry['thread_name']
+    except OSError:
+        pass
+    paths = []
+    for directory in ('sessions', 'archived_sessions'):
+        for path in (CODEX_HOME / directory).rglob('*.jsonl'):
+            try:
+                paths.append((path.stat().st_mtime, path))
+            except OSError:
+                continue
+    for _, path in sorted(paths, reverse=True):
+        meta, prompts, _ = extract(path)
+        if not meta.get('id') or not meta.get('cwd'):
+            continue
+        title = titles.get(meta['id']) or (prompts[0] if prompts else '(no title)')
+        cwd = meta['cwd']
+        home = str(Path.home()) + '/'
+        folder = '~/' + cwd[len(home):] if cwd.startswith(home) else cwd
+        branch = (meta.get('git') or {}).get('branch') or '—'
+        display = f'{shorten(title, 50):50}  {shorten(folder, 35):35}  {shorten(branch, 25)}'
+        # Only a URL-safe token is interpolated into shell commands, never raw paths/prompts.
+        token = base64.urlsafe_b64encode(os.fsencode(path)).decode()
+        print(f'{display}\t{token}')
+
+
+def preview(path):
+    meta, prompts, last = extract(path, full=True)
+    if not meta:
+        print('Session file not found or missing metadata')
+        return
+    for key, value in [('Session', meta.get('id')), ('Folder', meta.get('cwd')),
+                       ('Branch', (meta.get('git') or {}).get('branch')),
+                       ('Started', meta.get('timestamp')), ('Updated', last),
+                       ('Prompts', len(prompts))]:
+        print(f'{key:<8}: {value if value is not None else "—"}')
+    selected = list(enumerate(prompts, 1))
+    if len(selected) > 10:
+        selected = selected[:5] + selected[-5:]
+    print('\n── User prompts (first/last 5 if more than 10) ──')
+    for index, prompt in selected:
+        print(f'\n{index:>2}. {textwrap.fill(prompt[:600], width=100)}')
+    if not prompts:
+        print('(no user prompts found)')
+
+
+def main():
+    mode = sys.argv[1] if len(sys.argv) > 1 else 'source'
+    if mode == 'source':
+        source()
+        return
+    if mode not in ('preview', 'resume') or len(sys.argv) != 3:
+        sys.exit('Usage: codex-sessions [source | preview TOKEN | resume TOKEN]')
+    path = Path(os.fsdecode(base64.urlsafe_b64decode(sys.argv[2])))
+    if mode == 'preview':
+        preview(path)
+    else:
+        meta, _, _ = extract(path)
+        if not meta.get('cwd') or not meta.get('id'):
+            sys.exit('Session file not found or missing metadata')
+        os.chdir(meta['cwd'])
+        os.execvp('codex', ['codex', 'resume', meta['id']])
+
+
+if __name__ == '__main__':
+    main()

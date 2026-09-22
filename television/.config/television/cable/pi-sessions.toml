@@ -1,0 +1,28 @@
+[metadata]
+name = "pi-sessions"
+description = "Browse and resume Pi sessions across all projects"
+requirements = ["pi", "python3"]
+
+[source]
+command = "$HOME/.config/television/bin/pi-sessions source"
+display = "{split:\t:0}"
+output = "{}"
+no_sort = true
+
+[preview]
+command = "$HOME/.config/television/bin/pi-sessions preview '{split:\t:1}'"
+
+[ui]
+layout = "landscape"
+
+[ui.preview_panel]
+size = 55
+
+[keybindings]
+enter = "actions:resume"
+
+[actions.resume]
+description = "Resume this Pi session in its project directory"
+command = "$HOME/.config/television/bin/pi-sessions resume '{split:\t:1}'"
+shell = "bash"
+mode = "execute"

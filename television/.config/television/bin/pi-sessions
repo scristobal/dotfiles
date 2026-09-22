@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+"""List, preview and resume Pi sessions across all projects."""
+import base64
+import json
+import os
+import sys
+import textwrap
+from pathlib import Path
+
+AGENT_DIR = Path(os.environ.get('PI_CODING_AGENT_DIR') or Path.home() / '.pi/agent').expanduser()
+SESSION_DIR = Path(os.environ.get('PI_CODING_AGENT_SESSION_DIR') or AGENT_DIR / 'sessions').expanduser().resolve()
+
+
+def extract(path):
+    meta = {}
+    name = model = last = ''
+    prompts = []
+    try:
+        with path.open(encoding='utf-8', errors='replace') as stream:
+            for line in stream:
+                try:
+                    obj = json.loads(line)
+                except ValueError:
+                    continue
+                if not isinstance(obj, dict):
+                    continue
+                last = obj.get('timestamp', last)
+                kind = obj.get('type')
+                if kind == 'session':
+                    meta = obj
+                elif kind == 'session_info':
+                    name = obj.get('name') or ''
+                elif kind == 'model_change':
+                    model = obj.get('modelId') or ''
+                elif kind == 'message' and isinstance(obj.get('message'), dict):
+                    message = obj['message']
+                    if message.get('role') == 'assistant':
+                        model = message.get('model') or model
+                    elif message.get('role') == 'user':
+                        content = message.get('content')
+                        if isinstance(content, list):
+                            content = '\n'.join(p['text'] for p in content
+                                                if isinstance(p, dict) and p.get('type') == 'text'
+                                                and isinstance(p.get('text'), str))
+                        if isinstance(content, str) and content.strip():
+                            prompts.append(content.strip())
+    except OSError:
+        pass
+    return meta, name, model, prompts, last
+
+
+def shorten(text, width):
+    text = ' '.join(str(text).split())
+    return text if len(text) <= width else text[:width - 1] + '…'
+
+
+def source():
+    paths = []
+    for path in SESSION_DIR.rglob('*.jsonl'):
+        try:
+            paths.append((path.stat().st_mtime, path))
+        except OSError:
+            continue
+    for _, path in sorted(paths, reverse=True):
+        meta, name, model, prompts, _ = extract(path)
+        if not meta.get('id') or not meta.get('cwd'):
+            continue
+        title = name or (prompts[0] if prompts else '(no title)')
+        cwd = meta['cwd']
+        home = str(Path.home()) + '/'
+        folder = '~/' + cwd[len(home):] if cwd.startswith(home) else cwd
+        display = f'{shorten(title, 50):50}  {shorten(folder, 35):35}  {shorten(model or "—", 30)}'
+        # Interpolate only a URL-safe token into shell commands, never raw session data.
+        token = base64.urlsafe_b64encode(os.fsencode(path)).decode()
+        print(f'{display}\t{token}')
+
+
+def preview(path):
+    meta, name, model, prompts, last = extract(path)
+    if not meta:
+        print('Session file not found or missing metadata')
+        return
+    for key, value in [('Name', name or '—'), ('Session', meta.get('id')),
+                       ('Folder', meta.get('cwd')), ('Model', model or '—'),
+                       ('Started', meta.get('timestamp')), ('Updated', last),
+                       ('Prompts', len(prompts))]:
+        print(f'{key:<8}: {value if value is not None else "—"}')
+    selected = list(enumerate(prompts, 1))
+    if len(selected) > 10:
+        selected = selected[:5] + selected[-5:]
+    print('\n── User prompts across all branches (first/last 5 if more than 10) ──')
+    for index, prompt in selected:
+        print(f'\n{index:>2}. {textwrap.fill(prompt[:600], width=100)}')
+    if not prompts:
+        print('(no user prompts found)')
+
+
+def main():
+    mode = sys.argv[1] if len(sys.argv) > 1 else 'source'
+    if mode == 'source':
+        source()
+        return
+    if mode not in ('preview', 'resume') or len(sys.argv) != 3:
+        sys.exit('Usage: pi-sessions [source | preview TOKEN | resume TOKEN]')
+    path = Path(os.fsdecode(base64.urlsafe_b64decode(sys.argv[2])))
+    if mode == 'preview':
+        preview(path)
+    else:
+        meta, _, _, _, _ = extract(path)
+        if not meta.get('cwd') or not meta.get('id'):
+            sys.exit('Session file not found or missing metadata')
+        os.chdir(meta['cwd'])
+        os.execvp('pi', ['pi', '--session', str(path)])
+
+
+if __name__ == '__main__':
+    main()
