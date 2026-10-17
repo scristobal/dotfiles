@@ -9,6 +9,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = 'a'
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+vim.o.wrap = false
 vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.ignorecase = true
@@ -355,7 +356,17 @@ require('snacks').setup {
     enabled = true,
     icons = { files = { enabled = false } },
     sources = {
-      explorer = { layout = { auto_hide = { 'input' } }, ignored = true },
+      explorer = {
+        auto_close = true,
+        jump = { close = true },
+        layout = {
+          preset = 'default',
+          preview = true,
+          auto_hide = { 'input' },
+          layout = { [2] = { width = 0.75 } },
+        },
+        ignored = true,
+      },
       files = { hidden = true },
       smart = { hidden = true },
     },
