@@ -185,10 +185,10 @@ vim.pack.add({
   'https://github.com/rcarriga/nvim-dap-ui',
   'https://github.com/jay-babu/mason-nvim-dap.nvim',
   'https://github.com/ldelossa/nvim-dap-projects',
-  'https://github.com/vague2k/vague.nvim',
-  'https://github.com/yonatanperel/lake-dweller.nvim',
-  'https://github.com/Aejkatappaja/cendre',
-  'https://github.com/ThorstenRhau/token'
+  -- 'https://github.com/vague2k/vague.nvim',
+  -- 'https://github.com/yonatanperel/lake-dweller.nvim',
+  -- 'https://github.com/Aejkatappaja/cendre',
+  -- 'https://github.com/ThorstenRhau/token'
 })
 
 vim.keymap.set('n', '<leader>pu', '<cmd>lua vim.pack.update()<CR>', { desc = 'Update plugins' })
