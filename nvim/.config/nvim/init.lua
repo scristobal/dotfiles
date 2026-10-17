@@ -193,6 +193,9 @@ vim.pack.add({
 
 vim.keymap.set('n', '<leader>pu', '<cmd>lua vim.pack.update()<CR>', { desc = 'Update plugins' })
 
+-- File icons use the same neutral foreground as the rest of the UI.
+require('nvim-web-devicons').setup { color_icons = false }
+
 -- Lean4 support
 vim.pack.add { "https://github.com/Julian/lean.nvim" }
 vim.g.lean_config = { mappings = true }
@@ -418,7 +421,7 @@ vim.keymap.set('n', 'gI', function() Snacks.picker.lsp_implementations() end, { 
 vim.keymap.set('n', 'gy', function() Snacks.picker.lsp_type_definitions() end, { desc = 'Goto Type Definition' })
 
 -- Which-key
-require('which-key').setup { preset = 'modern', delay = 0, icons = { mappings = true } }
+require('which-key').setup { preset = 'modern', delay = 0, icons = { mappings = true, colors = false } }
 
 -- Gitsigns
 require('gitsigns').setup {
@@ -467,7 +470,7 @@ require('tiny-code-action').setup { backend = 'vim', picker = 'snacks' }
 
 -- Symbols
 local r = require 'symbols.recipes'
-require('symbols').setup(r.DefaultFilters, r.AsciiSymbols, {
+require('symbols').setup(r.DefaultFilters, r.AsciiSymbols, require('still.plugins').symbols(), {
   sidebar = { cursor_follow = true },
 })
 vim.keymap.set('n', ',s', '<cmd>SymbolsToggle<CR>')
@@ -479,7 +482,7 @@ require('krust').setup {
 }
 
 -- DiffBandit
-require('diffbandit').setup()
+require('diffbandit').setup { ui = { theme = { highlights = require('still.plugins').diffbandit() } } }
 
 -- CodeDiff
 require('codediff').setup { diff = { layout = 'inline' } }
@@ -498,7 +501,7 @@ require('lualine').setup {
   options = {
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
-    theme = require("lualine.themes.lake-dweller"),
+    theme = 'auto',
   },
   tabline = {
     lualine_a = {
@@ -564,8 +567,6 @@ dapui.setup {
   },
 }
 
-vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
-vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
 for type, icon in pairs({
   Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '',
   LogPoint = '', Stopped = '',
@@ -588,34 +589,6 @@ vim.keymap.set('n', '<leader>B', function() dap.set_breakpoint(vim.fn.input 'Bre
 vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug UI' })
 vim.keymap.set('n', '<leader>ld', function() require('nvim-dap-projects').search_project_config() end, { desc = 'Load project debug config' })
 
--- Theme
-
--- require('vague').setup { 
---   transparent = true, 
---   bold = false, 
---   italic = false 
--- }
--- vim.cmd.colorscheme 'vague'
-
--- require("lake-dweller").setup {
---     variant = "ocean-dweller",   -- "lake-dweller", "pond-dweller", or "ocean-dweller"
---     transparent = true,
---     italics = false,
---     float_background = false,
--- }
--- vim.cmd.colorscheme 'lake-dweller'
-
-local token = require('token')
----@type token.Config
-local config = {
-  transparent = true,
-  plugins = { gitsigns = true, snacks = true, blink = true },
-}
-token.setup(config)
-vim.cmd.colorscheme('token')
-
--- require("cendre").setup {
---   background = "hard", -- "hard" | "medium" | "soft"
---   italic_virtual_text = false,
--- }
--- vim.cmd.colorscheme 'cendre'
+-- Theme: https://tonsky.me/blog/syntax-highlighting/ (the final example).
+require('still').setup { transparent = true }
+vim.cmd.colorscheme 'still'

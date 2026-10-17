@@ -1,0 +1,62 @@
+*still.txt*  Selective highlighting for Neovim 0.12+
+
+Still follows the final dark example in:
+https://tonsky.me/blog/syntax-highlighting/
+
+Four syntax colors:
+  Yellow   Function and type definitions.
+  Blue     Variable and parameter declarations.
+  Green    Strings, numbers, booleans and constants.
+  Violet   Comments and documentation.
+
+Keywords, variable references and calls use the normal text color.
+Punctuation is muted. Syntax uses neither bold nor italics. Red is reserved
+for errors and deletions. UI chrome is gray; only warnings, errors, and actual
+Git/diff changes add color. Mode labels, icons and selections stay neutral.
+
+USAGE                                                     *still-usage*
+>
+  require('still').setup { transparent = true }
+  vim.cmd.colorscheme 'still'
+<
+The default is an opaque charcoal background. This config enables transparency
+for the editor; floating windows, menus and the statusline retain their
+backgrounds for readability. Set transparent = false for the opaque variant.
+
+Use :colorscheme still to activate it in an already running Neovim session.
+Lualine's theme = 'auto' loads the bundled Still statusline theme.
+
+CUSTOMIZATION                                             *still-colors*
+
+The palette is in lua/still/palette.lua. Highlight groups live in
+lua/still/init.lua, and plugin integrations in lua/still/plugins.lua.
+Restart Neovim after editing the palette. Use :colorscheme still to reapply
+the current palette after changes to highlight groups.
+
+DECLARATIONS                                              *still-syntax*
+
+Tree-sitter extensions in after/queries distinguish declarations from uses
+in Lua, Rust, C/C++, Python, JavaScript/TypeScript, Gleam, Kotlin and MPL.
+JavaScript and TypeScript share the ecma queries; TSX inherits TypeScript.
+These captures fall back to @variable or @function in other colorschemes.
+
+LSP declaration/definition modifiers supplement Tree-sitter, while ordinary
+semantic types remain transparent to its highlighting. Reference colors
+therefore stay neutral when an LSP attaches. Coverage of uncommon patterns
+depends on the language's parser and the server's semantic modifiers.
+Legacy Vim syntax receives the same palette but cannot always distinguish
+definitions from calls. It keeps ambiguous identifiers neutral.
+
+UI AND PLUGINS                                            *still-plugins*
+
+Includes native completion matches and borders, float titles and footers,
+diagnostic text/lines/undercurls, inlay hints, code lenses, snippet tabstops,
+terminal colors, and Neovim 0.12's DiffTextAdd inline diff highlighting.
+
+Integrations cover Snacks, Blink, Which-key, Gitsigns, CodeDiff, Lualine,
+Navic, DAP/DAP UI, Mason, Tiny Code Action, Mini surround, LuaSnip and Lean
+infoview. Symbols and DiffBandit use neutral UI overrides, and devicons use
+monochrome icons. Plugin refreshes and delayed UI initialization retain the
+same gray palette. Krust and code-review inherit terminal/diagnostic groups.
+
+vim:tw=78:ts=8:noet:ft=help:norl:
