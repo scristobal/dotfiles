@@ -4,7 +4,11 @@ description = "Browse installed Homebrew packages"
 requirements = ["brew"]
 
 [source]
-command = ["brew list --formula -1", "brew list --cask -1"]
+command = [
+  "brew list --formula --installed-on-request -1; brew list --cask -1",
+  "brew list --formula -1",
+  "brew list --cask -1",
+]
 
 [preview]
 command = "brew info {}"
