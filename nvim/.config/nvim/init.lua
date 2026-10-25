@@ -300,8 +300,15 @@ vim.lsp.config('jsonls', {
 })
 
 vim.lsp.enable({
-  'rust_analyzer', 'gleam', 'tsgo', 'lua_ls', 'sourcekit',
-  'kotlin_lsp', 'jsonls', 'taplo', 'clangd',
+  'rust_analyzer',
+  'clangd',
+  'gleam',
+  'tsgo',
+  'lua_ls',
+  -- 'sourcekit',
+  -- 'kotlin_lsp',
+  'jsonls',
+  'taplo',
 })
 
 -- Lazydev
